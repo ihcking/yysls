@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>成长共筑 - 新芽公会成长体系</title>
-    <meta name="description" content="燕云十六声，兮&禾，新芽公会完整成长体系，七阶成长之路，六大职能小组，轻量共筑，自然生长">
-    <meta name="keywords" content="燕云十六声，燕云，游戏，手游，端游，页游，兮&禾，成长体系，公会管理，百业，攻略">
+    <meta name="description" content="燕云十六声，禾，休闲百业，养老百业，欢迎大家！">
+    <meta name="keywords" content="燕云十六声，燕云，游戏，手游，端游，页游，禾，兮禾，汐禾，百业，攻略">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* 全局样式 */
@@ -28,6 +28,7 @@
             --border-color: #eaeaea;
             --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
             --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --nav-height: 70px; /* 导航栏高度变量 */
         }
 
         body {
@@ -35,6 +36,7 @@
             color: var(--dark-color);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: var(--nav-height); /* 为固定导航栏留出空间 */
         }
 
         a {
@@ -44,11 +46,11 @@
 
         ul, ol {
             margin-left: 20px;
-            margin-bottom: 12px; /* 减少为12px */
+            margin-bottom: 12px;
         }
 
         li {
-            margin-bottom: 4px; /* 减少为4px */
+            margin-bottom: 4px;
         }
 
         .container {
@@ -75,7 +77,7 @@
             box-shadow: 0 8px 20px rgba(142, 45, 226, 0.6);
         }
 
-        /* 导航栏 - 优化文字上下居中 */
+        /* ************ 优化后的导航栏样式 ************ */
         header {
             background-color: rgba(26, 26, 46, 0.98);
             position: fixed;
@@ -83,104 +85,253 @@
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
         }
 
-        nav {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 65px; /* 稍微减少导航栏高度 */
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            height: 100%; /* 使logo区域与导航栏同高 */
+            gap: 12px;
+            z-index: 1001;
         }
 
         .logo img {
-            height: 35px;
-            margin-right: 10px;
+            height: 40px;
+            width: 40px;
             border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .logo h1 {
             color: white;
             font-size: 22px;
-            font-weight: bold;
+            font-weight: 800;
             background: linear-gradient(to right, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
         }
 
+        .logo-subtitle {
+            color: #b0b0d0;
+            font-size: 11px;
+            margin-top: 2px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 桌面端导航链接 */
         .nav-links {
             display: flex;
-            align-items: center; /* 垂直居中 */
-            height: 100%; /* 与导航栏同高 */
+            align-items: center;
+            list-style: none;
+            gap: 5px; /* 减少间距 */
         }
 
         .nav-links li {
-            margin-left: 22px; /* 减少间距 */
             position: relative;
-            display: flex;
-            align-items: center; /* 垂直居中 */
-            height: 100%; /* 与父元素同高 */
         }
 
         .nav-links a {
-            color: white;
+            color: #e0e0ff;
             font-weight: 500;
-            position: relative;
-            padding: 0 5px; /* 移除上下内边距，使用line-height居中 */
-            transition: color 0.3s ease;
+            font-size: 14px;
+            padding: 8px 12px; /* 增加内边距 */
+            border-radius: 6px;
+            transition: all 0.3s ease;
             display: flex;
-            align-items: center; /* 垂直居中 */
-            height: 100%; /* 与父元素同高 */
-            font-size: 15px;
-            line-height: normal; /* 重置行高 */
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .nav-links a i {
+            font-size: 12px;
+            opacity: 0.8;
         }
 
         .nav-links a:hover {
-            color: #e0b0ff;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 15px; /* 调整下划线的位置 */
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-bg);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
         }
 
         .nav-active {
-            color: #e0b0ff !important;
+            color: white !important;
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.2), rgba(233, 64, 87, 0.2)) !important;
+            font-weight: 600 !important;
         }
 
-        .nav-active::after {
-            width: 100% !important;
+        .nav-active::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: var(--gradient-bg);
+            border-radius: 1px;
+        }
+
+        /* 汉堡菜单按钮 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            justify-content: space-between;
+            z-index: 1001;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* 移动端导航菜单 */
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                background-color: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 999;
+                gap: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                padding: 16px 20px;
+                font-size: 15px;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding-left: 25px;
+            }
+            
+            .nav-links a i {
+                font-size: 14px;
+            }
+            
+            .nav-active::before {
+                left: 0;
+                right: auto;
+                width: 4px;
+                height: 100%;
+                bottom: 0;
+                background: var(--gradient-bg);
+            }
+        }
+
+        /* 小屏幕调整 */
+        @media (max-width: 768px) {
+            :root {
+                --nav-height: 60px;
+            }
+            
+            .logo h1 {
+                font-size: 18px;
+            }
+            
+            .logo img {
+                height: 34px;
+                width: 34px;
+            }
+            
+            .logo-subtitle {
+                font-size: 10px;
+            }
         }
 
         /* 页眉 */
         .header-banner {
-            height: 240px; /* 减少高度 */
+            height: 240px;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            margin-top: 65px; /* 与导航栏高度一致 */
-            border-bottom-left-radius: 25px; /* 减少圆角 */
+            border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;
+            margin-top: 0; /* 移除之前的margin-top，因为body已经有padding-top */
         }
 
         .header-banner::before {
@@ -205,15 +356,15 @@
         }
 
         .header-content h2 {
-            font-size: 36px; /* 略微减小 */
-            margin-bottom: 12px; /* 减少为12px */
+            font-size: 36px;
+            margin-bottom: 12px;
             font-weight: 800;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .header-content p {
-            font-size: 16px; /* 略微减小 */
-            margin-bottom: 15px; /* 减少为15px */
+            font-size: 16px;
+            margin-bottom: 15px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -224,24 +375,24 @@
         .main-layout {
             display: flex;
             max-width: 1300px;
-            margin: 15px auto 0; /* 进一步减少上边距 */
+            margin: 15px auto 0;
             padding: 0 20px;
             position: relative;
         }
 
         /* 左侧目录导航 */
         .sidebar {
-            width: 250px; /* 略微减小 */
+            width: 250px;
             position: sticky;
-            top: 80px; /* 调整位置 */
-            height: calc(100vh - 100px); /* 调整高度 */
+            top: 90px; /* 调整位置，考虑导航栏高度 */
+            height: calc(100vh - 110px);
             overflow-y: auto;
-            margin-right: 25px; /* 减少为25px */
+            margin-right: 25px;
             flex-shrink: 0;
             background: white;
-            border-radius: 16px; /* 略微减小 */
+            border-radius: 16px;
             box-shadow: var(--shadow-light);
-            padding: 20px; /* 减少为20px */
+            padding: 20px;
             border: 1px solid var(--border-color);
         }
 
@@ -260,19 +411,19 @@
         }
 
         .sidebar-title {
-            font-size: 18px; /* 略微减小 */
+            font-size: 18px;
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 16px; /* 减少为16px */
-            padding-bottom: 12px; /* 减少为12px */
+            margin-bottom: 16px;
+            padding-bottom: 12px;
             border-bottom: 2px solid var(--border-color);
             display: flex;
             align-items: center;
         }
 
         .sidebar-title i {
-            margin-right: 8px; /* 减少为8px */
-            font-size: 20px; /* 略微减小 */
+            margin-right: 8px;
+            font-size: 20px;
         }
 
         .toc-links {
@@ -281,35 +432,35 @@
         }
 
         .toc-section {
-            margin-bottom: 12px; /* 减少为12px */
+            margin-bottom: 12px;
         }
 
         .toc-section-title {
             font-weight: bold;
             color: var(--dark-color);
-            font-size: 14px; /* 略微减小 */
-            margin-bottom: 6px; /* 减少为6px */
-            padding-left: 8px; /* 减少为8px */
+            font-size: 14px;
+            margin-bottom: 6px;
+            padding-left: 8px;
             display: flex;
             align-items: center;
         }
 
         .toc-section-title i {
-            margin-right: 6px; /* 减少为6px */
-            font-size: 13px; /* 略微减小 */
+            margin-right: 6px;
+            font-size: 13px;
             color: var(--primary-color);
         }
 
         .toc-links-inner {
-            padding-left: 16px; /* 减少为16px */
+            padding-left: 16px;
         }
 
         .toc-link {
             display: block;
-            padding: 8px 12px; /* 减少内边距 */
-            margin-bottom: 6px; /* 减少为6px */
+            padding: 8px 12px;
+            margin-bottom: 6px;
             background-color: #f8f9fa;
-            border-radius: 8px; /* 略微减小 */
+            border-radius: 8px;
             font-size: 14px;
             transition: all 0.3s ease;
             color: #555;
@@ -347,31 +498,31 @@
         /* 右侧内容区域 */
         .content-area {
             flex: 1;
-            min-width: 0; /* 防止内容溢出 */
+            min-width: 0;
         }
 
-        /* 内容区域 - 进一步减少章节间距 */
+        /* 内容区域 */
         .content-section {
-            padding: 12px 0; /* 进一步减少为12px */
+            padding: 12px 0;
             background-color: transparent;
         }
 
-        .content-section:first-of-type {
+        .content-section:first-oftype {
             padding-top: 0;
         }
 
         .section-title {
-            margin-bottom: 16px; /* 进一步减少为16px */
+            margin-bottom: 16px;
             position: relative;
-            padding-bottom: 10px; /* 减少为10px */
+            padding-bottom: 10px;
         }
 
         .section-title h2 {
-            font-size: 26px; /* 进一步减小 */
+            font-size: 26px;
             color: var(--dark-color);
             position: relative;
             display: inline-block;
-            padding-bottom: 10px; /* 减少为10px */
+            padding-bottom: 10px;
         }
 
         .section-title h2::after {
@@ -379,32 +530,32 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 45px; /* 进一步减小 */
-            height: 3px; /* 略微减小 */
+            width: 45px;
+            height: 3px;
             background: var(--gradient-bg);
             border-radius: 2px;
         }
 
         .section-title h3 {
-            font-size: 20px; /* 进一步减小 */
+            font-size: 20px;
             color: var(--primary-color);
-            margin-bottom: 14px; /* 减少为14px */
-            padding-left: 10px; /* 减少为10px */
+            margin-bottom: 14px;
+            padding-left: 10px;
             border-left: 4px solid var(--accent-color);
         }
         
         .section-title h4 {
-            font-size: 17px; /* 进一步减小 */
+            font-size: 17px;
             color: var(--secondary-color);
-            margin: 16px 0 10px; /* 减少为16px和10px */
+            margin: 16px 0 10px;
             padding-bottom: 6px;
             border-bottom: 1px solid var(--border-color);
         }
 
         .section-subtitle {
-            font-size: 15px; /* 进一步减小 */
+            font-size: 15px;
             color: #666;
-            margin-top: 6px; /* 减少为6px */
+            margin-top: 6px;
             font-weight: normal;
         }
 
@@ -414,58 +565,58 @@
 
         .content-card {
             background-color: white;
-            border-radius: 12px; /* 略微减小 */
-            padding: 18px; /* 减少为18px */
-            margin-bottom: 16px; /* 减少为16px */
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
             box-shadow: var(--shadow-light);
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
         }
         
         .content-card:hover {
-            transform: translateY(-4px); /* 略微减小 */
+            transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
         }
         
         .card-header {
             display: flex;
             align-items: center;
-            margin-bottom: 14px; /* 减少为14px */
+            margin-bottom: 14px;
         }
         
         .card-icon {
-            width: 48px; /* 进一步减小 */
-            height: 48px; /* 进一步减小 */
-            border-radius: 12px; /* 略微减小 */
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 20px; /* 进一步减小 */
-            margin-right: 14px; /* 减少为14px */
-            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3); /* 略微减小 */
+            font-size: 20px;
+            margin-right: 14px;
+            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3);
         }
         
         .card-title {
-            font-size: 18px; /* 进一步减小 */
+            font-size: 18px;
             color: var(--primary-color);
             font-weight: bold;
         }
         
         .card-subtitle {
-            font-size: 13px; /* 进一步减小 */
+            font-size: 13px;
             color: #666;
-            margin-top: 4px; /* 减少为4px */
+            margin-top: 4px;
         }
 
         /* 表格样式 */
         .growth-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 14px 0; /* 减少为14px */
+            margin: 14px 0;
             box-shadow: var(--shadow-light);
-            border-radius: 10px; /* 略微减小 */
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
@@ -473,14 +624,14 @@
         .growth-table th {
             background: var(--gradient-bg);
             color: white;
-            padding: 12px; /* 进一步减小 */
+            padding: 12px;
             text-align: left;
             font-weight: bold;
             font-size: 14px;
         }
 
         .growth-table td {
-            padding: 10px 12px; /* 进一步减小 */
+            padding: 10px 12px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -494,21 +645,21 @@
 
         /* 重新设计第二章：六大职能小组模块 */
         .function-module {
-            margin: 16px 0; /* 减少为16px */
+            margin: 16px 0;
         }
         
         .function-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 略微减小 */
-            gap: 16px; /* 减少为16px */
-            margin-top: 14px; /* 减少为14px */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
         }
         
         .function-item {
             background: white;
-            border-radius: 14px; /* 略微减小 */
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* 略微减小 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #f0f0f0;
             position: relative;
@@ -518,12 +669,12 @@
         }
         
         .function-item:hover {
-            transform: translateY(-8px); /* 略微减小 */
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12); /* 略微减小 */
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
         
         .function-item-header {
-            padding: 18px 18px 14px; /* 减少内边距 */
+            padding: 18px 18px 14px;
             color: white;
             position: relative;
             overflow: hidden;
@@ -540,32 +691,32 @@
         }
         
         .function-item-icon {
-            font-size: 24px; /* 进一步减小 */
-            margin-bottom: 8px; /* 减少为8px */
+            font-size: 24px;
+            margin-bottom: 8px;
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
-            width: 48px; /* 进一步减小 */
-            height: 48px; /* 进一步减小 */
-            border-radius: 10px; /* 略微减小 */
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 略微减小 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
         .function-item-title {
-            font-size: 17px; /* 进一步减小 */
+            font-size: 17px;
             font-weight: 700;
-            margin-bottom: 4px; /* 减少为4px */
+            margin-bottom: 4px;
         }
         
         .function-item-subtitle {
-            font-size: 12px; /* 进一步减小 */
+            font-size: 12px;
             opacity: 0.9;
         }
         
         .function-item-content {
-            padding: 16px 18px; /* 减少内边距 */
+            padding: 16px 18px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -573,33 +724,33 @@
         
         .function-item-content h4 {
             color: var(--dark-color);
-            font-size: 15px; /* 进一步减小 */
-            margin-bottom: 8px; /* 减少为8px */
+            font-size: 15px;
+            margin-bottom: 8px;
             font-weight: 600;
         }
         
         .function-item-desc {
             color: #555;
-            font-size: 13.5px; /* 略微减小 */
+            font-size: 13.5px;
             line-height: 1.6;
-            margin-bottom: 12px; /* 减少为12px */
+            margin-bottom: 12px;
             flex-grow: 1;
         }
         
         .function-item-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px; /* 减少为6px */
+            gap: 6px;
             margin-top: auto;
         }
         
         .function-tag {
             display: inline-block;
-            padding: 3px 8px; /* 进一步减小 */
+            padding: 3px 8px;
             background: rgba(142, 45, 226, 0.1);
             color: var(--primary-color);
-            border-radius: 16px; /* 略微减小 */
-            font-size: 11px; /* 进一步减小 */
+            border-radius: 16px;
+            font-size: 11px;
             font-weight: 600;
         }
         
@@ -613,21 +764,21 @@
 
         /* 重新设计第五章：给不同成员的行动指南模块 */
         .action-guide-module {
-            margin: 16px 0; /* 减少为16px */
+            margin: 16px 0;
         }
         
         .action-guide-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 略微减小 */
-            gap: 16px; /* 减少为16px */
-            margin-top: 14px; /* 减少为14px */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
         }
         
         .action-guide-item {
             background: white;
-            border-radius: 14px; /* 略微减小 */
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* 略微减小 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #f0f0f0;
             position: relative;
@@ -637,12 +788,12 @@
         }
         
         .action-guide-item:hover {
-            transform: translateY(-6px) scale(1.02); /* 略微减小 */
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12); /* 略微减小 */
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
         }
         
         .action-guide-item-header {
-            padding: 18px 18px 14px; /* 减少内边距 */
+            padding: 18px 18px 14px;
             position: relative;
             display: flex;
             align-items: center;
@@ -650,35 +801,35 @@
         }
         
         .action-guide-icon-wrapper {
-            width: 52px; /* 进一步减小 */
-            height: 52px; /* 进一步减小 */
-            border-radius: 12px; /* 略微减小 */
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 14px; /* 减少为14px */
-            box-shadow: 0 5px 12px rgba(0,0,0,0.1); /* 略微减小 */
+            margin-right: 14px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
         }
         
         .action-guide-icon {
-            font-size: 22px; /* 进一步减小 */
+            font-size: 22px;
             color: white;
         }
         
         .action-guide-title {
-            font-size: 17px; /* 进一步减小 */
+            font-size: 17px;
             font-weight: 700;
             color: var(--dark-color);
         }
         
         .action-guide-subtitle {
-            font-size: 12px; /* 进一步减小 */
+            font-size: 12px;
             color: #666;
-            margin-top: 3px; /* 减少为3px */
+            margin-top: 3px;
         }
         
         .action-guide-content {
-            padding: 16px 18px; /* 减少内边距 */
+            padding: 16px 18px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -686,65 +837,67 @@
         
         .action-guide-suggestion {
             color: var(--primary-color);
-            font-size: 14px; /* 进一步减小 */
-            margin-bottom: 8px; /* 减少为8px */
+            font-size: 14px;
+            margin-bottom: 8px;
             font-weight: 600;
             display: flex;
             align-items: center;
         }
         
         .action-guide-suggestion i {
-            margin-right: 6px; /* 减少为6px */
-            font-size: 13px; /* 略微减小 */
+            margin-right: 6px;
+            font-size: 13px;
         }
         
         .action-guide-list {
-            margin-bottom: 14px; /* 减少为14px */
+            margin-bottom: 14px;
             flex-grow: 1;
-            padding-left: 18px; /* 添加左侧内边距 */
-            margin-left: 0; /* 移除左侧外边距 */
+            padding-left: 18px;
+            margin-left: 0;
         }
         
         /* 修正：列表项对齐 */
         .action-guide-list li {
-            margin-bottom: 6px; /* 减少为6px */
+            margin-bottom: 6px;
             color: #555;
-            font-size: 13.5px; /* 略微减小 */
+            font-size: 13.5px;
             position: relative;
-            padding-left: 0; /* 移除左侧内边距 */
-            list-style-position: outside; /* 确保点符号在列表项外部 */
-            text-align: left; /* 强制左对齐 */
+            padding-left: 0;
+            list-style-position: outside;
+            text-align: left;
         }
         
         .action-guide-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px; /* 减少为6px */
+            gap: 6px;
             margin-top: auto;
         }
         
         .action-guide-tag {
             display: inline-block;
-            padding: 3px 8px; /* 进一步减小 */
+            padding: 3px 8px;
             background: rgba(142, 45, 226, 0.08);
             color: var(--primary-color);
-            border-radius: 16px; /* 略微减小 */
-            font-size: 11px; /* 进一步减小 */
+            border-radius: 16px;
+            font-size: 11px;
             font-weight: 600;
             border: 1px solid rgba(142, 45, 226, 0.2);
         }
         
-        /* 不同行动指南的颜色 */
+        /* 不同行动指南的颜色 - 更新并增加 */
         .action-guide-1 .action-guide-icon-wrapper { background: linear-gradient(135deg, #4A00E0, #8E2DE2); }
         .action-guide-2 .action-guide-icon-wrapper { background: linear-gradient(135deg, #00b09b, #96c93d); }
         .action-guide-3 .action-guide-icon-wrapper { background: linear-gradient(135deg, #DA4453, #89216B); }
-        .action-guide-4 .action-guide-icon-wrapper { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .action-guide-4 .action-guide-icon-wrapper { background: linear-gradient(135deg, #FF9800, #FFC107); } /* 更新为橙色系 */
+        .action-guide-5 .action-guide-icon-wrapper { background: linear-gradient(135deg, #9C27B0, #E91E63); } /* 新增：紫色到粉色 */
+        .action-guide-6 .action-guide-icon-wrapper { background: linear-gradient(135deg, #2196F3, #03A9F4); } /* 新增：蓝色系 */
 
-        /* 时间线样式 - 优化左侧卡片文字对齐 */
+        /* 时间线样式 */
         .timeline {
             position: relative;
             max-width: 900px;
-            margin: 20px auto; /* 减少为20px */
+            margin: 20px auto;
         }
         
         .timeline::before {
@@ -760,71 +913,70 @@
         
         .timeline-item {
             position: relative;
-            margin-bottom: 30px; /* 减少为30px */
+            margin-bottom: 30px;
             width: 50%;
         }
         
-        /* 左侧卡片文字靠左对齐 */
         .timeline-item:nth-child(odd) {
             left: 0;
-            padding-right: 30px; /* 进一步减少 */
-            text-align: left; /* 改为左对齐 */
+            padding-right: 30px;
+            text-align: left;
         }
         
         .timeline-item:nth-child(even) {
             left: 50%;
-            padding-left: 30px; /* 进一步减少 */
-            text-align: left; /* 确保也是左对齐 */
+            padding-left: 30px;
+            text-align: left;
         }
         
         .timeline-dot {
             position: absolute;
             top: 0;
-            width: 16px; /* 进一步减小 */
-            height: 16px; /* 进一步减小 */
+            width: 16px;
+            height: 16px;
             background: var(--gradient-bg);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px white, 0 0 0 5px var(--primary-color); /* 进一步减小 */
+            box-shadow: 0 0 0 3px white, 0 0 0 5px var(--primary-color);
         }
         
         .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px; /* 略微调整 */
+            right: -8px;
         }
         
         .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px; /* 略微调整 */
+            left: -8px;
         }
         
         .timeline-content {
             background-color: white;
-            padding: 14px; /* 减少为14px */
-            border-radius: 10px; /* 略微减小 */
+            padding: 14px;
+            border-radius: 10px;
             box-shadow: var(--shadow-light);
             border: 1px solid var(--border-color);
-            text-align: left; /* 确保内容文字左对齐 */
+            text-align: left;
         }
         
         .timeline-title {
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 15px; /* 进一步减小 */
-            margin-bottom: 6px; /* 减少为6px */
-            text-align: left; /* 确保标题左对齐 */
+            font-size: 15px;
+            margin-bottom: 6px;
+            text-align: left;
         }
         
         .timeline-subtitle {
             color: var(--accent-color);
-            font-size: 12px; /* 进一步减小 */
-            margin-bottom: 6px; /* 减少为6px */
-            text-align: left; /* 确保副标题左对齐 */
+            font-size: 12px;
+            margin-bottom: 6px;
+            text-align: left;
         }
 
         /* 引用块样式 */
         .quote-box {
             background: linear-gradient(to right, rgba(142, 45, 226, 0.1), rgba(233, 64, 87, 0.1));
             border-left: 4px solid var(--primary-color);
-            padding: 16px; /* 减少为16px */
-            margin: 16px 0; /* 减少为16px */
+            padding: 16px;
+            margin: 16px 0;
             border-radius: 0 10px 10px 0;
             border: 1px solid rgba(142, 45, 226, 0.2);
         }
@@ -832,7 +984,7 @@
         .quote-box p {
             font-style: italic;
             color: #555;
-            font-size: 14px; /* 进一步减小 */
+            font-size: 14px;
             line-height: 1.7;
         }
         
@@ -840,27 +992,27 @@
             text-align: right;
             font-weight: bold;
             color: var(--secondary-color);
-            margin-top: 10px; /* 减少为10px */
+            margin-top: 10px;
         }
 
         /* FAQ样式 */
         .faq-item {
-            margin-bottom: 12px; /* 减少为12px */
+            margin-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px; /* 减少为12px */
+            padding-bottom: 12px;
         }
         
         .faq-question {
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 15px; /* 进一步减小 */
-            margin-bottom: 6px; /* 减少为6px */
+            font-size: 15px;
+            margin-bottom: 6px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px; /* 减少为6px */
-            border-radius: 6px; /* 略微减小 */
+            padding: 6px;
+            border-radius: 6px;
             transition: background-color 0.3s ease;
         }
         
@@ -871,35 +1023,35 @@
         .faq-answer {
             color: #555;
             line-height: 1.6;
-            padding: 0 6px; /* 减少为6px */
+            padding: 0 6px;
         }
 
         /* 微信二维码容器 */
         .wechat-qrcode {
             display: flex;
-            gap: 16px; /* 减少为16px */
-            margin-top: 12px; /* 减少为12px */
-            width: 240px; /* 略微减小 */
+            gap: 16px;
+            margin-top: 12px;
+            width: 240px;
             justify-content: space-between;
         }
         
         .wechat-qrcode-item {
             text-align: center;
-            width: 112px; /* 略微减小 */
+            width: 112px;
         }
         
         .wechat-qrcode-item img {
-            width: 112px; /* 略微减小 */
-            height: 112px; /* 略微减小 */
+            width: 112px;
+            height: 112px;
             background: white;
-            padding: 4px; /* 减少为4px */
-            border-radius: 4px; /* 略微减小 */
-            box-shadow: 0 2px 8px rgba(0,0,0,.1); /* 略微减小 */
+            padding: 4px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
         }
         
         .wechat-qrcode-item p {
-            margin-top: 8px; /* 减少为8px */
-            font-size: 11px; /* 进一步减小 */
+            margin-top: 8px;
+            font-size: 11px;
             color: #ccc;
         }
         
@@ -907,18 +1059,18 @@
         .social-platforms {
             display: flex;
             justify-content: space-between;
-            width: 240px; /* 略微减小 */
-            margin-top: 16px; /* 减少为16px */
+            width: 240px;
+            margin-top: 16px;
             flex-wrap: wrap;
-            gap: 4px; /* 减少为4px */
+            gap: 4px;
         }
 
         .social-platforms a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px; /* 略微减小 */
-            height: 32px; /* 略微减小 */
+            width: 32px;
+            height: 32px;
             background: rgba(255,255,255,.1);
             border-radius: 50%;
             transition: all .3s ease;
@@ -930,28 +1082,28 @@
             transform: translateY(-3px);
         }
 
-        /* 页脚 - 移除导航栏标题前的小点 */
+        /* 页脚 */
         footer {
             background-color: var(--dark-color);
             color: white;
-            padding: 35px 0 16px; /* 减少为35px */
-            margin-top: 30px; /* 减少为30px */
-            border-top-left-radius: 25px; /* 略微减小 */
+            padding: 35px 0 16px;
+            margin-top: 30px;
+            border-top-left-radius: 25px;
             border-top-right-radius: 25px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; /* 减少为20px */
-            margin-bottom: 25px; /* 减少为25px */
+            gap: 20px;
+            margin-bottom: 25px;
         }
 
         .footer-column h3 {
-            font-size: 15px; /* 进一步减小 */
-            margin-bottom: 14px; /* 减少为14px */
+            font-size: 15px;
+            margin-bottom: 14px;
             position: relative;
-            padding-bottom: 6px; /* 减少为6px */
+            padding-bottom: 6px;
         }
 
         .footer-column h3::after {
@@ -959,21 +1111,20 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 30px; /* 进一步减小 */
+            width: 30px;
             height: 2px;
             background: var(--gradient-bg);
         }
 
-        /* 移除页脚导航栏标题前的小点 */
         .footer-column ul {
-            list-style-type: none; /* 移除列表标记 */
-            padding-left: 0; /* 移除内边距 */
-            margin-left: 0; /* 移除外边距 */
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
         }
         
         .footer-column ul li {
-            margin-bottom: 6px; /* 减少为6px */
-            list-style-type: none; /* 确保没有列表标记 */
+            margin-bottom: 6px;
+            list-style-type: none;
         }
 
         .footer-column ul li a {
@@ -984,8 +1135,8 @@
         }
 
         .footer-column ul li a i {
-            margin-right: 6px; /* 减少为6px */
-            font-size: 12px; /* 进一步减小 */
+            margin-right: 6px;
+            font-size: 12px;
         }
 
         .footer-column ul li a:hover {
@@ -995,16 +1146,16 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 14px; /* 减少为14px */
+            padding-top: 14px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
-            font-size: 12px; /* 进一步减小 */
+            font-size: 12px;
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 调整侧边栏 */
         @media (max-width: 992px) {
             .header-content h2 {
-                font-size: 30px; /* 进一步减小 */
+                font-size: 30px;
             }
             
             .header-content p {
@@ -1013,7 +1164,7 @@
             
             .function-grid,
             .action-guide-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* 进一步减小 */
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             }
             
             .main-layout {
@@ -1026,13 +1177,13 @@
                 top: 0;
                 height: auto;
                 margin-right: 0;
-                margin-bottom: 16px; /* 减少为16px */
+                margin-bottom: 16px;
             }
             
             .toc-links {
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 8px; /* 减少为8px */
+                gap: 8px;
             }
             
             .toc-section {
@@ -1041,18 +1192,14 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
             .header-banner {
-                height: 200px; /* 进一步减小 */
-                margin-top: 65px;
+                height: 200px;
+                margin-top: 0;
                 border-radius: 0;
             }
             
             .header-content h2 {
-                font-size: 24px; /* 进一步减小 */
+                font-size: 24px;
             }
             
             .header-content p {
@@ -1060,19 +1207,19 @@
             }
             
             .timeline::before {
-                left: 16px; /* 减少为16px */
+                left: 16px;
             }
             
             .timeline-item {
                 width: 100%;
                 left: 0 !important;
-                padding-left: 40px !important; /* 进一步减少 */
+                padding-left: 40px !important;
                 padding-right: 0 !important;
                 text-align: left !important;
             }
             
             .timeline-dot {
-                left: 8px !important; /* 减少为8px */
+                left: 8px !important;
                 right: auto !important;
             }
             
@@ -1090,19 +1237,18 @@
             }
             
             .content-card {
-                padding: 16px; /* 进一步减少 */
+                padding: 16px;
             }
             
             .card-icon {
                 width: 44px;
                 height: 44px;
                 font-size: 18px;
-                margin-right: 12px; /* 减少为12px */
+                margin-right: 12px;
             }
             
-            /* 移动端调整导航栏文字对齐 */
-            .nav-links a {
-                padding: 0 4px; /* 移动端进一步减少左右内边距 */
+            .sidebar {
+                padding: 15px;
             }
         }
 
@@ -1135,26 +1281,30 @@
             animation-delay: 0.6s;
         }
         
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+        
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
-            bottom: 16px; /* 减少为16px */
-            right: 16px; /* 减少为16px */
-            width: 38px; /* 进一步减小 */
-            height: 38px; /* 进一步减小 */
+            bottom: 16px;
+            right: 16px;
+            width: 38px;
+            height: 38px;
             background: var(--gradient-bg);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px; /* 进一步减小 */
+            font-size: 16px;
             cursor: pointer;
             z-index: 999;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.4); /* 略微减小 */
+            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.4);
         }
         
         .back-to-top.show {
@@ -1163,59 +1313,69 @@
         }
         
         .back-to-top:hover {
-            transform: translateY(-4px); /* 略微减小 */
-            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.6); /* 略微减小 */
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.6);
         }
         
         /* 分隔线样式 */
         .section-divider {
             height: 1px;
             background: linear-gradient(to right, transparent, var(--border-color), transparent);
-            margin: 16px 0; /* 减少为16px */
+            margin: 16px 0;
         }
         
         /* 高亮文本 */
         .highlight {
             background: linear-gradient(120deg, rgba(142, 45, 226, 0.2) 0%, rgba(142, 45, 226, 0.1) 100%);
-            padding: 2px 5px; /* 略微减小 */
-            border-radius: 3px; /* 略微减小 */
+            padding: 2px 5px;
+            border-radius: 3px;
             font-weight: 600;
         }
         
         /* 徽章样式 */
         .badge {
             display: inline-block;
-            padding: 3px 8px; /* 进一步减小 */
+            padding: 3px 8px;
             background: var(--gradient-bg);
             color: white;
-            border-radius: 16px; /* 略微减小 */
-            font-size: 11px; /* 进一步减小 */
+            border-radius: 16px;
+            font-size: 11px;
             font-weight: bold;
-            margin-right: 6px; /* 减少为6px */
-            margin-bottom: 6px; /* 减少为6px */
+            margin-right: 6px;
+            margin-bottom: 6px;
         }
     </style>
 </head>
 <body>
     <!-- 导航栏 -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41em0tNyAwYy44MyAwIDEuNS0uNjcgMS41LTEuNVM5LjMzIDggOC41IDggOCA4LjY3IDggOC41IDggOSA4LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
-                    <h1>兮&禾</h1>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41em0tNyAwYy44MyAwIDEuNS0uNjcgMS41LTEuNVM5LjMzIDggOC41IDggOCA4LjY3IDggOC41IDggOSA4LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
+                <div class="logo-text">
+                    <h1>禾</h1>
+                    <div class="logo-subtitle">新芽公会成长体系</div>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html#home">首页</a></li>
-                    <li><a href="events.html">百业活动</a></li>
-                    <li><a href="guide.html" class="nav-active">成长共筑</a></li>
-                    <li><a href="gallery.html">百业风采</a></li>
-                    <li><a href="strategy.html">萌新指南</a></li>
-                    <li><a href="realms.html">攻略心得</a></li>
-                    <li><a href="stamina.html">心力计算器</a></li>
-                    <li><a href="gallery.html#come">联系我们</a></li>
-                </ul>
-            </nav>
+            </div>
+            
+            <!-- 汉堡菜单按钮 -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html#home"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="events.html"><i class="fas fa-calendar-alt"></i> 百业活动</a></li>
+                <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>					
+                <li><a href="build.html" class="nav-active"><i class="fas fa-seedling"></i> 成长共筑</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i> 百业风采</a></li>
+                <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
+                <li><a href="realms.html"><i class="fas fa-lightbulb"></i> 攻略心得</a></li>
+                <li><a href="stamina.html"><i class="fas fa-calculator"></i> 心力计算器</a></li>
+				<li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
+            </ul>
         </div>
     </header>
 
@@ -1827,10 +1987,11 @@
                                 </div>
                             </div>
                             
-                            <div class="action-guide-item action-guide-4 fade-in">
+                            <!-- 更新后的"纯粹享受游戏的'氛围爱好者'" -->
+                            <div class="action-guide-item action-guide-4 fade-in delay-3">
                                 <div class="action-guide-item-header">
                                     <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-user-smile"></i>
+                                        <i class="action-guide-icon fas fa-gamepad"></i> <!-- 更新图标 -->
                                     </div>
                                     <div>
                                         <div class="action-guide-title">纯粹享受游戏的"氛围爱好者"</div>
@@ -1857,6 +2018,80 @@
                                         <span class="action-guide-tag">快乐游戏</span>
                                         <span class="action-guide-tag">氛围贡献</span>
                                         <span class="action-guide-tag">文化创造</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新增的"喜欢社交的'团队粘合剂'" -->
+                            <div class="action-guide-item action-guide-5 fade-in delay-3">
+                                <div class="action-guide-item-header">
+                                    <div class="action-guide-icon-wrapper">
+                                        <i class="action-guide-icon fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <div class="action-guide-title">喜欢社交的"团队粘合剂"</div>
+                                        <div class="action-guide-subtitle">连接人与人，强化团队凝聚力</div>
+                                    </div>
+                                </div>
+                                <div class="action-guide-content">
+                                    <div class="action-guide-suggestion">
+                                        <i class="fas fa-lightbulb"></i> 建议
+                                    </div>
+                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">你是公会的社交中心，能帮助新老成员建立连接。</p>
+                                    
+                                    <div class="action-guide-suggestion">
+                                        <i class="fas fa-tasks"></i> 行动清单
+                                    </div>
+                                    <ul class="action-guide-list">
+                                        <li>主动与新人聊天，帮助他们快速融入</li>
+                                        <li>记住成员的喜好和特点，创造个性化的互动</li>
+                                        <li>组织小型社交活动，如语音聊天或游戏内聚会</li>
+                                        <li>在不同小组间建立联系，促进跨组交流</li>
+                                        <li>关注成员的近况，在需要时提供情感支持</li>
+                                    </ul>
+                                    
+                                    <div class="action-guide-tags">
+                                        <span class="action-guide-tag">社交连接</span>
+                                        <span class="action-guide-tag">团队凝聚</span>
+                                        <span class="action-guide-tag">情感支持</span>
+                                        <span class="action-guide-tag">跨组交流</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新增的"追求极致的'数据钻研者'" -->
+                            <div class="action-guide-item action-guide-6 fade-in delay-4">
+                                <div class="action-guide-item-header">
+                                    <div class="action-guide-icon-wrapper">
+                                        <i class="action-guide-icon fas fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <div class="action-guide-title">追求极致的"数据钻研者"</div>
+                                        <div class="action-guide-subtitle">深度研究机制，提供精准建议</div>
+                                    </div>
+                                </div>
+                                <div class="action-guide-content">
+                                    <div class="action-guide-suggestion">
+                                        <i class="fas fa-lightbulb"></i> 建议
+                                    </div>
+                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">你的研究成果能帮助整个公会提升游戏理解和操作水平。</p>
+                                    
+                                    <div class="action-guide-suggestion">
+                                        <i class="fas fa-tasks"></i> 行动清单
+                                    </div>
+                                    <ul class="action-guide-list">
+                                        <li>深入研究游戏机制，为技术组提供数据支持</li>
+                                        <li>测试不同职业、装备搭配的优劣，分享最优解</li>
+                                        <li>分析公会活动的数据，找出效率提升点</li>
+                                        <li>制作数据可视化图表，让复杂信息一目了然</li>
+                                        <li>在重大版本更新前，提前研究并提供应对策略</li>
+                                    </ul>
+                                    
+                                    <div class="action-guide-tags">
+                                        <span class="action-guide-tag">数据分析</span>
+                                        <span class="action-guide-tag">机制研究</span>
+                                        <span class="action-guide-tag">效率优化</span>
+                                        <span class="action-guide-tag">前瞻策略</span>
                                     </div>
                                 </div>
                             </div>
@@ -1989,30 +2224,31 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>兮&禾</h3>
+                    <h3>禾</h3>
                     <ul>
                         <li><a href="index.html#home"><i class="fas fa-home"></i> 首页</a></li>
                         <li><a href="events.html"><i class="fas fa-calendar-alt"></i> 百业活动</a></li>
-                        <li><a href="guide.html"><i class="fas fa-seedling"></i> 成长共筑</a></li>
+                        <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>					
+                        <li><a href="build.html"><i class="fas fa-seedling"></i> 成长共筑</a></li>
                         <li><a href="gallery.html"><i class="fas fa-images"></i> 百业风采</a></li>
                         <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
                         <li><a href="realms.html"><i class="fas fa-lightbulb"></i> 攻略心得</a></li>
                         <li><a href="stamina.html"><i class="fas fa-calculator"></i> 心力计算器</a></li>
-                        <li><a href="gallery.html#come"><i class="fas fa-address-card"></i> 联系我们</a></li>
+                        <li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>皇宸</h3>
                     <ul>
-                        <li><a href="https://hc.ihcking.com"><i class="fas fa-crown"></i> 皇宸总部</a></li>
-                        <li><a href="https://hcbl.ihcking.com"><i class="fas fa-users"></i> 皇宸部落</a></li>
-                        <li><a href="https://qlgh.ihcking.com"><i class="fas fa-dragon"></i> 乾龙公会</a></li>
-                        <li><a href="https://qcjz.ihcking.com"><i class="fas fa-home"></i> 卿城家族</a></li>
-                        <li><a href="https://fgsm.ihcking.com"><i class="fas fa-graduation-cap"></i> 枫谷师门</a></li>
-                        <li><a href="https://xf.ihcking.com"><i class="fas fa-landmark"></i> 潇府</a></li>
-                        <li><a href="https://yg.ihcking.com"><i class="fas fa-mountain"></i> 逸阁</a></li>
-                        <li><a href="https://qg.ihcking.com"><i class="fas fa-building"></i> 卿阁</a></li>
-                        <li><a href="https://fg.ihcking.com"><i class="fas fa-tree"></i> 枫阁</a></li>
+                        <li><a href="https://hc.kinghc.com"><i class="fas fa-crown"></i> 皇宸总部</a></li>
+                        <li><a href="https://hcbl.kinghc.com"><i class="fas fa-users"></i> 皇宸部落</a></li>
+                        <li><a href="https://qlgh.kinghc.com"><i class="fas fa-dragon"></i> 乾龙公会</a></li>
+                        <li><a href="https://qcjz.kinghc.com"><i class="fas fa-home"></i> 卿城家族</a></li>
+                        <li><a href="https://fgsm.kinghc.com"><i class="fas fa-graduation-cap"></i> 枫谷师门</a></li>
+                        <li><a href="https://xf.kinghc.com"><i class="fas fa-landmark"></i> 潇府</a></li>
+                        <li><a href="https://yg.kinghc.com"><i class="fas fa-mountain"></i> 逸阁</a></li>
+                        <li><a href="https://qg.kinghc.com"><i class="fas fa-building"></i> 卿阁</a></li>
+                        <li><a href="https://fg.kinghc.com"><i class="fas fa-tree"></i> 枫阁</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -2036,11 +2272,11 @@
                     <h3>关注我们</h3>
                     <div class="wechat-qrcode">
                         <div class="wechat-qrcode-item">
-                            <img src=".././assets/img/hcwxdyh.jpg" alt="微信公众号1">
+                            <img src="../assets/img/hcwxdyh.jpg" alt="微信公众号1">
                             <p>皇宸订阅号</p>
                         </div>
                         <div class="wechat-qrcode-item">
-                            <img src=".././assets/img/hcwxfwh.jpg" alt="微信公众号2">
+                            <img src="../assets/img/hcwxfwh.jpg" alt="微信公众号2">
                             <p>皇宸服务号</p>
                         </div>
                     </div>
@@ -2055,7 +2291,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 兮&禾. 保留所有权利. | 版本：新芽公会运营手册 v3.0 | 设计理念：让每个人都能找到适合自己的成长节奏</p>
+                <p>&copy; 2025 禾. 保留所有权利.</p>
             </div>
         </div>
     </footer>
@@ -2105,6 +2341,11 @@
                         
                         // 更新左侧导航栏活动状态
                         updateActiveNavLink(targetId);
+                        
+                        // 移动端点击链接后关闭导航菜单
+                        if (window.innerWidth <= 992) {
+                            closeMobileMenu();
+                        }
                     }
                 });
             });
@@ -2165,6 +2406,40 @@
                 answer.style.display = 'none';
             });
             
+            // 汉堡菜单功能
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                
+                // 防止滚动
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // 点击外部关闭移动菜单
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 992) {
+                    const isClickInsideNav = navLinks.contains(event.target) || hamburger.contains(event.target);
+                    
+                    if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                }
+            });
+            
+            // 关闭移动菜单函数
+            function closeMobileMenu() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
             // 更新左侧导航栏活动状态的函数
             function updateActiveNavLink(targetId) {
                 // 移除所有活动状态
@@ -2209,6 +2484,13 @@
             
             // 页面加载时初始化活动状态
             updateNavOnScroll();
+            
+            // 窗口大小改变时重置移动菜单
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    closeMobileMenu();
+                }
+            });
         });
     </script>
 </body>
