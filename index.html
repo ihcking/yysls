@@ -6,6 +6,14 @@
     <title>禾 - 江湖如梦，侠影留心！</title>
     <meta name="description" content="燕云十六声，禾，休闲百业，养老百业，欢迎大家！">
     <meta name="keywords" content="燕云十六声，燕云，游戏，手游，端游，页游，禾，兮禾，汐禾，百业，攻略">
+    
+    <!-- 添加网站图标 (favicon) -->
+    <link rel="icon" type="image/x-icon" href="https://www.yysls.cn/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.yysls.cn/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.yysls.cn/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.yysls.cn/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* 全局样式 - 与build.html统一 */
@@ -1055,7 +1063,7 @@
             animation-delay: 0.6s;
         }
 
-        /* ************ 返回顶部按钮 - 与build.html一致 ************ */
+        /* ************ 返回顶部按钮和分享功能 - 新增样式 ************ */
         .back-to-top {
             position: fixed;
             bottom: 24px;
@@ -1087,6 +1095,248 @@
         .back-to-top:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 10px 24px rgba(142, 45, 226, 0.6);
+        }
+
+        /* 分享按钮 */
+        .share-button {
+            position: fixed;
+            bottom: 86px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-bg);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.4);
+            border: none;
+            outline: none;
+        }
+        
+        .share-button.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .share-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 24px rgba(142, 45, 226, 0.6);
+        }
+
+        /* 分享面板 */
+        .share-panel {
+            position: fixed;
+            bottom: 140px;
+            right: 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            min-width: 220px;
+        }
+        
+        .share-panel.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .share-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 30px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+        
+        .share-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .share-option:hover {
+            background-color: var(--section-alt);
+            transform: translateY(-3px);
+        }
+        
+        .share-option i {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .share-option.qq i {
+            color: #12B7F5;
+        }
+        
+        .share-option.wechat i {
+            color: #07C160;
+        }
+        
+        .share-option.douyin i {
+            color: #000000;
+        }
+        
+        .share-option.weibo i {
+            color: #E6162D;
+        }
+        
+        .share-option.xiaohongshu i {
+            color: #FF2442;
+        }
+        
+        .share-option.copy i {
+            color: var(--primary-color);
+        }
+        
+        .share-option span {
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        /* 分享成功提示 */
+        .share-toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-success);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0, 200, 83, 0.3);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .share-toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* 二维码分享弹窗 */
+        .qrcode-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .qrcode-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .qrcode-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 320px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+        }
+        
+        .qrcode-modal.show .qrcode-content {
+            transform: translateY(0);
+        }
+        
+        .qrcode-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .qrcode-img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .qrcode-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .qrcode-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .close-qrcode {
+            background: var(--gradient-bg);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-qrcode:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.4);
         }
 
         /* ************ 分隔线样式 ************ */
@@ -1135,6 +1385,21 @@
             
             .news-grid, .guides-grid, .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            /* 移动端调整分享按钮位置 */
+            .share-button {
+                bottom: 86px;
+                right: 16px;
+            }
+            
+            .back-to-top {
+                right: 16px;
+            }
+            
+            .share-panel {
+                right: 16px;
+                bottom: 140px;
             }
         }
 
@@ -1205,6 +1470,29 @@
                 margin-left: 0;
                 margin-top: 10px;
             }
+            
+            /* 移动端分享面板调整 */
+            .share-panel {
+                min-width: 200px;
+                padding: 15px;
+            }
+            
+            .share-options {
+                gap: 12px;
+            }
+            
+            .share-option i {
+                font-size: 20px;
+            }
+            
+            .share-option span {
+                font-size: 10px;
+            }
+            
+            .share-toast {
+                width: 90%;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1231,6 +1519,17 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            /* 移动端分享面板进一步调整 */
+            .share-panel {
+                min-width: 180px;
+                padding: 12px;
+            }
+            
+            .share-options {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
             }
         }
         
@@ -1950,6 +2249,60 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- 新增：分享按钮 -->
+    <div class="share-button" id="shareButton">
+        <i class="fas fa-share-alt"></i>
+    </div>
+
+    <!-- 新增：分享面板 -->
+    <div class="share-panel" id="sharePanel">
+        <div class="share-title">分享到</div>
+        <div class="share-options">
+            <a class="share-option copy" data-platform="copy" title="复制链接">
+                <i class="fas fa-link"></i>
+                <span>复制链接</span>
+            </a>
+            <a class="share-option qq" data-platform="qq" title="QQ">
+                <i class="fab fa-qq"></i>
+                <span>QQ</span>
+            </a>
+            <a class="share-option wechat" data-platform="wechat" title="微信">
+                <i class="fab fa-weixin"></i>
+                <span>微信</span>
+            </a>
+            <a class="share-option weibo" data-platform="weibo" title="微博">
+                <i class="fab fa-weibo"></i>
+                <span>微博</span>
+            </a>
+            <a class="share-option douyin" data-platform="douyin" title="抖音">
+                <i class="fab fa-tiktok"></i>
+                <span>抖音</span>
+            </a>
+            <a class="share-option xiaohongshu" data-platform="xiaohongshu" title="小红书">
+                <i class="fas fa-book"></i>
+                <span>小红书</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 新增：分享成功提示 -->
+    <div class="share-toast" id="shareToast">
+        链接已复制到剪贴板！
+    </div>
+
+    <!-- 新增：微信二维码弹窗 -->
+    <div class="qrcode-modal" id="qrcodeModal">
+        <div class="qrcode-content">
+            <h3>微信分享</h3>
+            <div class="qrcode-img" id="qrcodeImg">
+                <!-- 这里将动态生成二维码 -->
+                <canvas id="qrcodeCanvas"></canvas>
+            </div>
+            <p>使用微信扫描二维码分享</p>
+            <button class="close-qrcode" id="closeQrcode">关闭</button>
+        </div>
+    </div>
+
     <script>
         // 全局分页配置
         const paginationConfig = {
@@ -2049,6 +2402,7 @@
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
                 const backToTop = document.getElementById('backToTop');
+                const shareButton = document.getElementById('shareButton');
                 
                 if (window.scrollY > 50) {
                     header.style.backgroundColor = 'rgba(26, 26, 46, 0.98)';
@@ -2058,11 +2412,13 @@
                     header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
                 }
                 
-                // 显示/隐藏返回顶部按钮
+                // 显示/隐藏返回顶部按钮和分享按钮
                 if (window.scrollY > 300) {
                     backToTop.classList.add('show');
+                    shareButton.classList.add('show');
                 } else {
                     backToTop.classList.remove('show');
+                    shareButton.classList.remove('show');
                 }
             });
             
@@ -2144,6 +2500,9 @@
             
             // 初始化分页
             initPagination();
+            
+            // 初始化分享功能
+            initShareFunctionality();
         });
 
         // 分页功能
@@ -2251,6 +2610,183 @@
             
             config.infoContainer.textContent = 
                 `显示 ${startItem}-${endItem} 条，共 ${totalItems} 条`;
+        }
+
+        // 初始化分享功能
+        function initShareFunctionality() {
+            const shareButton = document.getElementById('shareButton');
+            const sharePanel = document.getElementById('sharePanel');
+            const shareToast = document.getElementById('shareToast');
+            const qrcodeModal = document.getElementById('qrcodeModal');
+            const closeQrcode = document.getElementById('closeQrcode');
+            const shareOptions = document.querySelectorAll('.share-option');
+            
+            let sharePanelVisible = false;
+            let qrcodeModalVisible = false;
+            
+            // 分享按钮点击事件
+            shareButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleSharePanel();
+            });
+            
+            // 切换分享面板显示/隐藏
+            function toggleSharePanel() {
+                sharePanelVisible = !sharePanelVisible;
+                if (sharePanelVisible) {
+                    sharePanel.classList.add('show');
+                } else {
+                    sharePanel.classList.remove('show');
+                }
+            }
+            
+            // 点击页面其他区域关闭分享面板
+            document.addEventListener('click', function(e) {
+                if (!shareButton.contains(e.target) && !sharePanel.contains(e.target) && sharePanelVisible) {
+                    sharePanelVisible = false;
+                    sharePanel.classList.remove('show');
+                }
+                
+                if (qrcodeModalVisible && !qrcodeModal.contains(e.target)) {
+                    closeQrcodeModal();
+                }
+            });
+            
+            // 分享选项点击事件
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.getAttribute('data-platform');
+                    handleShare(platform);
+                });
+            });
+            
+            // 处理分享
+            function handleShare(platform) {
+                const url = window.location.href;
+                const title = document.title;
+                const desc = document.querySelector('meta[name="description"]').getAttribute('content');
+                
+                switch(platform) {
+                    case 'copy':
+                        copyToClipboard(url);
+                        showToast('链接已复制到剪贴板！');
+                        break;
+                    case 'qq':
+                        shareToQQ(url, title, desc);
+                        break;
+                    case 'wechat':
+                        showWechatQrcode(url);
+                        break;
+                    case 'weibo':
+                        shareToWeibo(url, title);
+                        break;
+                    case 'douyin':
+                        copyToClipboard(url);
+                        showToast('链接已复制，请打开抖音分享');
+                        break;
+                    case 'xiaohongshu':
+                        copyToClipboard(url);
+                        showToast('链接已复制，请打开小红书分享');
+                        break;
+                }
+                
+                // 关闭分享面板
+                sharePanelVisible = false;
+                sharePanel.classList.remove('show');
+            }
+            
+            // 复制到剪贴板
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            
+            // 显示提示
+            function showToast(message) {
+                shareToast.textContent = message;
+                shareToast.classList.add('show');
+                
+                setTimeout(() => {
+                    shareToast.classList.remove('show');
+                }, 3000);
+            }
+            
+            // 分享到QQ
+            function shareToQQ(url, title, desc) {
+                const shareUrl = `https://connect.qq.com/widget/shareqq/index.html?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}`;
+                window.open(shareUrl, '_blank', 'width=615,height=530');
+            }
+            
+            // 分享到微博
+            function shareToWeibo(url, title) {
+                const shareUrl = `https://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
+                window.open(shareUrl, '_blank', 'width=615,height=530');
+            }
+            
+            // 显示微信二维码弹窗
+            function showWechatQrcode(url) {
+                // 创建二维码
+                createQRCode(url);
+                
+                // 显示弹窗
+                qrcodeModalVisible = true;
+                qrcodeModal.classList.add('show');
+            }
+            
+            // 创建二维码
+            function createQRCode(url) {
+                const canvas = document.getElementById('qrcodeCanvas');
+                const ctx = canvas.getContext('2d');
+                
+                // 设置画布大小
+                canvas.width = 200;
+                canvas.height = 200;
+                
+                // 清除画布
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // 生成简单二维码（简化版）
+                // 注意：实际应用中应该使用专门的二维码生成库
+                ctx.fillStyle = '#000000';
+                
+                // 简单实现，绘制一个简单的二维码样式
+                // 实际应该使用专门的二维码库，这里仅做演示
+                const size = 10;
+                const margin = 10;
+                
+                // 绘制定位标记
+                ctx.fillRect(margin, margin, size*7, size*7);
+                ctx.clearRect(margin+size, margin+size, size*5, size*5);
+                
+                ctx.fillRect(canvas.width - margin - size*7, margin, size*7, size*7);
+                ctx.clearRect(canvas.width - margin - size*6, margin+size, size*5, size*5);
+                
+                ctx.fillRect(margin, canvas.height - margin - size*7, size*7, size*7);
+                ctx.clearRect(margin+size, canvas.height - margin - size*6, size*5, size*5);
+                
+                // 在二维码中间添加网站logo
+                ctx.font = 'bold 14px Arial';
+                ctx.fillStyle = '#8e2de2';
+                ctx.textAlign = 'center';
+                ctx.fillText('禾', canvas.width/2, canvas.height/2 + 5);
+                
+                // 显示URL文本
+                const qrcodeImg = document.getElementById('qrcodeImg');
+                qrcodeImg.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}" alt="微信分享二维码">`;
+            }
+            
+            // 关闭二维码弹窗
+            closeQrcode.addEventListener('click', closeQrcodeModal);
+            
+            function closeQrcodeModal() {
+                qrcodeModalVisible = false;
+                qrcodeModal.classList.remove('show');
+            }
         }
     </script>
 </body>
