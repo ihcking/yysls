@@ -44,13 +44,8 @@
             color: inherit;
         }
 
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-
-        li {
-            margin-bottom: 4px;
+        ul {
+            list-style: none;
         }
 
         .container {
@@ -321,9 +316,9 @@
             }
         }
 
-        /* 页眉 */
+        /* 页眉 - 采用 strategy - 副本.html 的样式 */
         .header-banner {
-            height: 240px;
+            height: 300px;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
@@ -371,19 +366,19 @@
             opacity: 0.9;
         }
 
-        /* 招新公告 - 保留原有样式但微调 */
+        /* 招新公告 */
         .recruitment-section {
-            padding: 60px 0;
+            padding: 100px 0;
             background-color: white;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
-            font-size: 32px;
+            font-size: 36px;
             color: var(--dark-color);
             position: relative;
             display: inline-block;
@@ -402,112 +397,99 @@
         }
 
         .recruitment-content {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         .recruitment-content h3 {
-            font-size: 22px;
-            margin: 25px 0 15px;
+            font-size: 24px;
+            margin-bottom: 20px;
             color: var(--primary-color);
-            padding-bottom: 8px;
-            border-bottom: 2px solid rgba(142, 45, 226, 0.1);
-        }
-        
-        .recruitment-content h4 {
-            font-size: 18px;
-            margin: 20px 0 12px;
-            color: var(--secondary-color);
         }
 
         .recruitment-content p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #555;
-            line-height: 1.7;
         }
 
-        .recruitment-content ul, .recruitment-content ol {
-            margin-bottom: 15px;
+        .recruitment-content ul {
+            margin-bottom: 20px;
             padding-left: 20px;
         }
 
         .recruitment-content li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #555;
-            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
         }
 
-        .recruitment-content strong {
-            color: var(--primary-color);
+        .recruitment-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
         }
 
         .warning {
-            background-color: #fff8e1;
+            background-color: #fff3cd;
             border-left: 4px solid #ffc107;
-            padding: 18px;
-            margin: 25px 0;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
         }
 
         .warning strong {
             color: #856404;
         }
-        
-        .warning center {
-            text-align: center;
-        }
 
         /* 微信二维码容器 */
         .wechat-qrcode {
             display: flex;
-            gap: 16px;
-            margin-top: 12px;
-            width: 240px;
-            justify-content: space-between;
+            gap: 20px;
+            margin-top: 15px;
+            width: 260px; /* 固定宽度 */
+            justify-content: space-between; /* 均匀分布 */
         }
-        
         .wechat-qrcode-item {
             text-align: center;
-            width: 112px;
+            width: 120px;
         }
-        
         .wechat-qrcode-item img {
-            width: 112px;
-            height: 112px;
+            width: 120px;
+            height: 120px;
             background: white;
-            padding: 4px;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
         }
-        
         .wechat-qrcode-item p {
-            margin-top: 8px;
-            font-size: 11px;
+            margin-top: 10px;
+            font-size: 12px;
             color: #ccc;
         }
         
         /* 媒体平台图标 */
         .social-platforms {
             display: flex;
-            justify-content: space-between;
-            width: 240px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-            gap: 4px;
+            justify-content: space-between; /* 均匀分布图标 */
+            width: 260px; /* 与公众号容器宽度一致 */
+            margin-top: 20px;
+            flex-wrap: wrap; /* 允许换行 */
+            gap: 5px; /* 图标间距 */
         }
 
         .social-platforms a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 36px; /* 稍微缩小图标尺寸 */
+            height: 36px;
             background: rgba(255,255,255,.1);
             border-radius: 50%;
             transition: all .3s ease;
-            flex: 0 0 auto;
+            flex: 0 0 auto; /* 防止图标被压缩 */
         }
 
         .social-platforms a:hover {
@@ -515,12 +497,11 @@
             transform: translateY(-3px);
         }
 
-        /* 页脚 */
+        /* 页脚样式 */
         footer {
             background-color: var(--dark-color);
             color: white;
-            padding: 35px 0 16px;
-            margin-top: 30px;
+            padding: 50px 0 20px;
             border-top-left-radius: 25px;
             border-top-right-radius: 25px;
         }
@@ -528,15 +509,15 @@
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .footer-column h3 {
-            font-size: 15px;
-            margin-bottom: 14px;
+            font-size: 18px;
+            margin-bottom: 20px;
             position: relative;
-            padding-bottom: 6px;
+            padding-bottom: 10px;
         }
 
         .footer-column h3::after {
@@ -544,20 +525,13 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 30px;
+            width: 40px;
             height: 2px;
             background: var(--gradient-bg);
         }
 
-        .footer-column ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-left: 0;
-        }
-        
         .footer-column ul li {
-            margin-bottom: 6px;
-            list-style-type: none;
+            margin-bottom: 10px;
         }
 
         .footer-column ul li a {
@@ -568,8 +542,8 @@
         }
 
         .footer-column ul li a i {
-            margin-right: 6px;
-            font-size: 12px;
+            margin-right: 8px;
+            font-size: 14px;
         }
 
         .footer-column ul li a:hover {
@@ -579,10 +553,10 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 14px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
-            font-size: 12px;
+            font-size: 14px;
         }
 
         /* 响应式设计 */
@@ -610,22 +584,6 @@
             .header-content p {
                 font-size: 14px;
             }
-            
-            .recruitment-section {
-                padding: 40px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 26px;
-            }
-            
-            .recruitment-content h3 {
-                font-size: 20px;
-            }
-            
-            .recruitment-content h4 {
-                font-size: 16px;
-            }
         }
 
         /* 动画效果 */
@@ -652,21 +610,25 @@
         .delay-2 {
             animation-delay: 0.4s;
         }
-        
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
-            bottom: 16px;
-            right: 16px;
-            width: 38px;
-            height: 38px;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
             background: var(--gradient-bg);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             z-index: 999;
             opacity: 0;
@@ -694,7 +656,7 @@
                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41em0tNyAwYy44MyAwIDEuNS0uNjcgMS41LTEuNVM5LjMzIDggOC41IDggOCA4LjY3IDggOC41IDggOSA4LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
                 <div class="logo-text">
                     <h1>禾</h1>
-                    <div class="logo-subtitle">萌新指南</div>
+                    <div class="logo-subtitle">江湖如梦，侠影留心</div>
                 </div>
             </div>
             
@@ -706,9 +668,9 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="index.html#home"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
                 <li><a href="events.html"><i class="fas fa-calendar-alt"></i> 百业活动</a></li>
-                <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>					
+                <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>                    
                 <li><a href="build.html"><i class="fas fa-seedling"></i> 成长共筑</a></li>
                 <li><a href="gallery.html"><i class="fas fa-images"></i> 百业风采</a></li>
                 <li><a href="strategy.html" class="nav-active"><i class="fas fa-book-open"></i> 萌新指南</a></li>
@@ -719,7 +681,7 @@
         </div>
     </header>
 
-    <!-- 页眉 -->
+    <!-- 页眉 - 采用 strategy - 副本.html 的页眉设计 -->
     <section class="header-banner">
         <div class="container">
             <div class="header-content">
@@ -900,9 +862,11 @@
                     <li><p><strong>装备：</strong>撼天套装</p></li>
                 </ul>
                 <br>
+                    <center>
                     <div class="warning">                    
                         <strong>未经授权不得转载，最终解释权归百业原创作者拥有！</strong>
-                    </div>
+                    </div>  
+                    </center>  
                 </div>
             </div>
         </section>
@@ -914,9 +878,9 @@
                 <div class="footer-column">
                     <h3>禾</h3>
                     <ul>
-                        <li><a href="index.html#home"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
                         <li><a href="events.html"><i class="fas fa-calendar-alt"></i> 百业活动</a></li>
-                        <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>					
+                        <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>                    
                         <li><a href="build.html"><i class="fas fa-seedling"></i> 成长共筑</a></li>
                         <li><a href="gallery.html"><i class="fas fa-images"></i> 百业风采</a></li>
                         <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
@@ -927,7 +891,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>皇宸</h3>
-                    <ul>
+                <ul>
                         <li><a href="https://hc.kinghc.com"><i class="fas fa-crown"></i> 皇宸总部</a></li>
                         <li><a href="https://hcbl.kinghc.com"><i class="fas fa-users"></i> 皇宸部落</a></li>
                         <li><a href="https://qlgh.kinghc.com"><i class="fas fa-dragon"></i> 乾龙公会</a></li>
@@ -937,7 +901,7 @@
                         <li><a href="https://yg.kinghc.com"><i class="fas fa-mountain"></i> 逸阁</a></li>
                         <li><a href="https://qg.kinghc.com"><i class="fas fa-building"></i> 卿阁</a></li>
                         <li><a href="https://fg.kinghc.com"><i class="fas fa-tree"></i> 枫阁</a></li>
-                    </ul>
+                </ul>
                 </div>
                 <div class="footer-column">
                     <h3>燕云十六声</h3>
@@ -957,25 +921,25 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>关注我们</h3>
-                    <div class="wechat-qrcode">
-                        <div class="wechat-qrcode-item">
-                            <img src=".././assets/img/hcwxdyh.jpg" alt="微信公众号1">
-                            <p>皇宸订阅号</p>
-                        </div>
-                        <div class="wechat-qrcode-item">
-                            <img src=".././assets/img/hcwxfwh.jpg" alt="微信公众号2">
-                            <p>皇宸服务号</p>
-                        </div>
+                <h3>关注我们</h3>
+                <div class="wechat-qrcode">
+                    <div class="wechat-qrcode-item">
+                        <img src=".././assets/img/hcwxdyh.jpg" alt="微信公众号1">
+                        <p>皇宸订阅号</p>
                     </div>
-                    <div class="social-platforms">
+                    <div class="wechat-qrcode-item">
+                        <img src=".././assets/img/hcwxfwh.jpg" alt="微信公众号2">
+                        <p>皇宸服务号</p>
+                    </div>
+                </div>
+                <div class="social-platforms">
                         <a href="#" title="哔哩哔哩"><i class="fab fa-bilibili"></i></a>
                         <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
                         <a href="#" title="抖音"><i class="fab fa-tiktok"></i></a>
                         <a href="#" title="QQ群"><i class="fab fa-qq"></i></a>
                         <a href="#" title="微信群"><i class="fas fa-comments"></i></a>
                         <a href="https://kook.vip/h2QyLc" title="KOOK社区"><i class="fas fa-users"></i></a>
-                    </div>
+                </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1061,6 +1025,24 @@
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
+                });
+            });
+            
+            // 攻略区选项卡切换
+            const tabs = document.querySelectorAll('.guides-tab');
+            const contents = document.querySelectorAll('.guides-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // 移除所有active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // 添加active类到当前选项卡和内容
+                    tab.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
                 });
             });
             
