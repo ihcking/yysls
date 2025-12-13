@@ -3,81 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>成长共筑 - 新芽公会成长体系</title>
-    <meta name="description" content="燕云十六声，禾，休闲百业，养老百业，欢迎大家！">
-    <meta name="keywords" content="燕云十六声，燕云，游戏，手游，端游，页游，禾，兮禾，汐禾，百业，攻略">
+    <title>禾 - 成长共筑</title>
+    <meta name="description" content="新芽公会 · 完整成长与协作运营手册 - 一个不内卷、有温度、共同成长的家园">
+    <meta name="keywords" content="新芽公会, 游戏公会, 协作运营, 成长体系, 公会管理">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* 全局样式 */
+        /* 全局样式 - 优化版 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            font-family: 'Microsoft YaHei', '微软雅黑', 'Segoe UI', Arial, sans-serif;
         }
 
         :root {
-            --primary-color: #8e2de2; /* 紫色 */
-            --secondary-color: #4a00e0; /* 深紫色 */
-            --accent-color: #e94057; /* 红色 */
+            --primary-color: #8e2de2;
+            --secondary-color: #4a00e0;
+            --accent-color: #e94057;
+            --fun-color: #ff9a3c;
+            --success-color: #00c853;
+            --info-color: #2979ff;
             --dark-color: #1a1a2e;
             --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #666;
+            --text-lighter: #888;
+            --border-color: #eaeaea;
+            --border-light: #f0f0f0;
             --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            --gradient-fun: linear-gradient(135deg, var(--fun-color), #ffcc00);
+            --gradient-success: linear-gradient(135deg, var(--success-color), #64dd17);
             --section-bg: #ffffff;
             --section-alt: #f8f9fa;
-            --border-color: #eaeaea;
-            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
-            --nav-height: 70px; /* 导航栏高度变量 */
+            --section-light: #fcfcfe;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-deep: 0 12px 36px rgba(0, 0, 0, 0.12);
+            --nav-height: 70px;
         }
 
         body {
             background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
+            color: var(--text-color);
+            line-height: 1.7;
             overflow-x: hidden;
-            padding-top: var(--nav-height); /* 为固定导航栏留出空间 */
+            padding-top: var(--nav-height);
+            font-size: 16px;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-        }
-
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-
-        li {
-            margin-bottom: 4px;
+            transition: all 0.25s ease;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 14px 28px;
             background: var(--gradient-bg);
             color: white;
             border: none;
-            border-radius: 30px;
-            font-weight: bold;
+            border-radius: 12px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3);
+            font-size: 15px;
+            letter-spacing: 0.3px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.6);
+            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.4);
         }
 
-        /* ************ 优化后的导航栏样式 ************ */
+        /* ************ 导航栏样式 - 优化 ************ */
         header {
             background-color: rgba(26, 26, 46, 0.98);
             position: fixed;
@@ -90,6 +96,7 @@
             height: var(--nav-height);
             display: flex;
             align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-container {
@@ -97,24 +104,25 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             z-index: 1001;
         }
 
         .logo img {
-            height: 40px;
-            width: 40px;
+            height: 42px;
+            width: 42px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .logo-text {
@@ -124,7 +132,7 @@
 
         .logo h1 {
             color: white;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             background: linear-gradient(to right, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
@@ -135,9 +143,10 @@
 
         .logo-subtitle {
             color: #b0b0d0;
-            font-size: 11px;
+            font-size: 12px;
             margin-top: 2px;
             letter-spacing: 0.3px;
+            opacity: 0.9;
         }
 
         /* 桌面端导航链接 */
@@ -145,7 +154,7 @@
             display: flex;
             align-items: center;
             list-style: none;
-            gap: 5px; /* 减少间距 */
+            gap: 6px;
         }
 
         .nav-links li {
@@ -156,23 +165,23 @@
             color: #e0e0ff;
             font-weight: 500;
             font-size: 14px;
-            padding: 8px 12px; /* 增加内边距 */
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             white-space: nowrap;
         }
 
         .nav-links a i {
-            font-size: 12px;
-            opacity: 0.8;
+            font-size: 13px;
+            opacity: 0.9;
         }
 
         .nav-links a:hover {
             color: white;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.12);
             transform: translateY(-1px);
         }
 
@@ -180,6 +189,7 @@
             color: white !important;
             background: linear-gradient(135deg, rgba(142, 45, 226, 0.2), rgba(233, 64, 87, 0.2)) !important;
             font-weight: 600 !important;
+            box-shadow: 0 2px 8px rgba(142, 45, 226, 0.2);
         }
 
         .nav-active::before {
@@ -188,9 +198,9 @@
             bottom: -2px;
             left: 12px;
             right: 12px;
-            height: 2px;
+            height: 3px;
             background: var(--gradient-bg);
-            border-radius: 1px;
+            border-radius: 2px;
         }
 
         /* 汉堡菜单按钮 */
@@ -203,12 +213,12 @@
             justify-content: space-between;
             z-index: 1001;
             padding: 5px;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
         .hamburger:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
         .hamburger span {
@@ -246,16 +256,16 @@
                 flex-direction: column;
                 align-items: stretch;
                 background-color: rgba(26, 26, 46, 0.98);
-                backdrop-filter: blur(10px);
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(15px);
+                padding: 20px 24px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 z-index: 999;
                 gap: 0;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
             }
             
             .nav-links.active {
@@ -266,7 +276,7 @@
             
             .nav-links li {
                 margin: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
             
             .nav-links li:last-child {
@@ -274,17 +284,18 @@
             }
             
             .nav-links a {
-                padding: 16px 20px;
+                padding: 18px 20px;
                 font-size: 15px;
-                border-radius: 0;
+                border-radius: 6px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                margin: 4px 0;
             }
             
             .nav-links a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-                padding-left: 25px;
+                background-color: rgba(255, 255, 255, 0.15);
+                padding-left: 24px;
             }
             
             .nav-links a i {
@@ -304,34 +315,35 @@
         /* 小屏幕调整 */
         @media (max-width: 768px) {
             :root {
-                --nav-height: 60px;
+                --nav-height: 64px;
             }
             
             .logo h1 {
-                font-size: 18px;
+                font-size: 20px;
             }
             
             .logo img {
-                height: 34px;
-                width: 34px;
+                height: 36px;
+                width: 36px;
             }
             
             .logo-subtitle {
-                font-size: 10px;
+                font-size: 11px;
             }
         }
 
-        /* 页眉 */
+        /* ************ 页眉 - 优化 ************ */
         .header-banner {
-            height: 240px;
+            height: 340px;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-            margin-top: 0; /* 移除之前的margin-top，因为body已经有padding-top */
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            margin-bottom: 40px;
+            margin-top: 0;
         }
 
         .header-banner::before {
@@ -342,324 +354,358 @@
             width: 100%;
             height: 100%;
             background: url('https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.15;
+            opacity: 0.12;
             z-index: 0;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.4), rgba(233, 64, 87, 0.4));
+            z-index: 1;
         }
 
         .header-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             color: white;
             max-width: 800px;
             text-align: center;
             width: 100%;
+            padding: 0 20px;
         }
 
         .header-content h2 {
-            font-size: 36px;
-            margin-bottom: 12px;
+            font-size: 42px;
+            margin-bottom: 16px;
             font-weight: 800;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
         }
 
         .header-content p {
-            font-size: 16px;
-            margin-bottom: 15px;
-            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.9;
+            opacity: 0.95;
+            line-height: 1.6;
         }
 
-        /* 主体布局 - 左侧导航栏 + 右侧内容 */
-        .main-layout {
-            display: flex;
-            max-width: 1300px;
-            margin: 15px auto 0;
-            padding: 0 20px;
+        .header-tagline {
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.85;
+            margin-top: 10px;
+        }
+
+        /* ************ 手册内容区域 - 优化 ************ */
+        .manual-section {
+            padding: 60px 0 80px;
+            background-color: var(--section-light);
             position: relative;
-        }
-
-        /* 左侧目录导航 */
-        .sidebar {
-            width: 250px;
-            position: sticky;
-            top: 90px; /* 调整位置，考虑导航栏高度 */
-            height: calc(100vh - 110px);
-            overflow-y: auto;
-            margin-right: 25px;
-            flex-shrink: 0;
-            background: white;
-            border-radius: 16px;
-            box-shadow: var(--shadow-light);
-            padding: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        .sidebar::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .sidebar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .sidebar::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .sidebar-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border-color);
-            display: flex;
-            align-items: center;
-        }
-
-        .sidebar-title i {
-            margin-right: 8px;
-            font-size: 20px;
-        }
-
-        .toc-links {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .toc-section {
-            margin-bottom: 12px;
-        }
-
-        .toc-section-title {
-            font-weight: bold;
-            color: var(--dark-color);
-            font-size: 14px;
-            margin-bottom: 6px;
-            padding-left: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        .toc-section-title i {
-            margin-right: 6px;
-            font-size: 13px;
-            color: var(--primary-color);
-        }
-
-        .toc-links-inner {
-            padding-left: 16px;
-        }
-
-        .toc-link {
-            display: block;
-            padding: 8px 12px;
-            margin-bottom: 6px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            color: #555;
-            border-left: 3px solid transparent;
-            position: relative;
-        }
-
-        .toc-link:hover {
-            background: linear-gradient(to right, rgba(142, 45, 226, 0.1), rgba(233, 64, 87, 0.1));
-            color: var(--primary-color);
-            transform: translateX(5px);
-            border-left-color: var(--primary-color);
-        }
-
-        .toc-link.active {
-            background: linear-gradient(to right, rgba(142, 45, 226, 0.15), rgba(233, 64, 87, 0.15));
-            color: var(--primary-color);
-            border-left-color: var(--primary-color);
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(142, 45, 226, 0.15);
-        }
-
-        .toc-link.active::before {
-            content: '';
-            position: absolute;
-            left: -3px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-        }
-
-        /* 右侧内容区域 */
-        .content-area {
-            flex: 1;
-            min-width: 0;
-        }
-
-        /* 内容区域 */
-        .content-section {
-            padding: 12px 0;
-            background-color: transparent;
-        }
-
-        .content-section:first-oftype {
-            padding-top: 0;
         }
 
         .section-title {
-            margin-bottom: 16px;
-            position: relative;
-            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 26px;
+            font-size: 38px;
             color: var(--dark-color);
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .section-title h2::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 45px;
-            height: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
             background: var(--gradient-bg);
             border-radius: 2px;
         }
 
-        .section-title h3 {
-            font-size: 20px;
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 双栏布局容器 */
+        .manual-container {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* 左侧固定目录导航 - 优化 */
+        .toc-column {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            z-index: 10;
+            border-radius: 16px;
+        }
+
+        .toc-container {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-bg);
+        }
+
+        .toc-title {
+            font-size: 22px;
             color: var(--primary-color);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(142, 45, 226, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-list li {
             margin-bottom: 14px;
-            padding-left: 10px;
+        }
+
+        .toc-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: block;
+            padding: 12px 0;
+            border-left: 4px solid transparent;
+            padding-left: 18px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .toc-list a:hover {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background: rgba(142, 45, 226, 0.06);
+            padding-left: 22px;
+        }
+
+        .toc-list ul {
+            list-style: none;
+            margin: 12px 0 12px 18px;
+            padding: 0;
+            border-left: 1px solid rgba(142, 45, 226, 0.2);
+        }
+
+        .toc-list ul li {
+            margin-bottom: 10px;
+        }
+
+        .toc-list ul a {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+            padding: 8px 0 8px 16px;
+        }
+
+        .toc-list ul a:hover {
+            color: var(--primary-color);
+        }
+
+        .toc-list a.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            font-weight: 600;
+            background: rgba(142, 45, 226, 0.08);
+        }
+
+        /* 右侧内容区域 */
+        .content-column {
+            flex: 1;
+        }
+
+        /* 重新设计右侧内容区样式 - 参考build副本 */
+        .content-section {
+            padding: 32px 0;
+            background-color: transparent;
+        }
+
+        .content-section:first-of-type {
+            padding-top: 0;
+        }
+
+        .content-section-title {
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .content-section-title h2 {
+            font-size: 32px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .content-section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-bg);
+            border-radius: 2px;
+        }
+
+        .content-section-title h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            padding-left: 12px;
             border-left: 4px solid var(--accent-color);
         }
         
-        .section-title h4 {
-            font-size: 17px;
+        .content-section-title h4 {
+            font-size: 20px;
             color: var(--secondary-color);
-            margin: 16px 0 10px;
-            padding-bottom: 6px;
+            margin: 20px 0 12px;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color);
         }
 
         .section-subtitle {
-            font-size: 15px;
-            color: #666;
-            margin-top: 6px;
+            font-size: 18px;
+            color: var(--text-light);
+            margin-top: 8px;
             font-weight: normal;
         }
 
-        .section-content {
-            width: 100%;
-        }
-
+        /* 内容卡片 - 参考build副本 */
         .content-card {
             background-color: white;
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 16px;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
             box-shadow: var(--shadow-light);
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
         }
         
         .content-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-medium);
         }
         
         .card-header {
             display: flex;
             align-items: center;
-            margin-bottom: 14px;
+            margin-bottom: 20px;
         }
         
         .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 20px;
-            margin-right: 14px;
-            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3);
+            font-size: 24px;
+            margin-right: 20px;
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.3);
         }
         
         .card-title {
-            font-size: 18px;
+            font-size: 22px;
             color: var(--primary-color);
-            font-weight: bold;
+            font-weight: 700;
         }
         
         .card-subtitle {
-            font-size: 13px;
-            color: #666;
-            margin-top: 4px;
+            font-size: 15px;
+            color: var(--text-light);
+            margin-top: 6px;
         }
 
-        /* 表格样式 */
-        .growth-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 14px 0;
-            box-shadow: var(--shadow-light);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
+        /* 原则盒子 - 调整 */
+        .principle-box {
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.05), rgba(233, 64, 87, 0.05));
+            border-radius: 14px;
+            padding: 24px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
-        .growth-table th {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 12px;
-            text-align: left;
-            font-weight: bold;
-            font-size: 14px;
+        .principle-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
         }
 
-        .growth-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .growth-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .growth-table tr:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* 重新设计第二章：六大职能小组模块 */
+        /* 重新设计第二章：六大职能小组模块 - 参考build副本 */
         .function-module {
-            margin: 16px 0;
+            margin: 24px 0;
         }
         
         .function-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 14px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         
         .function-item {
             background: white;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-light);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #f0f0f0;
             position: relative;
@@ -670,11 +716,11 @@
         
         .function-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-deep);
         }
         
         .function-item-header {
-            padding: 18px 18px 14px;
+            padding: 22px 22px 16px;
             color: white;
             position: relative;
             overflow: hidden;
@@ -691,32 +737,32 @@
         }
         
         .function-item-icon {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 28px;
+            margin-bottom: 10px;
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .function-item-title {
-            font-size: 17px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         
         .function-item-subtitle {
-            font-size: 12px;
+            font-size: 14px;
             opacity: 0.9;
         }
         
         .function-item-content {
-            padding: 16px 18px;
+            padding: 20px 22px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -724,33 +770,33 @@
         
         .function-item-content h4 {
             color: var(--dark-color);
-            font-size: 15px;
-            margin-bottom: 8px;
+            font-size: 16px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
         
         .function-item-desc {
-            color: #555;
-            font-size: 13.5px;
+            color: var(--text-light);
+            font-size: 15px;
             line-height: 1.6;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             flex-grow: 1;
         }
         
         .function-item-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
             margin-top: auto;
         }
         
         .function-tag {
             display: inline-block;
-            padding: 3px 8px;
+            padding: 4px 10px;
             background: rgba(142, 45, 226, 0.1);
             color: var(--primary-color);
             border-radius: 16px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
         }
         
@@ -762,142 +808,11 @@
         .function-diplomacy { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
         .function-leisure { background: linear-gradient(135deg, #11998e, #38ef7d); }
 
-        /* 重新设计第五章：给不同成员的行动指南模块 */
-        .action-guide-module {
-            margin: 16px 0;
-        }
-        
-        .action-guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 14px;
-        }
-        
-        .action-guide-item {
-            background: white;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #f0f0f0;
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .action-guide-item:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
-        }
-        
-        .action-guide-item-header {
-            padding: 18px 18px 14px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .action-guide-icon-wrapper {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 14px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-        }
-        
-        .action-guide-icon {
-            font-size: 22px;
-            color: white;
-        }
-        
-        .action-guide-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--dark-color);
-        }
-        
-        .action-guide-subtitle {
-            font-size: 12px;
-            color: #666;
-            margin-top: 3px;
-        }
-        
-        .action-guide-content {
-            padding: 16px 18px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .action-guide-suggestion {
-            color: var(--primary-color);
-            font-size: 14px;
-            margin-bottom: 8px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .action-guide-suggestion i {
-            margin-right: 6px;
-            font-size: 13px;
-        }
-        
-        .action-guide-list {
-            margin-bottom: 14px;
-            flex-grow: 1;
-            padding-left: 18px;
-            margin-left: 0;
-        }
-        
-        /* 修正：列表项对齐 */
-        .action-guide-list li {
-            margin-bottom: 6px;
-            color: #555;
-            font-size: 13.5px;
-            position: relative;
-            padding-left: 0;
-            list-style-position: outside;
-            text-align: left;
-        }
-        
-        .action-guide-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: auto;
-        }
-        
-        .action-guide-tag {
-            display: inline-block;
-            padding: 3px 8px;
-            background: rgba(142, 45, 226, 0.08);
-            color: var(--primary-color);
-            border-radius: 16px;
-            font-size: 11px;
-            font-weight: 600;
-            border: 1px solid rgba(142, 45, 226, 0.2);
-        }
-        
-        /* 不同行动指南的颜色 - 更新并增加 */
-        .action-guide-1 .action-guide-icon-wrapper { background: linear-gradient(135deg, #4A00E0, #8E2DE2); }
-        .action-guide-2 .action-guide-icon-wrapper { background: linear-gradient(135deg, #00b09b, #96c93d); }
-        .action-guide-3 .action-guide-icon-wrapper { background: linear-gradient(135deg, #DA4453, #89216B); }
-        .action-guide-4 .action-guide-icon-wrapper { background: linear-gradient(135deg, #FF9800, #FFC107); } /* 更新为橙色系 */
-        .action-guide-5 .action-guide-icon-wrapper { background: linear-gradient(135deg, #9C27B0, #E91E63); } /* 新增：紫色到粉色 */
-        .action-guide-6 .action-guide-icon-wrapper { background: linear-gradient(135deg, #2196F3, #03A9F4); } /* 新增：蓝色系 */
-
-        /* 时间线样式 */
+        /* 重新设计第三章：时间线样式 - 参考build副本 */
         .timeline {
             position: relative;
-            max-width: 900px;
-            margin: 20px auto;
+            max-width: 100%;
+            margin: 30px auto;
         }
         
         .timeline::before {
@@ -919,38 +834,38 @@
         
         .timeline-item:nth-child(odd) {
             left: 0;
-            padding-right: 30px;
-            text-align: left;
+            padding-right: 40px;
+            text-align: right;
         }
         
         .timeline-item:nth-child(even) {
             left: 50%;
-            padding-left: 30px;
+            padding-left: 40px;
             text-align: left;
         }
         
         .timeline-dot {
             position: absolute;
             top: 0;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             background: var(--gradient-bg);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px white, 0 0 0 5px var(--primary-color);
+            box-shadow: 0 0 0 4px white, 0 0 0 6px var(--primary-color);
         }
         
         .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
+            right: -9px;
         }
         
         .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
+            left: -9px;
         }
         
         .timeline-content {
             background-color: white;
-            padding: 14px;
-            border-radius: 10px;
+            padding: 22px;
+            border-radius: 12px;
             box-shadow: var(--shadow-light);
             border: 1px solid var(--border-color);
             text-align: left;
@@ -959,43 +874,63 @@
         .timeline-title {
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 6px;
+            font-size: 18px;
+            margin-bottom: 8px;
             text-align: left;
         }
         
         .timeline-subtitle {
             color: var(--accent-color);
-            font-size: 12px;
-            margin-bottom: 6px;
+            font-size: 14px;
+            margin-bottom: 8px;
             text-align: left;
         }
+        
+        .timeline-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
 
-        /* 引用块样式 */
-        .quote-box {
-            background: linear-gradient(to right, rgba(142, 45, 226, 0.1), rgba(233, 64, 87, 0.1));
-            border-left: 4px solid var(--primary-color);
+        .step-requirements {
+            background: rgba(142, 45, 226, 0.05);
+            border-radius: 10px;
             padding: 16px;
-            margin: 16px 0;
-            border-radius: 0 10px 10px 0;
-            border: 1px solid rgba(142, 45, 226, 0.2);
-        }
-        
-        .quote-box p {
-            font-style: italic;
-            color: #555;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-        
-        .quote-author {
-            text-align: right;
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-top: 10px;
+            margin-top: 12px;
+            border-left: 4px solid var(--primary-color);
         }
 
-        /* FAQ样式 */
+        .step-requirements h5 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .step-requirements ul {
+            margin-left: 16px;
+            list-style: none;
+        }
+
+        .step-requirements li {
+            margin-bottom: 6px;
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .step-requirements li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* FAQ样式 - 从build副本中提取 */
         .faq-item {
             margin-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
@@ -1024,6 +959,235 @@
             color: #555;
             line-height: 1.6;
             padding: 0 6px;
+            display: none; /* 默认隐藏答案 */
+        }
+
+        /* 成员指南卡片 - 调整 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 36px 0;
+        }
+
+        .guide-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .guide-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.3);
+        }
+
+        /* 氛围爱好者专属样式 */
+        .fun-guide .guide-icon {
+            background: var(--gradient-fun);
+            box-shadow: 0 8px 20px rgba(255, 154, 60, 0.3);
+        }
+
+        .guide-title {
+            font-size: 20px;
+            color: var(--dark-color);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .guide-card > p {
+            color: var(--text-light);
+            margin-bottom: 18px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .guide-card ul {
+            text-align: left;
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+            width: 100%;
+        }
+
+        .guide-card li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 26px;
+            font-size: 14.5px;
+        }
+
+        .guide-card li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 16px;
+        }
+
+        /* 手册页脚 */
+        .manual-footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .manual-footer h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .manual-footer ul {
+            margin-left: 24px;
+            margin-bottom: 30px;
+        }
+
+        .manual-footer li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .manual-version {
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.05), rgba(233, 64, 87, 0.05));
+            border-radius: 14px;
+            padding: 28px;
+            text-align: center;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .manual-version p {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .manual-version em {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* 引用块样式 */
+        .quote-box {
+            background: linear-gradient(to right, rgba(142, 45, 226, 0.1), rgba(233, 64, 87, 0.1));
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+            border: 1px solid rgba(142, 45, 226, 0.2);
+        }
+        
+        .quote-box p {
+            font-style: italic;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 12px;
+        }
+
+        /* 页脚 - 与realms.html完全一致 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--gradient-bg);
+        }
+
+        .footer-column ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 8px;
+            list-style-type: none;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a i {
+            margin-right: 8px;
+            font-size: 13px;
+            width: 16px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 13px;
         }
 
         /* 微信二维码容器 */
@@ -1069,8 +1233,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: rgba(255,255,255,.1);
             border-radius: 50%;
             transition: all .3s ease;
@@ -1080,176 +1244,6 @@
         .social-platforms a:hover {
             background: var(--gradient-bg);
             transform: translateY(-3px);
-        }
-
-        /* 页脚 */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 35px 0 16px;
-            margin-top: 30px;
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .footer-column h3 {
-            font-size: 15px;
-            margin-bottom: 14px;
-            position: relative;
-            padding-bottom: 6px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--gradient-bg);
-        }
-
-        .footer-column ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-left: 0;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 6px;
-            list-style-type: none;
-        }
-
-        .footer-column ul li a {
-            color: #aaa;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-column ul li a i {
-            margin-right: 6px;
-            font-size: 12px;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--gradient-bg);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 12px;
-        }
-
-        /* 响应式设计 - 调整侧边栏 */
-        @media (max-width: 992px) {
-            .header-content h2 {
-                font-size: 30px;
-            }
-            
-            .header-content p {
-                font-size: 15px;
-            }
-            
-            .function-grid,
-            .action-guide-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            }
-            
-            .main-layout {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                position: relative;
-                top: 0;
-                height: auto;
-                margin-right: 0;
-                margin-bottom: 16px;
-            }
-            
-            .toc-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            
-            .toc-section {
-                flex: 1 0 45%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-banner {
-                height: 200px;
-                margin-top: 0;
-                border-radius: 0;
-            }
-            
-            .header-content h2 {
-                font-size: 24px;
-            }
-            
-            .header-content p {
-                font-size: 14px;
-            }
-            
-            .timeline::before {
-                left: 16px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 40px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-            }
-            
-            .timeline-dot {
-                left: 8px !important;
-                right: auto !important;
-            }
-            
-            .function-grid,
-            .action-guide-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title h2 {
-                font-size: 24px;
-            }
-            
-            .section-title h3 {
-                font-size: 20px;
-            }
-            
-            .content-card {
-                padding: 16px;
-            }
-            
-            .card-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 18px;
-                margin-right: 12px;
-            }
-            
-            .sidebar {
-                padding: 15px;
-            }
         }
 
         /* 动画效果 */
@@ -1265,7 +1259,7 @@
         }
 
         .fade-in {
-            animation: fadeIn 1s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
             opacity: 0;
         }
 
@@ -1280,31 +1274,29 @@
         .delay-3 {
             animation-delay: 0.6s;
         }
-        
-        .delay-4 {
-            animation-delay: 0.8s;
-        }
-        
+
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
-            bottom: 16px;
-            right: 16px;
-            width: 38px;
-            height: 38px;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
             background: var(--gradient-bg);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.4);
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.4);
+            border: none;
+            outline: none;
         }
         
         .back-to-top.show {
@@ -1313,36 +1305,236 @@
         }
         
         .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 24px rgba(142, 45, 226, 0.6);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .function-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .guide-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content h2 {
+                font-size: 36px;
+            }
+            
+            .header-content p {
+                font-size: 17px;
+            }
+            
+            .header-banner {
+                height: 300px;
+            }
+            
+            .manual-container {
+                flex-direction: column;
+            }
+            
+            .toc-column {
+                width: 100%;
+                position: static;
+                max-height: none;
+                margin-bottom: 36px;
+            }
+            
+            .toc-container {
+                position: static;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-dot {
+                left: 16px !important;
+                right: auto !important;
+            }
+            
+            .function-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-banner {
+                height: 260px;
+                margin-top: 0;
+                border-radius: 0;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .header-content h2 {
+                font-size: 30px;
+            }
+            
+            .header-content p {
+                font-size: 16px;
+            }
+            
+            .content-card {
+                padding: 24px 20px;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-right: 16px;
+            }
+            
+            .card-title {
+                font-size: 20px;
+            }
+            
+            .content-section-title h2 {
+                font-size: 28px;
+            }
+            
+            .content-section-title h3 {
+                font-size: 22px;
+            }
+            
+            .toc-container {
+                padding: 24px;
+            }
+            
+            .guide-card {
+                padding: 24px 20px;
+            }
+            
+            .principle-box {
+                padding: 20px;
+            }
+            
+            .function-item-header {
+                padding: 20px 20px 14px;
+            }
+            
+            .function-item-content {
+                padding: 18px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-banner {
+                height: 220px;
+            }
+            
+            .header-content h2 {
+                font-size: 26px;
+            }
+            
+            .header-content p {
+                font-size: 15px;
+            }
+            
+            .content-section-title h2 {
+                font-size: 24px;
+            }
+            
+            .content-section-title h3 {
+                font-size: 20px;
+            }
+            
+            .content-card {
+                padding: 20px 16px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-icon {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+            
+            .function-grid, .guide-grid {
+                gap: 16px;
+            }
         }
         
         /* 分隔线样式 */
         .section-divider {
             height: 1px;
             background: linear-gradient(to right, transparent, var(--border-color), transparent);
-            margin: 16px 0;
+            margin: 20px 0;
         }
         
         /* 高亮文本 */
         .highlight {
             background: linear-gradient(120deg, rgba(142, 45, 226, 0.2) 0%, rgba(142, 45, 226, 0.1) 100%);
-            padding: 2px 5px;
-            border-radius: 3px;
+            padding: 3px 6px;
+            border-radius: 4px;
             font-weight: 600;
         }
         
         /* 徽章样式 */
         .badge {
             display: inline-block;
-            padding: 3px 8px;
+            padding: 4px 10px;
             background: var(--gradient-bg);
             color: white;
             border-radius: 16px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: bold;
-            margin-right: 6px;
-            margin-bottom: 6px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* 表格样式 */
+        .growth-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: var(--shadow-light);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .growth-table th {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .growth-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .growth-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .growth-table tr:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -1351,10 +1543,10 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41em0tNyAwYy44MyAwIDEuNS0uNjcgMS41LTEuNVM5LjMzIDggOC41IDggOCA4LjY3IDggOC41IDggOSA4LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
                 <div class="logo-text">
                     <h1>禾</h1>
-                    <div class="logo-subtitle">新芽公会成长体系</div>
+                    <div class="logo-subtitle">成长共筑</div>
                 </div>
             </div>
             
@@ -1374,7 +1566,7 @@
                 <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
                 <li><a href="realms.html"><i class="fas fa-lightbulb"></i> 攻略心得</a></li>
                 <li><a href="stamina.html"><i class="fas fa-calculator"></i> 心力计算器</a></li>
-				<li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
+                <li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
             </ul>
         </div>
     </header>
@@ -1384,840 +1576,956 @@
         <div class="container">
             <div class="header-content">
                 <h2 class="fade-in">成长共筑</h2>
-                <p class="fade-in delay-1">新芽公会 · 完整成长与协作运营手册</p>
-                <p class="fade-in delay-2">轻松起步，自然生长，阶梯可见，压力可选</p>
+                <p class="fade-in delay-1">禾 - 成长共筑</p>
+                <p class="fade-in delay-2">轻量共筑，自然生长 · 一个不内卷、有温度、共同成长的家园</p>
+                <p class="header-tagline fade-in delay-3">禾下乘凉，新芽生长</p>
             </div>
         </div>
     </section>
 
-    <!-- 主体布局 -->
-    <div class="main-layout">
-        <!-- 左侧目录导航 -->
-        <aside class="sidebar">
-            <div class="sidebar-title">
-                <i class="fas fa-bookmark"></i> 文档目录
+    <!-- 手册内容 -->
+    <section class="manual-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>完整成长与协作运营手册</h2>
+                <p class="section-subtitle">本手册旨在为新芽公会成员提供清晰的成长路径与协作框架，共同营造一个健康、温暖、可持续的游戏社区环境。</p>
             </div>
-            <div class="toc-links">
-                <div class="toc-section">
-                    <div class="toc-section-title">
-                        <i class="fas fa-book"></i> 基础理念
-                    </div>
-                    <div class="toc-links-inner">
-                        <a href="#chapter1" class="toc-link active">核心理念与公约</a>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-section-title">
-                        <i class="fas fa-users"></i> 职能小组
-                    </div>
-                    <div class="toc-links-inner">
-                        <a href="#chapter2" class="toc-link">六大职能小组</a>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-section-title">
-                        <i class="fas fa-chart-line"></i> 成长路径
-                    </div>
-                    <div class="toc-links-inner">
-                        <a href="#chapter3" class="toc-link">七阶成长之路</a>
-                        <a href="#timeline" class="toc-link">成长时间线</a>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-section-title">
-                        <i class="fas fa-cogs"></i> 操作机制
-                    </div>
-                    <div class="toc-links-inner">
-                        <a href="#chapter4" class="toc-link">晋升与退出机制</a>
-                        <a href="#dispute" class="toc-link">争议解决流程</a>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-section-title">
-                        <i class="fas fa-user-check"></i> 成员指南
-                    </div>
-                    <div class="toc-links-inner">
-                        <a href="#chapter5" class="toc-link">行动指南</a>
-                    </div>
-                </div>
-                
-                <div class="toc-section">
-                    <div class="toc-section-title">
-                        <i class="fas fa-question-circle"></i> 常见问题
-                    </div>
-                    <div class="toc-links-inner">
-                        <a href="#chapter6" class="toc-link">FAQ 解答</a>
-                        <a href="#conclusion" class="toc-link">写在最后</a>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- 右侧内容区域 -->
-        <main class="content-area">
-            <!-- 第一章：核心理念与基础公约 -->
-            <section id="chapter1" class="content-section">
-                <div class="section-title">
-                    <h2>第一章：核心理念与基础公约</h2>
-                </div>
-                <div class="section-content">
-                    <div class="content-card fade-in">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div>
-                                <div class="card-title">我们的初心</div>
-                                <div class="card-subtitle">轻量共筑，自然生长</div>
-                            </div>
-                        </div>
-                        <p>新芽公会诞生于一个简单的愿望：创建一个<strong class="highlight">不内卷、有温度、共同成长</strong>的游戏家园。我们拒绝复杂的官僚体系，坚信最好的协作源于自发的热情与清晰的共识。</p>
-                        
-                        <h4>三条根基性原则：</h4>
-                        <ol>
-                            <li><strong>现实生活优先原则</strong>：游戏是生活的点缀。任何时候，学业、工作、健康、家庭都排在公会活动之前。我们鼓励"忙时潜水，闲时归来"。</li>
-                            <li><strong>贡献多元认可原则</strong>：贡献不仅是组织活动或输出攻略。一次暖心的欢迎、一个有趣的表情包、一次耐心的解答、一份整理的记录，都是同等珍贵的贡献。</li>
-                            <li><strong>体系服务人文原则</strong>：所有规则、职位、流程都是工具，唯一目的是让成员更舒心地玩耍与协作。当工具带来负担时，我们有权共同修改它。</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="content-card fade-in delay-1">
-                        <h3>成员基础公约（人人遵守的底线）</h3>
-                        <ol>
-                            <li><strong>友善与尊重</strong>：禁止人身攻击、歧视性言论及恶意嘲讽。争论应对事不对人。</li>
-                            <li><strong>直接沟通</strong>：有疑问、建议或不满，优先尝试与当事人直接沟通。避免背后抱怨形成误解。</li>
-                            <li><strong>保密与信任</strong>：公会内部聊天中涉及的私人信息、未公开的战术或决策，未经允许不得外泄。</li>
-                            <li><strong>账号安全自负</strong>：公会绝不索要账号密码，所有装备、金币交易请自行辨别风险。</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 分隔线 -->
-            <div class="section-divider"></div>
-
-            <!-- 第二章：六大职能小组详细职责与协作接口 -->
-            <section id="chapter2" class="content-section">
-                <div class="section-title">
-                    <h2>第二章：六大职能小组</h2>
-                    <p class="section-subtitle">当前阶段特色：人少事简，用心构建温馨家园</p>
-                </div>
-                <div class="section-content">
-                    <div class="function-module">
-                        <div class="function-grid">
-                            <!-- 活动组 -->
-                            <div class="function-item fade-in">
-                                <div class="function-item-header function-activity">
-                                    <div class="function-item-icon">
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </div>
-                                    <div class="function-item-title">活动组 🎯</div>
-                                    <div class="function-item-subtitle">活力策划师</div>
-                                </div>
-                                <div class="function-item-content">
-                                    <h4>核心任务</h4>
-                                    <div class="function-item-desc">
-                                        每周策划1个小活动（线上聚会、小游戏、观光等），让公会充满活力。点子直接群内讨论，需要支持时@相关小组。
-                                    </div>
-                                    <div class="function-item-tags">
-                                        <span class="function-tag">策划</span>
-                                        <span class="function-tag">组织</span>
-                                        <span class="function-tag">活力</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 指挥组 -->
-                            <div class="function-item fade-in delay-1">
-                                <div class="function-item-header function-command">
-                                    <div class="function-item-icon">
-                                        <i class="fas fa-crosshairs"></i>
-                                    </div>
-                                    <div class="function-item-title">指挥组 ⚔️</div>
-                                    <div class="function-item-subtitle">战斗带领者</div>
-                                </div>
-                                <div class="function-item-content">
-                                    <h4>核心任务</h4>
-                                    <div class="function-item-desc">
-                                        每周组织2次主要副本/战场，耐心带新，优化团队配合。需要攻略找技术组，精彩瞬间邀文艺组记录。
-                                    </div>
-                                    <div class="function-item-tags">
-                                        <span class="function-tag">战斗</span>
-                                        <span class="function-tag">指挥</span>
-                                        <span class="function-tag">团队</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 技术组 -->
-                            <div class="function-item fade-in delay-2">
-                                <div class="function-item-header function-tech">
-                                    <div class="function-item-icon">
-                                        <i class="fas fa-code"></i>
-                                    </div>
-                                    <div class="function-item-title">技术组 🔧</div>
-                                    <div class="function-item-subtitle">攻略帮手</div>
-                                </div>
-                                <div class="function-item-content">
-                                    <h4>核心任务</h4>
-                                    <div class="function-item-desc">
-                                        每人专精1个方向（副本、职业等），及时解答技术问题，撰写实用指南。主动为指挥组提供支持，攻略可交文艺组美化。
-                                    </div>
-                                    <div class="function-item-tags">
-                                        <span class="function-tag">攻略</span>
-                                        <span class="function-tag">技术</span>
-                                        <span class="function-tag">研究</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 文艺组 -->
-                            <div class="function-item fade-in">
-                                <div class="function-item-header function-art">
-                                    <div class="function-item-icon">
-                                        <i class="fas fa-palette"></i>
-                                    </div>
-                                    <div class="function-item-title">文艺组 🎨</div>
-                                    <div class="function-item-subtitle">氛围记录者</div>
-                                </div>
-                                <div class="function-item-content">
-                                    <h4>核心任务</h4>
-                                    <div class="function-item-desc">
-                                        自愿担任活动"摄影师"，每周制作精彩瞬间合集，配合宣传需求。主动收集各组的难忘时刻，为外交组美化宣传素材。
-                                    </div>
-                                    <div class="function-item-tags">
-                                        <span class="function-tag">记录</span>
-                                        <span class="function-tag">美化</span>
-                                        <span class="function-tag">创意</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 外交组 -->
-                            <div class="function-item fade-in delay-1">
-                                <div class="function-item-header function-diplomacy">
-                                    <div class="function-item-icon">
-                                        <i class="fas fa-handshake"></i>
-                                    </div>
-                                    <div class="function-item-title">外交组 🤝</div>
-                                    <div class="function-item-subtitle">友善使者</div>
-                                </div>
-                                <div class="function-item-content">
-                                    <h4>核心任务</h4>
-                                    <div class="function-item-desc">
-                                        积极招募新人，提升公会知名度，友善处理对外联系。联合活动前与活动组协同，外部福利及时同步。
-                                    </div>
-                                    <div class="function-item-tags">
-                                        <span class="function-tag">招募</span>
-                                        <span class="function-tag">外交</span>
-                                        <span class="function-tag">沟通</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 休闲组 -->
-                            <div class="function-item fade-in delay-2">
-                                <div class="function-item-header function-leisure">
-                                    <div class="function-item-icon">
-                                        <i class="fas fa-leaf"></i>
-                                    </div>
-                                    <div class="function-item-title">休闲组 🌱</div>
-                                    <div class="function-item-subtitle">温度守护者</div>
-                                </div>
-                                <div class="function-item-content">
-                                    <h4>核心任务</h4>
-                                    <div class="function-item-desc">
-                                        确保新人入群即被欢迎，每周组织"闲聊茶会"，协调后勤与氛围。担任公会"温度计"，及时沟通反馈，转达创意点子。
-                                    </div>
-                                    <div class="function-item-tags">
-                                        <span class="function-tag">氛围</span>
-                                        <span class="function-tag">关怀</span>
-                                        <span class="function-tag">后勤</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 分隔线 -->
-            <div class="section-divider"></div>
-
-            <!-- 第三章：七阶成长路径详细说明 -->
-            <section id="chapter3" class="content-section">
-                <div class="section-title">
-                    <h2>第三章：七阶成长之路</h2>
-                    <p class="section-subtitle">成长全景图：预备成员 → 先知 → 大师 → 执事 → 香主 → 副社 → 副社主（轮值） → 长老（邀请）</p>
-                </div>
-                <div class="section-content">
-                    <div class="quote-box fade-in">
-                        <p>每一阶都是责任形态的转变，是自然生长，而非竞赛。前三个月重点在前三阶，后续阶段随公会发展自然开启。</p>
-                        <div class="quote-author">—— 新芽核心理念</div>
-                    </div>
-                    
-                    <div class="content-card fade-in delay-1">
-                        <h3>成长阶段概览</h3>
-                        <table class="growth-table">
-                            <thead>
-                                <tr>
-                                    <th>时间阶段</th>
-                                    <th>重点发展</th>
-                                    <th>开启职位</th>
-                                    <th>关键目标</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>0-3个月</strong></td>
-                                    <td>预备成员 → 大师</td>
-                                    <td>试验性设立执事</td>
-                                    <td>建立基础协作模式</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>4-6个月</strong></td>
-                                    <td>正式设立执事</td>
-                                    <td>观察香主人选</td>
-                                    <td>形成稳定小组结构</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>7-12个月</strong></td>
-                                    <td>设立香主</td>
-                                    <td>培养副社</td>
-                                    <td>建立完整管理体系</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1年以上</strong></td>
-                                    <td>启动轮值副社主</td>
-                                    <td>考虑长老授予</td>
-                                    <td>形成公会文化传统</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- 成长时间线 -->
-                    <div id="timeline" class="section-title" style="margin-top: 20px;">
-                        <h3>成长时间线</h3>
-                    </div>
-                    
-                    <div class="timeline fade-in">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第零阶：预备成员</div>
-                                <div class="timeline-subtitle">0-2周 · 体验者与融入者</div>
-                                <p><strong>目标</strong>：无压力融入，找到兴趣点</p>
-                                <p><strong>必修任务</strong>：参加迎新茶会，体验2个小组，完成自我介绍</p>
-                                <p><strong>支持</strong>：指定一位"休闲组"成员作为你的融入伙伴</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第一阶：先知</div>
-                                <div class="timeline-subtitle">稳定参与者 · 基础贡献者</div>
-                                <p><strong>目标</strong>：成为小组内稳定的基础力量</p>
-                                <p><strong>核心职责</strong>：每周参与小组活动，响应简单任务，持续学习</p>
-                                <p><strong>晋升至大师</strong>：稳定1个月以上，累计完成5个以上任务，主动承担额外工作</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第二阶：大师</div>
-                                <div class="timeline-subtitle">核心贡献者 · 组内骨干</div>
-                                <p><strong>目标</strong>：成为小组内可靠的中坚骨干，能独立负责小型专项</p>
-                                <p><strong>核心职责</strong>：专项负责，协助管理，带教新人，提出改进</p>
-                                <p><strong>晋升至执事</strong>：担任2-3个月，独立组织过成功活动，获组内认可</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第三阶：执事</div>
-                                <div class="timeline-subtitle">组内管理者 · 副组长级</div>
-                                <p><strong>目标</strong>：从执行者转变为组织者，负责小组内一块具体业务</p>
-                                <p><strong>核心职责</strong>：业务管理，任务分配，人才培养，流程优化</p>
-                                <p><strong>特别提示</strong>：这是第一个真正的管理岗，核心考核指标是组员的工作体验和业务产出质量</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第四阶：香主</div>
-                                <div class="timeline-subtitle">组长 · 一组的全面领导者</div>
-                                <p><strong>目标</strong>：对小组的整体健康度和发展方向负责</p>
-                                <p><strong>开启条件</strong>：公会内有至少3个职能小组，每个小组活跃人数常驻5人以上</p>
-                                <p><strong>核心职责</strong>：战略规划，团队建设，对外代表，资源管理</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第五阶：副社</div>
-                                <div class="timeline-subtitle">跨组协调者 · 打破小组壁垒</div>
-                                <p><strong>目标</strong>：优化公会内部整体协作效率</p>
-                                <p><strong>开启条件</strong>：公会总稳定活跃成员超过30人，且已稳定运行超过半年</p>
-                                <p><strong>核心职责</strong>：流程优化，项目协调，战略参与</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第六阶：副社主</div>
-                                <div class="timeline-subtitle">轮值执行官 · 体验公会全局运营</div>
-                                <p><strong>目标</strong>：培养顶级管理者视野</p>
-                                <p><strong>核心机制</strong>：轮值制，每季度（3个月）一轮换</p>
-                                <p><strong>核心理念</strong>：服务而非领导，体验与成长，轻量交接</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">第七阶：长老</div>
-                                <div class="timeline-subtitle">终身荣誉守护者 · 精神灯塔</div>
-                                <p><strong>性质</strong>：纯荣誉职位，不接受申请，仅由邀请授予</p>
-                                <p><strong>授予时机</strong>：公会稳定运行一年以上，且已有深厚的文化积淀</p>
-                                <p><strong>职责与权利</strong>：文化守护，战略决策，一票否决权（需附公开说明），精神导师</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 分隔线 -->
-            <div class="section-divider"></div>
-
-            <!-- 第四章：详细操作机制 -->
-            <section id="chapter4" class="content-section">
-                <div class="section-title">
-                    <h2>第四章：详细操作机制</h2>
-                </div>
-                <div class="section-content">
-                    <div class="content-card fade-in">
-                        <h3>晋升申请标准化流程</h3>
-                        <ol>
-                            <li><strong>步骤一：自我评估与沟通</strong>
+            
+            <div class="manual-container">
+                <!-- 左侧固定目录导航 -->
+                <div class="toc-column">
+                    <div class="toc-container">
+                        <div class="toc-title"><i class="fas fa-bookmark"></i> 目录导航</div>
+                        <ul class="toc-list">
+                            <li><a href="#chapter1" class="active">第一章：核心理念与基础公约</a>
                                 <ul>
-                                    <li>使用《月度成长自省表》进行填写</li>
-                                    <li>与现任直属上级进行非正式沟通，表达意向并听取反馈</li>
+                                    <li><a href="#section1-1">一、我们的初心</a></li>
+                                    <li><a href="#section1-2">二、成员基础公约</a></li>
                                 </ul>
                             </li>
-                            <li><strong>步骤二：正式提交申请</strong>
+                            <li><a href="#chapter2">第二章：六大职能小组</a>
                                 <ul>
-                                    <li>在"百业核心群"发布固定格式消息</li>
-                                    <li>将《月度成长自省表》私聊发送给直属上级及一位长老会成员备案</li>
+                                    <li><a href="#section2-1">一、活动组 🎯</a></li>
+                                    <li><a href="#section2-2">二、指挥组 ⚔️</a></li>
+                                    <li><a href="#section2-3">三、技术组 🔧</a></li>
+                                    <li><a href="#section2-4">四、文艺组 🎨</a></li>
+                                    <li><a href="#section2-5">五、外交组 🤝</a></li>
+                                    <li><a href="#section2-6">六、休闲组 🌱</a></li>
                                 </ul>
                             </li>
-                            <li><strong>步骤三：评审与考察（7日内完成）</strong>
-                                <ul>
-                                    <li><strong>大师及以下</strong>：由组长主导，征询2-3位组内同事意见后即可批准</li>
-                                    <li><strong>执事</strong>：组长评审后，需额外获得1位其他组组长和1位长老的书面同意</li>
-                                    <li><strong>香主及以上</strong>：按前述各职位具体要求，进行投票、面试等流程</li>
-                                </ul>
-                            </li>
-                            <li><strong>步骤四：晋升仪式</strong>
-                                <ul>
-                                    <li>在每周公会活动前，进行5分钟线上仪式</li>
-                                    <li>流程：上级介绍晋升者贡献 → 晋升者分享30秒感言 → 群内刷屏祝福表情包 → 系统发放新头衔与祝贺邮件</li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </div>
-                    
-                    <div class="content-card fade-in delay-1">
-                        <h3>休眠、降级与荣誉退出机制</h3>
-                        
-                        <h4>主动休眠流程：</h4>
-                        <ol>
-                            <li>向直属上级发送休眠申请，说明预计回归时间（最长1年）</li>
-                            <li>进入休眠名单，保留所有职位、头衔及社群身份</li>
-                            <li>回归时，只需在群内说一声"我回来了"，并与上级沟通确定一个月的适应期任务</li>
-                        </ol>
-                        
-                        <h4>温和降级流程（针对长期不活跃）：</h4>
-                        <ol>
-                            <li><strong>阶段一（失联1个月）</strong>：组长私聊问候，了解情况</li>
-                            <li><strong>阶段二（失联2个月）</strong>：组长询问是否希望转入休眠状态。如无回应，系统自动降一级（如大师降为先知）</li>
-                            <li><strong>阶段三（失联3个月）</strong>：转入"荣誉成员"名单，移出活跃群组，保留核心群身份以便回归</li>
-                        </ol>
-                        
-                        <h4>荣誉退出：</h4>
-                        <ul>
-                            <li>对于因现实原因必须离开的贡献成员，举办小型线上欢送会</li>
-                            <li>其名字和主要贡献将被录入《新芽荣誉殿堂》在线文档</li>
-                            <li>公会社群大门永远对其敞开</li>
+                            <li><a href="#chapter3">第三章：七阶成长路径</a></li>
+                            <li><a href="#chapter4">第四章：详细操作机制</a></li>
+                            <li><a href="#chapter5">第五章：给不同成员的行动指南</a></li>
+                            <li><a href="#chapter6">第六章：常见问题解答</a></li>
                         </ul>
                     </div>
+                </div>
+                
+                <!-- 右侧内容区域 - 重新设计排版 -->
+                <div class="content-column">
+                    <!-- 第一章 -->
+                    <section id="chapter1" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第一章：核心理念与基础公约</h2>
+                        </div>
+                        
+                        <div class="content-card fade-in">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div>
+                                    <div class="card-title">我们的初心</div>
+                                    <div class="card-subtitle">轻量共筑，自然生长</div>
+                                </div>
+                            </div>
+                            <p>新芽公会诞生于一个简单的愿望：创建一个<strong class="highlight">不内卷、有温度、共同成长</strong>的游戏家园。我们拒绝复杂的官僚体系，坚信最好的协作源于自发的热情与清晰的共识。</p>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-1">
+                            <h3>一、我们的初心：轻量共筑，自然生长</h3>
+                            
+                            <div class="principle-box">
+                                <h4><i class="fas fa-star"></i> 三条根基性原则：</h4>
+                                <ol>
+                                    <li><strong>现实生活优先原则</strong>：游戏是生活的点缀。任何时候，学业、工作、健康、家庭都排在公会活动之前。我们鼓励"忙时潜水，闲时归来"，绝不因游戏影响现实生活的平衡。</li>
+                                    <li><strong>贡献多元认可原则</strong>：贡献不仅是组织活动或输出攻略。一次暖心的欢迎、一个有趣的表情包、一次耐心的解答、一份整理的记录，甚至只是在聊天中营造积极氛围，都是同等珍贵的贡献。</li>
+                                    <li><strong>体系服务人文原则</strong>：所有规则、职位、流程都是工具，唯一目的是让成员更舒心地玩耍与协作。当工具带来负担时，我们有权共同修改它。体系应为人服务，而非束缚。</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div id="section1-2" class="content-card fade-in delay-2">
+                            <h3>二、成员基础公约（人人遵守的底线）</h3>
+                            
+                            <div class="function-grid">
+                                <div class="function-item">
+                                    <div class="function-item-header function-activity">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-heart"></i>
+                                        </div>
+                                        <div class="function-item-title">友善与尊重</div>
+                                        <div class="function-item-subtitle">相处的基础</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <div class="function-item-desc">
+                                            禁止人身攻击、歧视性言论及恶意嘲讽。争论应对事不对人，保持理性与礼貌。尊重每个人的游戏风格和时间安排。
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">尊重</span>
+                                            <span class="function-tag">礼貌</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="function-item">
+                                    <div class="function-item-header function-command">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <div class="function-item-title">直接沟通</div>
+                                        <div class="function-item-subtitle">解决问题的最佳方式</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <div class="function-item-desc">
+                                            有疑问、建议或不满，优先尝试与当事人直接、私下沟通。避免背后抱怨形成误解，建设性地解决问题。
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">沟通</span>
+                                            <span class="function-tag">直接</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="function-item">
+                                    <div class="function-item-header function-tech">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <div class="function-item-title">保密与信任</div>
+                                        <div class="function-item-subtitle">公会的基石</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <div class="function-item-desc">
+                                            公会内部聊天中涉及的私人信息、未公开的战术或决策，未经允许不得外泄。信任是公会的基石。
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">保密</span>
+                                            <span class="function-tag">信任</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="function-item">
+                                    <div class="function-item-header function-art">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div class="function-item-title">账号安全自负</div>
+                                        <div class="function-item-subtitle">保护个人财产</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <div class="function-item-desc">
+                                            公会绝不索要账号密码，所有装备、金币交易请自行辨别风险。保护好自己的虚拟财产安全。
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">安全</span>
+                                            <span class="function-tag">责任</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="function-item">
+                                    <div class="function-item-header function-diplomacy">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-lightbulb"></i>
+                                        </div>
+                                        <div class="function-item-title">积极建设性</div>
+                                        <div class="function-item-subtitle">共建美好家园</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <div class="function-item-desc">
+                                            发现问题时，不只抱怨，而是提出可行的改进建议。积极参与公会的建设与发展。
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">建设性</span>
+                                            <span class="function-tag">积极</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="function-item">
+                                    <div class="function-item-header function-leisure">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div class="function-item-title">新人友善原则</div>
+                                        <div class="function-item-subtitle">传承互助精神</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <div class="function-item-desc">
+                                            对新成员保持耐心和友善，主动提供帮助。每个人都是从新手成长起来的，传承互助精神。
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">友善</span>
+                                            <span class="function-tag">帮助</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     
-                    <div id="dispute" class="content-card fade-in delay-2">
-                        <h3>争议解决流程</h3>
-                        <ol>
-                            <li><strong>第一步：直接沟通</strong>：鼓励双方私下直接、冷静地沟通</li>
-                            <li><strong>第二步：调解介入</strong>：若沟通无效，可邀请双方都信任的第三位成员（通常是休闲组成员或一位长老）进行调解</li>
-                            <li><strong>第三步：小组评议</strong>：若涉及管理问题或严重违规，提交至当事小组全体或公会管理会议进行评议</li>
-                            <li><strong>第四步：长老裁决</strong>：仅在最严重且无法达成共识的情况下，由长老会听取各方陈述后作出最终裁决，并公布裁决理由</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
 
-            <!-- 分隔线 -->
-            <div class="section-divider"></div>
-
-            <!-- 第五章：给不同成员的行动指南 -->
-            <section id="chapter5" class="content-section">
-                <div class="section-title">
-                    <h2>第五章：给不同成员的行动指南</h2>
-                </div>
-                <div class="section-content">
-                    <div class="action-guide-module">
-                        <div class="action-guide-grid">
-                            <div class="action-guide-item action-guide-1 fade-in">
-                                <div class="action-guide-item-header">
-                                    <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-user-clock"></i>
-                                    </div>
-                                    <div>
-                                        <div class="action-guide-title">时间充裕的"深度参与者"</div>
-                                        <div class="action-guide-subtitle">贡献核心力量，推动公会发展</div>
-                                    </div>
-                                </div>
-                                <div class="action-guide-content">
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-lightbulb"></i> 建议
-                                    </div>
-                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">可加入1个主小组+1个客串小组，充分发挥你的时间和热情。</p>
-                                    
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-tasks"></i> 行动清单
-                                    </div>
-                                    <ul class="action-guide-list">
-                                        <li>主动认领一个需要长期维护的"小项目"</li>
-                                        <li>尝试为公会创作一篇指南、一个工具或一份历史记录</li>
-                                        <li>担任新人的"成长伙伴"，帮助新人快速融入</li>
-                                        <li>积极参与跨组协作，成为沟通桥梁</li>
-                                    </ul>
-                                    
-                                    <div class="action-guide-tags">
-                                        <span class="action-guide-tag">深度参与</span>
-                                        <span class="action-guide-tag">项目负责</span>
-                                        <span class="action-guide-tag">创作贡献</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="action-guide-item action-guide-2 fade-in delay-1">
-                                <div class="action-guide-item-header">
-                                    <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-user-check"></i>
-                                    </div>
-                                    <div>
-                                        <div class="action-guide-title">时间有限的"稳定支持者"</div>
-                                        <div class="action-guide-subtitle">提供稳定支持，成为可靠力量</div>
-                                    </div>
-                                </div>
-                                <div class="action-guide-content">
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-lightbulb"></i> 建议
-                                    </div>
-                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">专注1个小组，成为那里的"定海神针"，你的稳定就是最大支持。</p>
-                                    
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-tasks"></i> 行动清单
-                                    </div>
-                                    <ul class="action-guide-list">
-                                        <li>每次活动尽量参加，你的稳定出席就是最大支持</li>
-                                        <li>在能力范围内，高质量完成一件固定的小事</li>
-                                        <li>在群聊中多给予他人正向反馈和鼓励</li>
-                                        <li>成为小组内的"稳定器"，在关键时刻提供支持</li>
-                                    </ul>
-                                    
-                                    <div class="action-guide-tags">
-                                        <span class="action-guide-tag">稳定参与</span>
-                                        <span class="action-guide-tag">可靠支持</span>
-                                        <span class="action-guide-tag">氛围营造</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="action-guide-item action-guide-3 fade-in delay-2">
-                                <div class="action-guide-item-header">
-                                    <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-user-cog"></i>
-                                    </div>
-                                    <div>
-                                        <div class="action-guide-title">擅长思考的"流程优化者"</div>
-                                        <div class="action-guide-subtitle">优化协作流程，提升整体效率</div>
-                                    </div>
-                                </div>
-                                <div class="action-guide-content">
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-lightbulb"></i> 建议
-                                    </div>
-                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">先沉浸式体验现有流程，再提出优化建议，用系统思维推动改进。</p>
-                                    
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-tasks"></i> 行动清单
-                                    </div>
-                                    <ul class="action-guide-list">
-                                        <li>用一个月时间观察记录现有协作模式的优缺点</li>
-                                        <li>提出建议时，附上具体的替代方案和可行性分析</li>
-                                        <li>主动承担起新流程试运行的协调工作</li>
-                                        <li>帮助其他成员理解和适应优化后的流程</li>
-                                    </ul>
-                                    
-                                    <div class="action-guide-tags">
-                                        <span class="action-guide-tag">流程优化</span>
-                                        <span class="action-guide-tag">系统思考</span>
-                                        <span class="action-guide-tag">协调执行</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 更新后的"纯粹享受游戏的'氛围爱好者'" -->
-                            <div class="action-guide-item action-guide-4 fade-in delay-3">
-                                <div class="action-guide-item-header">
-                                    <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-gamepad"></i> <!-- 更新图标 -->
-                                    </div>
-                                    <div>
-                                        <div class="action-guide-title">纯粹享受游戏的"氛围爱好者"</div>
-                                        <div class="action-guide-subtitle">创造快乐氛围，守护公会温度</div>
-                                    </div>
-                                </div>
-                                <div class="action-guide-content">
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-lightbulb"></i> 建议
-                                    </div>
-                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">你正是公会存在的核心价值之一，你的快乐会感染所有人。</p>
-                                    
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-tasks"></i> 行动清单
-                                    </div>
-                                    <ul class="action-guide-list">
-                                        <li>尽情享受活动，你的快乐会感染所有人</li>
-                                        <li>在活动后，分享你的玩家视角体验</li>
-                                        <li>用你的幽默感，为公会创造更多有趣的"梗"和回忆</li>
-                                        <li>在气氛紧张时，用轻松的话语缓解压力</li>
-                                    </ul>
-                                    
-                                    <div class="action-guide-tags">
-                                        <span class="action-guide-tag">快乐游戏</span>
-                                        <span class="action-guide-tag">氛围贡献</span>
-                                        <span class="action-guide-tag">文化创造</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 新增的"喜欢社交的'团队粘合剂'" -->
-                            <div class="action-guide-item action-guide-5 fade-in delay-3">
-                                <div class="action-guide-item-header">
-                                    <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-users"></i>
-                                    </div>
-                                    <div>
-                                        <div class="action-guide-title">喜欢社交的"团队粘合剂"</div>
-                                        <div class="action-guide-subtitle">连接人与人，强化团队凝聚力</div>
-                                    </div>
-                                </div>
-                                <div class="action-guide-content">
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-lightbulb"></i> 建议
-                                    </div>
-                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">你是公会的社交中心，能帮助新老成员建立连接。</p>
-                                    
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-tasks"></i> 行动清单
-                                    </div>
-                                    <ul class="action-guide-list">
-                                        <li>主动与新人聊天，帮助他们快速融入</li>
-                                        <li>记住成员的喜好和特点，创造个性化的互动</li>
-                                        <li>组织小型社交活动，如语音聊天或游戏内聚会</li>
-                                        <li>在不同小组间建立联系，促进跨组交流</li>
-                                        <li>关注成员的近况，在需要时提供情感支持</li>
-                                    </ul>
-                                    
-                                    <div class="action-guide-tags">
-                                        <span class="action-guide-tag">社交连接</span>
-                                        <span class="action-guide-tag">团队凝聚</span>
-                                        <span class="action-guide-tag">情感支持</span>
-                                        <span class="action-guide-tag">跨组交流</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- 新增的"追求极致的'数据钻研者'" -->
-                            <div class="action-guide-item action-guide-6 fade-in delay-4">
-                                <div class="action-guide-item-header">
-                                    <div class="action-guide-icon-wrapper">
-                                        <i class="action-guide-icon fas fa-chart-line"></i>
-                                    </div>
-                                    <div>
-                                        <div class="action-guide-title">追求极致的"数据钻研者"</div>
-                                        <div class="action-guide-subtitle">深度研究机制，提供精准建议</div>
-                                    </div>
-                                </div>
-                                <div class="action-guide-content">
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-lightbulb"></i> 建议
-                                    </div>
-                                    <p style="margin-bottom: 12px; color: #555; font-size: 13.5px;">你的研究成果能帮助整个公会提升游戏理解和操作水平。</p>
-                                    
-                                    <div class="action-guide-suggestion">
-                                        <i class="fas fa-tasks"></i> 行动清单
-                                    </div>
-                                    <ul class="action-guide-list">
-                                        <li>深入研究游戏机制，为技术组提供数据支持</li>
-                                        <li>测试不同职业、装备搭配的优劣，分享最优解</li>
-                                        <li>分析公会活动的数据，找出效率提升点</li>
-                                        <li>制作数据可视化图表，让复杂信息一目了然</li>
-                                        <li>在重大版本更新前，提前研究并提供应对策略</li>
-                                    </ul>
-                                    
-                                    <div class="action-guide-tags">
-                                        <span class="action-guide-tag">数据分析</span>
-                                        <span class="action-guide-tag">机制研究</span>
-                                        <span class="action-guide-tag">效率优化</span>
-                                        <span class="action-guide-tag">前瞻策略</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 分隔线 -->
-            <div class="section-divider"></div>
-
-            <!-- 第六章：常见问题解答（FAQ） -->
-            <section id="chapter6" class="content-section">
-                <div class="section-title">
-                    <h2>第六章：常见问题解答（FAQ）</h2>
-                </div>
-                <div class="section-content">
-                    <div class="content-card fade-in">
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span>晋升一定要等满规定时间吗？</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p><strong>A</strong>：不完全。规定时间是最低参考。核心标准是"能力与意愿是否到位"。如果贡献特别突出，经集体认可可以破格。但切勿为晋升而强求。</p>
-                            </div>
+                    <!-- 第二章 -->
+                    <section id="chapter2" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第二章：六大职能小组详细职责与协作接口</h2>
+                            <p class="section-subtitle">六大职能小组构成公会的核心架构，每个小组都有明确的职责和协作接口，确保公会运营高效且充满活力。</p>
                         </div>
                         
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span>当了管理（执事/香主）是不是就不能轻松玩游戏了？</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p><strong>A</strong>：管理职责确实会占用一部分时间和精力。我们的设计初衷是"轻量管理"。如果你感到负担过重，说明流程可能出了问题，请立即提出，我们一起优化。管理者同样有权利享受纯粹的游戏乐趣。</p>
+                        <div class="function-module">
+                            <div class="function-grid">
+                                <!-- 活动组 -->
+                                <div id="section2-1" class="function-item fade-in">
+                                    <div class="function-item-header function-activity">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                        <div class="function-item-title">活动组 🎯</div>
+                                        <div class="function-item-subtitle">公会活力的引擎</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <h4>核心职责清单：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>常规活动</strong>：每周至少组织1次线上集体活动（如趣味PVP、竞速赛、探索活动等）</li>
+                                                <li><strong>节日/版本活动</strong>：在游戏节日或新版本更新时，策划特别庆祝活动，提升节日氛围</li>
+                                                <li><strong>活动支持</strong>：为其他小组的活动提供"趣味化"建议，让严肃内容变得生动有趣</li>
+                                                <li><strong>反馈收集</strong>：每次活动后收集反馈，持续优化活动体验和参与度</li>
+                                                <li><strong>活动预告</strong>：提前3-5天发布活动预告，确保成员有充足时间安排</li>
+                                            </ul>
+                                        </div>
+                                        <h4>协作接口：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>对指挥组</strong>："我们想办个趣味PVP赛，能帮我们设计个简单规则并主持吗？"</li>
+                                                <li><strong>对文艺组</strong>："下周活动需要一位'御用摄影师'记录精彩瞬间，求支援！"</li>
+                                                <li><strong>对休闲组</strong>："新活动想加入破冰环节，能帮忙设计些互动游戏吗？"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">策划</span>
+                                            <span class="function-tag">组织</span>
+                                            <span class="function-tag">活力</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 指挥组 -->
+                                <div id="section2-2" class="function-item fade-in delay-1">
+                                    <div class="function-item-header function-command">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-crosshairs"></i>
+                                        </div>
+                                        <div class="function-item-title">指挥组 ⚔️</div>
+                                        <div class="function-item-subtitle">团队战力的基石</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <h4>核心职责清单：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>团队组织</strong>：每周固定组织2次团队副本活动，确保装备分配公平透明</li>
+                                                <li><strong>新人培养</strong>：为新成员提供"副本初体验"服务，讲解机制，降低入门门槛</li>
+                                                <li><strong>战术优化</strong>：记录关键战斗数据，研究高效打法，制作战术图</li>
+                                                <li><strong>压力管理</strong>：营造"零抱怨"的开荒环境，及时调解团队内的小摩擦</li>
+                                                <li><strong>替补安排</strong>：建立替补队员机制，确保活动不会因个别成员缺席而取消</li>
+                                            </ul>
+                                        </div>
+                                        <h4>协作接口：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>对技术组</strong>："这个新BOSS的机制我们没吃透，能帮忙出一页极简攻略吗？"</li>
+                                                <li><strong>对活动组</strong>："我们副本打累了，能不能穿插个休闲小游戏调剂一下？"</li>
+                                                <li><strong>对休闲组</strong>："有几个新人想尝试副本，能帮忙对接一下吗？"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">战斗</span>
+                                            <span class="function-tag">指挥</span>
+                                            <span class="function-tag">团队</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 技术组 -->
+                                <div id="section2-3" class="function-item fade-in delay-2">
+                                    <div class="function-item-header function-tech">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <div class="function-item-title">技术组 🔧</div>
+                                        <div class="function-item-subtitle">知识库的建设者</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <h4>核心职责清单：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>内容专精</strong>：每位成员选择1-2个专精方向深耕（如职业攻略、装备搭配、经济系统等）</li>
+                                                <li><strong>攻略产出</strong>：产出图文并茂的"一页纸攻略"和深度分析，降低学习成本</li>
+                                                <li><strong>即时响应</strong>：在群内看到技术类提问，尽量当天回应，无法立即回答的告知预计时间</li>
+                                                <li><strong>资源整理</strong>：维护共享的在线文档，分类整理所有有价值的攻略和资源链接</li>
+                                                <li><strong>数据验证</strong>：对游戏内的数值、机制进行测试验证，提供准确数据支持</li>
+                                            </ul>
+                                        </div>
+                                        <h4>协作接口：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>对指挥组</strong>："你要的攻略初稿已好，请核对实战细节，我们随时调整。"</li>
+                                                <li><strong>对文艺组</strong>："这篇攻略的文字部分完成了，能帮忙排个版让阅读体验更好吗？"</li>
+                                                <li><strong>对活动组</strong>："你们策划的知识竞赛，需要我提供题目和答案吗？"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">攻略</span>
+                                            <span class="function-tag">技术</span>
+                                            <span class="function-tag">研究</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 文艺组 -->
+                                <div id="section2-4" class="function-item fade-in">
+                                    <div class="function-item-header function-art">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <div class="function-item-title">文艺组 🎨</div>
+                                        <div class="function-item-subtitle">记忆的雕刻师</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <h4>核心职责清单：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>视觉记录</strong>：担任"首席摄影师"，在活动中捕捉精彩瞬间，制作活动图集</li>
+                                                <li><strong>内容美化</strong>：为攻略、招新帖、宣传图进行排版与美化，提升视觉吸引力</li>
+                                                <li><strong>文化创造</strong>：记录公会内部流行的"梗"，创作同人内容（如漫画、小故事、表情包等）</li>
+                                                <li><strong>档案管理</strong>：定期整理所有影像资料，按时间分类存档，制作年度回顾视频</li>
+                                                <li><strong>品牌设计</strong>：设计公会统一视觉元素（如logo、头像框、名片背景等）</li>
+                                            </ul>
+                                        </div>
+                                        <h4>协作接口：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>对所有组</strong>："需要活动记录或宣传材料美化，请至少提前2天告诉我们需求！"</li>
+                                                <li><strong>对休闲组</strong>："能不能采访几位老成员，做一个'新芽故事'专题，记录公会的成长历程？"</li>
+                                                <li><strong>对外交组</strong>："招新海报需要更新了，告诉我核心信息点，我来设计。"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">记录</span>
+                                            <span class="function-tag">美化</span>
+                                            <span class="function-tag">创意</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 外交组 -->
+                                <div id="section2-5" class="function-item fade-in delay-1">
+                                    <div class="function-item-header function-diplomacy">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-handshake"></i>
+                                        </div>
+                                        <div class="function-item-title">外交组 🤝</div>
+                                        <div class="function-item-subtitle">家园的拓展者</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <h4>核心职责清单：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>招募与迎新</strong>：发布友善的招新信息，审核潜在新成员，确保价值观契合</li>
+                                                <li><strong>对外联络</strong>：与其他友好公会保持联系，探索联合活动可能性，拓展社交圈</li>
+                                                <li><strong>形象维护</strong>：在对外交流中秉持友善、积极的形象，不参与服务器骂战</li>
+                                                <li><strong>信息同步</strong>：将外部有价值的资讯（如官方公告、社区动态等）整理后发至内部群</li>
+                                                <li><strong>危机公关</strong>：处理对外产生的误解或矛盾，维护公会声誉</li>
+                                            </ul>
+                                        </div>
+                                        <h4>协作接口：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>对活动组</strong>："我们和XX公会打算办一场友谊赛，一起来策划吧！"</li>
+                                                <li><strong>对休闲组</strong>："新一批预备成员名单来了，欢迎接力棒交给你们了！"</li>
+                                                <li><strong>对文艺组</strong>："需要一套对外宣传的标准话术和视觉材料，麻烦支援一下！"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">招募</span>
+                                            <span class="function-tag">外交</span>
+                                            <span class="function-tag">沟通</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 休闲组 -->
+                                <div id="section2-6" class="function-item fade-in delay-2">
+                                    <div class="function-item-header function-leisure">
+                                        <div class="function-item-icon">
+                                            <i class="fas fa-leaf"></i>
+                                        </div>
+                                        <div class="function-item-title">休闲组 🌱</div>
+                                        <div class="function-item-subtitle">氛围的守护者</div>
+                                    </div>
+                                    <div class="function-item-content">
+                                        <h4>核心职责清单：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>新人融入</strong>：执行"24小时欢迎制"，担任新人"临时导游"，帮助快速融入</li>
+                                                <li><strong>情感联结</strong>：组织"心灵茶会"语音聊天，组织生日祝福、节日问候等暖心活动</li>
+                                                <li><strong>后勤支持</strong>：协助管理社群基本秩序，协调公会仓库物资的存取和使用规则</li>
+                                                <li><strong>氛围感知</strong>：敏锐察觉群内氛围变化，进行沟通疏导，维护积极健康的聊天环境</li>
+                                                <li><strong>兴趣小组</strong>：根据成员兴趣组建小圈子（如钓鱼小队、风景党、剧情党等）</li>
+                                            </ul>
+                                        </div>
+                                        <h4>协作接口：</h4>
+                                        <div class="function-item-desc">
+                                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                                <li><strong>对所有新人</strong>："你好！我是XX，这周你的专属导游，有任何问题随时戳我！"</li>
+                                                <li><strong>对管理层</strong>："感觉最近A队开荒压力很大，建议活动组插个休闲活动调剂下。"</li>
+                                                <li><strong>对文艺组</strong>："我们收集了一些温馨的聊天记录，能做成'新芽暖心时刻'合集吗？"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="function-item-tags">
+                                            <span class="function-tag">氛围</span>
+                                            <span class="function-tag">关怀</span>
+                                            <span class="function-tag">后勤</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span>如果我觉得我的组长/上级不称职怎么办？</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p><strong>A</strong>：首先，可以尝试与上级进行一次坦诚的私下沟通，提出建设性意见。如果沟通无效或问题严重，可以向长老会或任何一位你信任的副社以上成员匿名或实名反映。我们相信问题可以通过善意和制度解决。</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span>公会会不会因为这套体系变得很"卷"？</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p><strong>A</strong>：这是我们最警惕的一点。体系是为了"明晰"而非"施压"。我们反复强调：在任何阶段停留都是被鼓励和认可的。如果你感到任何"被卷"的压力，请大声说出来，这将是体系需要调整的首要信号。</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span>我可以同时参与多个小组的工作吗？</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p><strong>A</strong>：当然可以！尤其是在初创期，我们鼓励大家多尝试不同的角色。但建议选择一个小组作为"主归属"，其他小组作为"客串参与"，这样既能体验多元，又不会因责任分散而感到压力过大。</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span>如果现实突然忙碌，我应该怎么处理公会事务？</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p><strong>A</strong>：请立即使用我们的"主动休眠流程"。只需向组长说明情况，就可以进入休眠状态（最长1年）。休眠期间保留所有职位和头衔，不承担职责，随时可以"一键回归"。现实永远优先！</p>
-                            </div>
-                        </div>
-                    </div>
+                    </section>
                     
-                    <div id="conclusion" class="quote-box fade-in delay-1">
-                        <p>成长不是一场比赛，而是一段共同的旅程。你可以<strong class="highlight">在先知阶段停留一年</strong>，只要你在这里找到快乐和归属；你也可以<strong class="highlight">快速成长</strong>，只要你愿意承担更多责任。</p>
-                        <div class="quote-author">—— 关于成长的真实含义</div>
-                    </div>
-                    
-                    <div class="content-card fade-in delay-2">
-                        <h3>写在最后：成长是旅程，不是竞赛</h3>
-                        <p><strong>请记住：</strong></p>
-                        <ol>
-                            <li><strong>职位不是等级，而是责任形态</strong>：
-                                <ul>
-                                    <li>先知：负责自己</li>
-                                    <li>大师：负责任务</li>
-                                    <li>执事：负责一块事</li>
-                                    <li>香主：负责一群人</li>
-                                    <li>副社：负责协作流</li>
-                                    <li>副社主：负责一段时光</li>
-                                    <li>长老：负责一个灵魂</li>
-                                </ul>
-                            </li>
-                            <li><strong>晋升的适当时机</strong>：
-                                <ul>
-                                    <li>不是"时间到了"，而是"能力准备好了，且有意愿承担更多"</li>
-                                    <li>你可以在先知阶段很快乐，那也很好</li>
-                                    <li>高级职位需要付出更多时间精力，请量力而行</li>
-                                </ul>
-                            </li>
-                            <li><strong>我们的核心始终是"共筑"</strong>：
-                                <ul>
-                                    <li>职位体系是工具，不是目的</li>
-                                    <li>如果某天这个体系让我们感到压力，我们就一起修改它</li>
-                                    <li>最终，我们铭记的不是谁是什么职位，而是我们一起笑过、战斗过、成长的时光</li>
-                                </ul>
-                            </li>
-                        </ol>
-                        
-                        <div class="quote-box" style="margin-top: 16px; background: linear-gradient(to right, rgba(142, 45, 226, 0.05), rgba(233, 64, 87, 0.05));">
-                            <p style="font-style: normal; color: var(--primary-color);">
-                                <strong>现在，深呼吸，轻松出发。</strong><br>
-                                你不需要记住所有细节，只需要记得：这里欢迎每一个真诚的你，无论你选择在哪一个台阶停下脚步，都能看到美好的风景。
-                            </p>
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
+
+                    <!-- 第三章 -->
+                    <section id="chapter3" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第三章：七阶成长路径详细说明</h2>
+                            <p class="section-subtitle">清晰的成长路径让每位成员都能找到自己的位置，每个阶段都有明确的能力要求和晋升标准，但最重要的是<strong>在适合自己的位置发光发热</strong>。</p>
                         </div>
-                    </div>
+                        
+                        <div class="content-card fade-in">
+                            <h3>成长阶梯总览</h3>
+                            <p><strong>预备成员 → 先知 → 大师 → 执事 → 香主 → 副社 → 副社主（轮值） → 长老（邀请）</strong></p>
+                            <p>每个阶段都有明确的能力要求和晋升标准，但最重要的是<strong>在适合自己的位置发光发热</strong>。在任何阶段停留都是被鼓励和认可的。</p>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-1">
+                            <div class="quote-box">
+                                <p>每一阶都是责任形态的转变，是自然生长，而非竞赛。前三个月重点在前三阶，后续阶段随公会发展自然开启。</p>
+                                <div class="quote-author">—— 百业共筑核心理念</div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-2">
+                            <h3>成长阶段概览</h3>
+                            <table class="growth-table">
+                                <thead>
+                                    <tr>
+                                        <th>时间阶段</th>
+                                        <th>重点发展</th>
+                                        <th>开启职位</th>
+                                        <th>关键目标</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>0-1 周</strong></td>
+                                        <td>学徒 → 社众</td>
+                                        <td>高活跃度且进群试设立先知</td>
+                                        <td>帮助新人快速提升活跃度</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2-3 周</strong></td>
+                                        <td>社众 → 先知</td>
+                                        <td>观察积极参与活动人选</td>
+                                        <td>培养稳定的百业成员</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3-5 周</strong></td>
+                                        <td>先知 → 大师</td>
+                                        <td>观察积极参与带新人选</td>
+                                        <td>培养积极的核心成员</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5-8 周</strong></td>
+                                        <td>大师 → 执事</td>
+                                        <td>考虑执事授予</td>
+                                        <td>积极参与发展百业的各项事宜</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2-3 月</strong></td>
+                                        <td>执事 → 香主</td>
+                                        <td>考虑香主授予</td>
+                                        <td>积极参与小组事宜发展和管理</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3-5 月</strong></td>
+                                        <td>香主 → 副社</td>
+                                        <td>考虑副社授予</td>
+                                        <td>积极参与百业的各项发展和管理</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5-6 月</strong></td>
+                                        <td>副社 → 副社主（轮值）</td>
+                                        <td>考虑副社主授予</td>
+                                        <td>各副社选举担任，轮流任职</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>特殊职位</strong></td>
+                                        <td>长老（邀请）</td>
+                                        <td>考虑长老授予</td>
+                                        <td>积极参与百业的各项发展和管理</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-1">
+                            <h3>成长时间线</h3>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第零阶：预备成员（0-2周）</div>
+                                        <div class="timeline-subtitle">无压力融入期</div>
+                                        <p><strong>目标</strong>：熟悉公会氛围、了解各小组职能、找到自己的兴趣点。</p>
+                                        <div class="step-requirements">
+                                            <h5>必修任务（完成任意3项即可晋升）：</h5>
+                                            <ul>
+                                                <li>在群内完成自我介绍</li>
+                                                <li>参加至少1次公会活动</li>
+                                                <li>添加3位以上公会成员为好友</li>
+                                                <li>阅读完整公会手册并勾选"已读"</li>
+                                                <li>在任意小组的日常聊天中参与讨论5次以上</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第一阶：先知（稳定参与者）</div>
+                                        <div class="timeline-subtitle">成为小组内稳定的基础力量</div>
+                                        <p>每周参与所属小组的主要活动，并在小组内建立初步的信任关系。</p>
+                                        <div class="step-requirements">
+                                            <h5>晋升要求（需满足全部）：</h5>
+                                            <ul>
+                                                <li>加入一个职能小组并稳定参与活动4周以上</li>
+                                                <li>在小组内完成至少2次小型任务</li>
+                                                <li>获得所在小组2名以上成员的认可推荐</li>
+                                                <li>熟悉并遵守公会基础公约</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第二阶：大师（核心贡献者）</div>
+                                        <div class="timeline-subtitle">成为小组内可靠的中坚骨干</div>
+                                        <p>能独立负责小型专项，在专业领域内获得同伴认可。</p>
+                                        <div class="step-requirements">
+                                            <h5>晋升要求（需满足至少3项）：</h5>
+                                            <ul>
+                                                <li>在所属小组内主导完成1个小型项目</li>
+                                                <li>产出至少1份有价值的攻略/工具/记录</li>
+                                                <li>连续8周稳定参与小组核心活动</li>
+                                                <li>指导过至少1名新人熟悉小组工作</li>
+                                                <li>获得小组长和2名以上执事的联合推荐</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第三阶：执事（组内管理者）</div>
+                                        <div class="timeline-subtitle">从执行者转变为组织者</div>
+                                        <p>负责小组内一块具体业务（如活动策划、新人培训、资源管理等）。</p>
+                                        <div class="step-requirements">
+                                            <h5>晋升要求（需满足全部）：</h5>
+                                            <ul>
+                                                <li>担任大师职位3个月以上，表现优异</li>
+                                                <li>提出并实施过至少1项流程优化建议</li>
+                                                <li>能够独立策划和执行中型项目</li>
+                                                <li>获得小组内70%以上成员的信任投票</li>
+                                                <li>通过组长和1名副社的面试考核</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第四阶：香主（组长）</div>
+                                        <div class="timeline-subtitle">成为一组的全面领导者</div>
+                                        <p>对小组的整体健康度和发展方向负责，培养组内人才梯队。</p>
+                                        <div class="step-requirements">
+                                            <h5>晋升要求（需满足全部）：</h5>
+                                            <ul>
+                                                <li>担任执事6个月以上，有显著管理成绩</li>
+                                                <li>培养出至少1名合格的执事继任者</li>
+                                                <li>制定并执行过小组季度发展计划</li>
+                                                <li>获得小组90%成员和全体管理层的支持</li>
+                                                <li>通过长老会的综合能力评估</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第五阶：副社（跨组协调者）</div>
+                                        <div class="timeline-subtitle">打破小组壁垒，优化公会内部整体协作效率</div>
+                                        <p>负责2-3个小组的协调与资源调配。</p>
+                                        <div class="step-requirements">
+                                            <h5>晋升要求（需满足至少4项）：</h5>
+                                            <ul>
+                                                <li>担任香主1年以上，有跨组协作经验</li>
+                                                <li>成功主导过至少2个跨小组联合项目</li>
+                                                <li>在公会内有广泛的群众基础和威望</li>
+                                                <li>获得所有香主和副社主的联合提名</li>
+                                                <li>通过公会全体成员的公投（支持率≥75%）</li>
+                                                <li>提出可行的公会层面改进方案</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第六阶：副社主（轮值执行官）</div>
+                                        <div class="timeline-subtitle">体验公会全局运营，培养顶级管理者视野</div>
+                                        <p>每季度轮换，负责公会日常决策和执行监督。</p>
+                                        <div class="step-requirements">
+                                            <h5>晋升要求（需满足全部）：</h5>
+                                            <ul>
+                                                <li>担任副社9个月以上，表现卓越</li>
+                                                <li>成功处理过公会级危机或重大决策</li>
+                                                <li>获得长老会全票通过和现任副社主推荐</li>
+                                                <li>承诺有充足时间履行季度职责</li>
+                                                <li>通过为期1个月的"见习副社主"考核</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">第七阶：长老（终身荣誉守护者）</div>
+                                        <div class="timeline-subtitle">守护公会文化与长期战略，扮演精神灯塔</div>
+                                        <p>纯荣誉职位，仅由邀请授予，无日常管理职责。</p>
+                                        <div class="step-requirements">
+                                            <h5>授予条件（需满足全部）：</h5>
+                                            <ul>
+                                                <li>为公会做出过不可替代的卓越贡献</li>
+                                                <li>在公会服务3年以上，德高望重</li>
+                                                <li>即使因现实原因淡出，仍关心公会发展</li>
+                                                <li>获得全体现任长老和90%以上成员支持</li>
+                                                <li>本人接受荣誉并承诺继续守护公会文化</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-2">
+                            <div class="principle-box">
+                                <h4><i class="fas fa-info-circle"></i> 重要说明：</h4>
+                                <ol>
+                                    <li><strong>时间仅为参考</strong>：每个阶段标注的时间是最低参考，核心是能力与贡献是否到位。</li>
+                                    <li><strong>可跨级晋升</strong>：对于贡献特别突出的成员，经集体认可可以破格晋升。</li>
+                                    <li><strong>可自愿停留</strong>：在任何阶段感到舒适都可选择停留，晋升永远是"可选项"而非"必选项"。</li>
+                                    <li><strong>可横向发展</strong>：成员可在不同小组间横向发展，积累多元经验。</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
+
+                    <!-- 第四章 -->
+                    <section id="chapter4" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第四章：详细操作机制</h2>
+                            <p class="section-subtitle">清晰的操作机制确保公会运营高效透明，所有流程都旨在简化操作、降低门槛、提升体验。</p>
+                        </div>
+                        
+                        <div class="content-card fade-in">
+                            <h3>一、晋升申请标准化流程</h3>
+                            <ol style="margin-left: 20px;">
+                                <li><strong>步骤一：自我评估与沟通</strong>：使用模板《月度成长自省表》进行填写，与直属上级进行非正式沟通，了解自己是否已具备晋升条件。</li>
+                                <li><strong>步骤二：正式提交申请</strong>：在"百业核心群"发布固定格式消息，同时将自省表发送给直属上级及长老会成员备案。申请需包含：当前职位、目标职位、主要贡献总结、未来计划。</li>
+                                <li><strong>步骤三：评审与考察（7日内完成）</strong>：
+                                    <ul style="margin-left: 20px; margin-top: 10px;">
+                                        <li><strong>大师及以下</strong>：由组长主导，征询组内同事意见后批准，需确保无反对意见。</li>
+                                        <li><strong>执事</strong>：组长评审后，需额外获得1位其他组组长和1位长老的书面同意，并进行简单的能力面试。</li>
+                                        <li><strong>香主及以上</strong>：需经过管理会议讨论、同行评议、成员投票等多重流程，确保决策的民主性和科学性。</li>
+                                    </ul>
+                                </li>
+                                <li><strong>步骤四：晋升仪式</strong>：在每周公会活动前，进行5分钟线上仪式。由上级颁发"虚拟勋章"，新任职者发表简短感言。</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-1">
+                            <h3>二、休眠、降级与荣誉退出机制</h3>
+                            <ul style="margin-left: 20px;">
+                                <li><strong>主动休眠流程</strong>：向直属上级发送休眠申请，说明预计回归时间（最长1年）。休眠期间保留职位但无职责，回归后需经过简单考核恢复权限。</li>
+                                <li><strong>温和降级流程（针对长期不活跃）</strong>：分三个阶段：1) 私聊问候并了解情况；2) 转为观察成员，保留基础权限；3) 6个月后若无改善，转入"荣誉成员"名单，保留回归通道。</li>
+                                <li><strong>荣誉退出</strong>：对于因现实原因必须离开的贡献成员，举办小型线上欢送会，赠送公会纪念品，名字录入《新芽荣誉殿堂》，永久保留回归资格。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-2">
+                            <h3>三、争议解决流程</h3>
+                            <ol style="margin-left: 20px;">
+                                <li><strong>第一步：直接沟通</strong>：鼓励双方私下直接、冷静地沟通，尝试理解对方立场，寻找共同点。</li>
+                                <li><strong>第二步：调解介入</strong>：若沟通无效，可邀请双方都信任的第三位成员进行调解。调解员需保持中立，帮助双方理清问题核心。</li>
+                                <li><strong>第三步：小组评议</strong>：若涉及管理问题或严重违规，提交至当事小组全体或公会管理会议进行评议。评议过程需记录并存档。</li>
+                                <li><strong>第四步：长老裁决</strong>：仅在最严重且无法达成共识的情况下，由长老会听取各方陈述后作出最终裁决。裁决结果需向全体成员公示理由。</li>
+                            </ol>
+                        </div>
+                    </section>
+                    
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
+
+                    <!-- 第五章 -->
+                    <section id="chapter5" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第五章：给不同成员的行动指南</h2>
+                            <p class="section-subtitle">每个成员都是独特的，新芽公会尊重并支持每个人的游戏方式和参与程度。以下指南帮助您找到最适合自己的参与方式。</p>
+                        </div>
+                        
+                        <div class="guide-grid">
+                            <div class="guide-card fade-in">
+                                <div class="guide-icon"><i class="fas fa-user-tie"></i></div>
+                                <h4 class="guide-title">时间充裕的"深度参与者"</h4>
+                                <p><strong>建议</strong>：可加入1个主小组+1个客串小组，深度参与公会建设。</p>
+                                <ul>
+                                    <li>主动认领一个需要长期维护的"小项目"（如每周数据统计、新人指南更新等）</li>
+                                    <li>尝试为公会创作一篇指南、一个工具或一份历史记录，留下你的印记</li>
+                                    <li>担任新人的"成长伙伴"，用你的经验帮助他们少走弯路</li>
+                                    <li>参与管理会议，从执行者视角为决策提供一线反馈</li>
+                                    <li>建立个人知识库，定期分享学习心得，成为某个领域的专家</li>
+                                    <li>协助组长进行工作规划和任务分配，提前培养管理能力</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-card fade-in delay-1">
+                                <div class="guide-icon"><i class="fas fa-user-check"></i></div>
+                                <h4 class="guide-title">时间有限的"稳定支持者"</h4>
+                                <p><strong>建议</strong>：专注1个小组，成为那里的"定海神针"。</p>
+                                <ul>
+                                    <li>每次活动尽量参加，你的稳定出席就是对团队最大的支持</li>
+                                    <li>在能力范围内，高质量完成一件固定的小事（如每周签到统计、活动记录等）</li>
+                                    <li>在群聊中多给予他人正向反馈和鼓励，营造积极氛围</li>
+                                    <li>提前告知自己的时间安排，让团队能够合理规划</li>
+                                    <li>关注小组内的基础性工作，在需要时主动补位</li>
+                                    <li>建立自己的工作节奏，让有限的投入产生最大的价值</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-card fade-in delay-2">
+                                <div class="guide-icon"><i class="fas fa-user-cog"></i></div>
+                                <h4 class="guide-title">擅长思考的"流程优化者"</h4>
+                                <p><strong>建议</strong>：先沉浸式体验现有流程，再提出优化建议。</p>
+                                <ul>
+                                    <li>用一个月时间观察记录现有协作模式的优缺点，形成分析报告</li>
+                                    <li>提出建议时，附上具体的替代方案和可行性分析，而不仅仅是批评</li>
+                                    <li>主动承担起新流程试运行的协调工作，从理论走向实践</li>
+                                    <li>建立"流程优化建议库"，鼓励更多人参与改进</li>
+                                    <li>学习基础的项目管理知识，让优化建议更加系统化</li>
+                                    <li>关注其他成功公会的管理经验，但结合自身实际进行本地化改造</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-card fun-guide fade-in">
+                                <div class="guide-icon"><i class="fas fa-laugh-beam"></i></div>
+                                <h4 class="guide-title">纯粹享受游戏的"氛围爱好者"</h4>
+                                <p><strong>建议</strong>：你正是公会存在的核心价值之一，请尽情享受游戏！</p>
+                                <ul>
+                                    <li>尽情享受活动，你的快乐会感染所有人，这就是最大的贡献</li>
+                                    <li>在活动后，分享你的玩家视角体验，帮助组织者了解真实感受</li>
+                                    <li>用你的幽默感，为公会创造更多有趣的"梗"和回忆</li>
+                                    <li>在聊天中多分享游戏中的小确幸和美好瞬间</li>
+                                    <li>当你感到疲惫时，坦然休息，不必有负担</li>
+                                    <li>成为公会的"温度计"，当你感到氛围不对时，及时反馈</li>
+                                    <li>你的存在本身就是对"不内卷"文化的最好诠释</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-card fade-in delay-1">
+                                <div class="guide-icon"><i class="fas fa-user-graduate"></i></div>
+                                <h4 class="guide-title">渴望成长的"学习型玩家"</h4>
+                                <p><strong>建议</strong>：充分利用公会资源，系统化提升自己。</p>
+                                <ul>
+                                    <li>主动向技术组请教，但先自己尝试解决问题，带着具体问题提问</li>
+                                    <li>建立个人成长日志，记录每次副本的收获和反思</li>
+                                    <li>寻找一位"导师"，定期进行复盘和交流</li>
+                                    <li>尝试不同的小组，找到最适合自己的发展方向</li>
+                                    <li>将游戏中的学习能力迁移到现实生活中，实现双赢</li>
+                                    <li>在掌握一定技能后，主动分享经验，教学相长</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-card fade-in delay-2">
+                                <div class="guide-icon"><i class="fas fa-user-clock"></i></div>
+                                <h4 class="guide-title">时间不固定的"间歇性玩家"</h4>
+                                <p><strong>建议</strong>：建立适合自己的参与节奏，来去自如。</p>
+                                <ul>
+                                    <li>明确告知自己的游戏节奏，让团队有所预期</li>
+                                    <li>在活跃期集中贡献，在潜水期安心休息，不必愧疚</li>
+                                    <li>关注公告和活动日历，选择自己感兴趣的内容参与</li>
+                                    <li>回归时主动了解期间的变化，快速重新融入</li>
+                                    <li>担任"特邀嘉宾"角色，在关键时刻提供独特价值</li>
+                                    <li>你的间歇性参与本身就是对"现实生活优先"原则的实践</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
+
+                    <!-- 第六章 -->
+                    <section id="chapter6" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第六章：常见问题解答（FAQ）</h2>
+                            <p class="section-subtitle">以下是我们收集到的最常见问题，希望能帮助您更好地理解公会的运作方式和文化理念。</p>
+                        </div>
+                        
+                        <div class="content-card fade-in">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>晋升一定要等满规定时间吗？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：不完全。规定时间是最低参考。核心标准是"能力与意愿是否到位"。如果贡献特别突出，经集体认可可以破格。但切勿为晋升而强求。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>当了管理（执事/香主）是不是就不能轻松玩游戏了？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：管理职责确实会占用一部分时间和精力。我们的设计初衷是"轻量管理"。如果你感到负担过重，说明流程可能出了问题，请立即提出，我们一起优化。管理者同样有权利享受纯粹的游戏乐趣。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>如果我觉得我的组长/上级不称职怎么办？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：首先，可以尝试与上级进行一次坦诚的私下沟通，提出建设性意见。如果沟通无效或问题严重，可以向长老会或任何一位你信任的副社以上成员匿名或实名反映。我们相信问题可以通过善意和制度解决。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>公会会不会因为这套体系变得很"卷"？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：这是我们最警惕的一点。体系是为了"明晰"而非"施压"。我们反复强调：在任何阶段停留都是被鼓励和认可的。如果你感到任何"被卷"的压力，请大声说出来，这将是体系需要调整的首要信号。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>我可以同时参与多个小组的工作吗？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：当然可以！尤其是在初创期，我们鼓励大家多尝试不同的角色。但建议选择一个小组作为"主归属"，其他小组作为"客串参与"，这样既能体验多元，又不会因责任分散而感到压力过大。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>如果现实突然忙碌，我应该怎么处理公会事务？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：请立即使用我们的"主动休眠流程"。只需向组长说明情况，就可以进入休眠状态（最长1年）。休眠期间保留所有职位和头衔，不承担职责，随时可以"一键回归"。现实永远优先！</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>公会如何处理成员间的个人矛盾？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：我们鼓励成员首先尝试私下解决。如果无法解决，可以申请调解。调解员会帮助双方理清问题，寻找解决方案。对于严重且反复的冲突，可能会建议双方暂时减少直接接触。公会不会偏袒任何一方，只关注如何维护健康的社区环境。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>这套手册会不会经常变动，让人无所适从？</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>A</strong>：大框架保持稳定，细节持续优化。核心原则和基础公约基本不变，操作流程会根据实践反馈每季度微调。所有变动都会提前公示并收集意见，重大调整需要成员投票通过。我们有"版本更新说明"机制，确保所有人了解变化。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="manual-footer">
+                            <h3>附录</h3>
+                            <ul>
+                                <li><strong>《月度成长自省表》模板</strong> - 在线文档链接：new芽公会/自省表</li>
+                                <li><strong>《新芽荣誉殿堂》在线文档</strong> - 记录所有荣誉成员及贡献</li>
+                                <li><strong>各小组共享资源库导航</strong> - 按小组分类的知识库入口</li>
+                                <li><strong>管理会议纪要公开查阅地址</strong> - 所有管理决策透明可查</li>
+                                <li><strong>反内卷反馈渠道</strong> - 匿名提交对"内卷倾向"的观察</li>
+                                <li><strong>新人融入指南</strong> - 给新成员的系统化指引</li>
+                            </ul>
+                            
+                            <div class="manual-version">
+                                <p><strong>手册版本：新芽公会运营手册 v3.0 (详细整合版)</strong></p>
+                                <p><strong>最后更新日期：2024年10月</strong></p>
+                                <p><strong>下一轮修订计划：2025年1月</strong></p>
+                                <p><em>本手册为动态文档，其生命源于每一位成员的实践与共创。</em></p>
+                                <p><em>愿我们在此，既能并肩作战，亦可各自成荫。</em></p>
+                                <p><em>禾下乘凉，新芽生长。</em></p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 页脚 -->
     <footer id="contact">
@@ -2302,8 +2610,9 @@
     </div>
 
     <script>
-        // 滚动动画
+        // DOM加载完成
         document.addEventListener('DOMContentLoaded', function() {
+            // 滚动动画
             const fadeElements = document.querySelectorAll('.fade-in');
             
             const observer = new IntersectionObserver((entries) => {
@@ -2323,28 +2632,32 @@
             // 平滑滚动
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        const offset = 90;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    // 排除导航栏链接
+                    if (this.getAttribute('href').startsWith('#') && 
+                        !this.getAttribute('href').includes('.html')) {
+                        e.preventDefault();
                         
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#') return;
                         
-                        // 更新左侧导航栏活动状态
-                        updateActiveNavLink(targetId);
-                        
-                        // 移动端点击链接后关闭导航菜单
-                        if (window.innerWidth <= 992) {
-                            closeMobileMenu();
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            const offset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // 关闭移动端菜单
+                            if (window.innerWidth <= 992) {
+                                closeMobileMenu();
+                            }
+                            
+                            // 更新目录高亮
+                            updateTocHighlight(targetId);
                         }
                     }
                 });
@@ -2370,8 +2683,8 @@
                     backToTop.classList.remove('show');
                 }
                 
-                // 滚动时更新左侧导航栏活动状态
-                updateNavOnScroll();
+                // 滚动时更新目录高亮
+                updateTocHighlightOnScroll();
             });
             
             // 返回顶部按钮点击事件
@@ -2380,30 +2693,6 @@
                     top: 0,
                     behavior: 'smooth'
                 });
-            });
-            
-            // FAQ折叠功能
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-                    
-                    if (answer.style.display === 'block') {
-                        answer.style.display = 'none';
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    } else {
-                        answer.style.display = 'block';
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    }
-                });
-            });
-            
-            // 初始化FAQ答案隐藏
-            document.querySelectorAll('.faq-answer').forEach(answer => {
-                answer.style.display = 'none';
             });
             
             // 汉堡菜单功能
@@ -2440,57 +2729,75 @@
                 document.body.style.overflow = '';
             }
             
-            // 更新左侧导航栏活动状态的函数
-            function updateActiveNavLink(targetId) {
-                // 移除所有活动状态
-                document.querySelectorAll('.toc-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                // 添加当前活动状态
-                const activeLink = document.querySelector(`.toc-link[href="${targetId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-            
-            // 滚动时更新导航栏活动状态
-            function updateNavOnScroll() {
-                const sections = document.querySelectorAll('.content-section, #timeline, #dispute, #conclusion');
-                let currentSectionId = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 120;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-                        currentSectionId = '#' + section.id;
-                    }
-                });
-                
-                if (currentSectionId) {
-                    // 移除所有活动状态
-                    document.querySelectorAll('.toc-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    // 添加当前活动状态
-                    const activeLink = document.querySelector(`.toc-link[href="${currentSectionId}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            }
-            
-            // 页面加载时初始化活动状态
-            updateNavOnScroll();
-            
             // 窗口大小改变时重置移动菜单
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 992) {
                     closeMobileMenu();
                 }
             });
+            
+            // FAQ展开/收起功能（从build副本中提取）
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    } else {
+                        answer.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                });
+            });
+            
+            // 初始化FAQ答案隐藏
+            document.querySelectorAll('.faq-answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
+            
+            // 目录高亮功能
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const sections = document.querySelectorAll('.content-section');
+            
+            // 更新目录高亮函数
+            function updateTocHighlight(targetId) {
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // 滚动时更新目录高亮
+            function updateTocHighlightOnScroll() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 150;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // 初始高亮
+            updateTocHighlightOnScroll();
         });
     </script>
 </body>

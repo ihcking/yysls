@@ -4,75 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>禾 - 百业引导</title>
-    <meta name="description" content="燕云十六声，禾，休闲百业，养老百业，欢迎大家！">
-    <meta name="keywords" content="燕云十六声，燕云，游戏，手游，端游，页游，禾，兮禾，汐禾，百业，攻略">
+    <meta name="description" content="燕云十六声百业引导 - 了解百业活动玩法，更快上手">
+    <meta name="keywords" content="燕云十六声,燕云,游戏,手游,端游,页游,禾,兮禾,汐禾,百业,攻略">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* 全局样式 */
+        /* 全局样式 - 与build.html统一 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            font-family: 'Microsoft YaHei', '微软雅黑', 'Segoe UI', Arial, sans-serif;
         }
 
         :root {
-            --primary-color: #8e2de2; /* 紫色 */
-            --secondary-color: #4a00e0; /* 深紫色 */
-            --accent-color: #e94057; /* 红色 */
+            --primary-color: #8e2de2;
+            --secondary-color: #4a00e0;
+            --accent-color: #e94057;
+            --fun-color: #ff9a3c;
+            --success-color: #00c853;
+            --info-color: #2979ff;
             --dark-color: #1a1a2e;
             --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #666;
+            --text-lighter: #888;
+            --border-color: #eaeaea;
+            --border-light: #f0f0f0;
             --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            --gradient-fun: linear-gradient(135deg, var(--fun-color), #ffcc00);
+            --gradient-success: linear-gradient(135deg, var(--success-color), #64dd17);
             --section-bg: #ffffff;
             --section-alt: #f8f9fa;
-            --border-color: #eaeaea;
-            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
-            --nav-height: 70px; /* 导航栏高度变量 */
+            --section-light: #fcfcfe;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-deep: 0 12px 36px rgba(0, 0, 0, 0.12);
+            --nav-height: 70px;
         }
 
         body {
             background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
+            color: var(--text-color);
+            line-height: 1.7;
             overflow-x: hidden;
-            padding-top: var(--nav-height); /* 为固定导航栏留出空间 */
+            padding-top: var(--nav-height);
+            font-size: 16px;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-        }
-
-        ul {
-            list-style: none;
+            transition: all 0.25s ease;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 14px 28px;
             background: var(--gradient-bg);
             color: white;
             border: none;
-            border-radius: 30px;
-            font-weight: bold;
+            border-radius: 12px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3);
+            font-size: 15px;
+            letter-spacing: 0.3px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.6);
+            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.4);
         }
 
-        /* ************ 优化后的导航栏样式 ************ */
+        /* ************ 导航栏样式 - 与build.html完全一致 ************ */
         header {
             background-color: rgba(26, 26, 46, 0.98);
             position: fixed;
@@ -85,6 +96,7 @@
             height: var(--nav-height);
             display: flex;
             align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-container {
@@ -92,24 +104,25 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             z-index: 1001;
         }
 
         .logo img {
-            height: 40px;
-            width: 40px;
+            height: 42px;
+            width: 42px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .logo-text {
@@ -119,7 +132,7 @@
 
         .logo h1 {
             color: white;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             background: linear-gradient(to right, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
@@ -130,9 +143,10 @@
 
         .logo-subtitle {
             color: #b0b0d0;
-            font-size: 11px;
+            font-size: 12px;
             margin-top: 2px;
             letter-spacing: 0.3px;
+            opacity: 0.9;
         }
 
         /* 桌面端导航链接 */
@@ -140,7 +154,7 @@
             display: flex;
             align-items: center;
             list-style: none;
-            gap: 5px; /* 减少间距 */
+            gap: 6px;
         }
 
         .nav-links li {
@@ -151,23 +165,23 @@
             color: #e0e0ff;
             font-weight: 500;
             font-size: 14px;
-            padding: 8px 12px; /* 增加内边距 */
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             white-space: nowrap;
         }
 
         .nav-links a i {
-            font-size: 12px;
-            opacity: 0.8;
+            font-size: 13px;
+            opacity: 0.9;
         }
 
         .nav-links a:hover {
             color: white;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.12);
             transform: translateY(-1px);
         }
 
@@ -175,6 +189,7 @@
             color: white !important;
             background: linear-gradient(135deg, rgba(142, 45, 226, 0.2), rgba(233, 64, 87, 0.2)) !important;
             font-weight: 600 !important;
+            box-shadow: 0 2px 8px rgba(142, 45, 226, 0.2);
         }
 
         .nav-active::before {
@@ -183,9 +198,9 @@
             bottom: -2px;
             left: 12px;
             right: 12px;
-            height: 2px;
+            height: 3px;
             background: var(--gradient-bg);
-            border-radius: 1px;
+            border-radius: 2px;
         }
 
         /* 汉堡菜单按钮 */
@@ -198,12 +213,12 @@
             justify-content: space-between;
             z-index: 1001;
             padding: 5px;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
         .hamburger:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
         .hamburger span {
@@ -241,16 +256,16 @@
                 flex-direction: column;
                 align-items: stretch;
                 background-color: rgba(26, 26, 46, 0.98);
-                backdrop-filter: blur(10px);
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(15px);
+                padding: 20px 24px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 z-index: 999;
                 gap: 0;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
             }
             
             .nav-links.active {
@@ -261,7 +276,7 @@
             
             .nav-links li {
                 margin: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
             
             .nav-links li:last-child {
@@ -269,17 +284,18 @@
             }
             
             .nav-links a {
-                padding: 16px 20px;
+                padding: 18px 20px;
                 font-size: 15px;
-                border-radius: 0;
+                border-radius: 6px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                margin: 4px 0;
             }
             
             .nav-links a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-                padding-left: 25px;
+                background-color: rgba(255, 255, 255, 0.15);
+                padding-left: 24px;
             }
             
             .nav-links a i {
@@ -299,34 +315,35 @@
         /* 小屏幕调整 */
         @media (max-width: 768px) {
             :root {
-                --nav-height: 60px;
+                --nav-height: 64px;
             }
             
             .logo h1 {
-                font-size: 18px;
+                font-size: 20px;
             }
             
             .logo img {
-                height: 34px;
-                width: 34px;
+                height: 36px;
+                width: 36px;
             }
             
             .logo-subtitle {
-                font-size: 10px;
+                font-size: 11px;
             }
         }
 
-        /* 页眉 */
+        /* ************ 页眉 - 与build.html统一 ************ */
         .header-banner {
-            height: 300px;
+            height: 340px;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-            margin-top: 0; /* 移除之前的margin-top，因为body已经有padding-top */
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            margin-bottom: 40px;
+            margin-top: 0;
         }
 
         .header-banner::before {
@@ -337,53 +354,76 @@
             width: 100%;
             height: 100%;
             background: url('https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.15;
+            opacity: 0.12;
             z-index: 0;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.4), rgba(233, 64, 87, 0.4));
+            z-index: 1;
         }
 
         .header-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             color: white;
             max-width: 800px;
             text-align: center;
             width: 100%;
+            padding: 0 20px;
         }
 
         .header-content h2 {
-            font-size: 36px;
-            margin-bottom: 12px;
+            font-size: 42px;
+            margin-bottom: 16px;
             font-weight: 800;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
         }
 
         .header-content p {
-            font-size: 16px;
-            margin-bottom: 15px;
-            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.9;
+            opacity: 0.95;
+            line-height: 1.6;
         }
 
+        .header-tagline {
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.85;
+            margin-top: 10px;
+        }
 
-        /* 招新公告 */
-        .recruitment-section {
-            padding: 80px 0 50px;
-            background-color: white;
+        /* ************ 手册内容区域 - 与build.html统一 ************ */
+        .manual-section {
+            padding: 60px 0 80px;
+            background-color: var(--section-light);
+            position: relative;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 36px;
+            font-size: 38px;
             color: var(--dark-color);
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
+            padding-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .section-title h2::after {
@@ -392,73 +432,278 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-bg);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 双栏布局容器 */
+        .manual-container {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* 左侧固定目录导航 - 与build.html统一 */
+        .toc-column {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            z-index: 10;
+            border-radius: 16px;
+        }
+
+        .toc-container {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
             background: var(--gradient-bg);
         }
 
-        .recruitment-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .toc-title {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(142, 45, 226, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
         }
 
-        .recruitment-content h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 14px;
+        }
+
+        .toc-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: block;
+            padding: 12px 0;
+            border-left: 4px solid transparent;
+            padding-left: 18px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .toc-list a:hover {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background: rgba(142, 45, 226, 0.06);
+            padding-left: 22px;
+        }
+
+        .toc-list ul {
+            list-style: none;
+            margin: 12px 0 12px 18px;
+            padding: 0;
+            border-left: 1px solid rgba(142, 45, 226, 0.2);
+        }
+
+        .toc-list ul li {
+            margin-bottom: 10px;
+        }
+
+        .toc-list ul a {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+            padding: 8px 0 8px 16px;
+        }
+
+        .toc-list ul a:hover {
             color: var(--primary-color);
         }
 
-        .recruitment-content h4 {
-            font-size: 20px;
-            margin: 15px 0 10px;
-            color: var(--secondary-color);
+        .toc-list a.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            font-weight: 600;
+            background: rgba(142, 45, 226, 0.08);
         }
 
-        .recruitment-content p {
-            margin-bottom: 15px;
-            color: #555;
+        /* 右侧内容区域 */
+        .content-column {
+            flex: 1;
         }
 
-        .recruitment-content ul {
-            margin-bottom: 20px;
-            padding-left: 20px;
+        /* 内容区样式 - 与build.html统一 */
+        .content-section {
+            padding: 32px 0;
+            background-color: transparent;
         }
 
-        .recruitment-content li {
-            margin-bottom: 10px;
-            color: #555;
+        .content-section:first-of-type {
+            padding-top: 0;
+        }
+
+        .content-section-title {
+            margin-bottom: 24px;
             position: relative;
-            padding-left: 20px;
+            padding-bottom: 16px;
         }
 
-        .recruitment-content li::before {
-            content: '•';
+        .content-section-title h2 {
+            font-size: 32px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .content-section-title h2::after {
+            content: '';
             position: absolute;
+            bottom: 0;
             left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-bg);
+            border-radius: 2px;
         }
 
-        /* 表格样式 */
+        .content-section-title h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            padding-left: 12px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .content-section-title h4 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin: 20px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* 内容卡片 - 与build.html统一 */
+        .content-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-right: 20px;
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.3);
+        }
+        
+        .card-title {
+            font-size: 22px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .card-subtitle {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        /* 原则盒子 */
+        .principle-box {
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.05), rgba(233, 64, 87, 0.05));
+            border-radius: 14px;
+            padding: 24px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .principle-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        /* 表格样式 - 与build.html统一 */
         .activity-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
+            margin: 20px 0;
             box-shadow: var(--shadow-light);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         .activity-table th {
             background: var(--gradient-bg);
             color: white;
-            padding: 15px;
+            padding: 14px;
             text-align: left;
             font-weight: bold;
+            font-size: 15px;
         }
 
         .activity-table td {
-            padding: 12px 15px;
+            padding: 12px 14px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -476,6 +721,12 @@
         }
 
         .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 20px 0;
+        }
+
+        .table-divider {
             background-color: #f5f5f5 !important;
             font-weight: bold;
             font-size: 18px;
@@ -492,6 +743,7 @@
             white-space: nowrap;
         }
 
+        /* 警告框 */
         .warning {
             background-color: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -504,27 +756,87 @@
             color: #856404;
         }
 
-        /* 页脚 */
+        /* 高亮文本 */
+        .highlight {
+            background: linear-gradient(120deg, rgba(142, 45, 226, 0.2) 0%, rgba(142, 45, 226, 0.1) 100%);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* 列表样式修复 - 移除黑色小点 */
+        ul, ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .content-card ul,
+        .content-card ol,
+        .principle-box ul,
+        .principle-box ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .content-card li,
+        .principle-box li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .content-card li::before,
+        .principle-box li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+        }
+        
+        .principle-box ol li::before {
+            content: counter(item) '.';
+            counter-increment: item;
+        }
+        
+        .principle-box ol {
+            counter-reset: item;
+        }
+        
+        .content-card ol li::before {
+            content: counter(item) '.';
+            counter-increment: item;
+        }
+        
+        .content-card ol {
+            counter-reset: item;
+        }
+
+        /* 页脚 - 与build.html完全一致 */
         footer {
             background-color: var(--dark-color);
             color: white;
-            padding: 35px 0 16px;
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
+            padding: 40px 0 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: 60px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 24px;
+            margin-bottom: 30px;
         }
 
         .footer-column h3 {
-            font-size: 15px;
-            margin-bottom: 14px;
+            font-size: 16px;
+            margin-bottom: 16px;
             position: relative;
-            padding-bottom: 6px;
+            padding-bottom: 8px;
         }
 
         .footer-column h3::after {
@@ -533,7 +845,7 @@
             bottom: 0;
             left: 0;
             width: 30px;
-            height: 2px;
+            height: 3px;
             background: var(--gradient-bg);
         }
 
@@ -544,25 +856,35 @@
         }
         
         .footer-column ul li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             list-style-type: none;
         }
 
         .footer-column ul li a {
             color: #aaa;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            font-size: 14px;
         }
 
         .footer-column ul li a i {
-            margin-right: 6px;
-            font-size: 12px;
+            margin-right: 8px;
+            font-size: 13px;
+            width: 16px;
         }
 
         .footer-column ul li a:hover {
-            color: var(--gradient-bg);
+            color: var(--primary-color);
             transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 13px;
         }
 
         /* 微信二维码容器 */
@@ -608,8 +930,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: rgba(255,255,255,.1);
             border-radius: 50%;
             transition: all .3s ease;
@@ -619,40 +941,6 @@
         .social-platforms a:hover {
             background: var(--gradient-bg);
             transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 12px;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 992px) {
-            .header-content h2 {
-                font-size: 30px;
-            }
-            
-            .header-content p {
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .activity-table {
-                font-size: 14px;
-            }
-            
-            .activity-table th, 
-            .activity-table td {
-                padding: 8px 10px;
-            }
-            
-            .activity-name {
-                white-space: normal;
-            }
         }
 
         /* 动画效果 */
@@ -668,7 +956,7 @@
         }
 
         .fade-in {
-            animation: fadeIn 1s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
             opacity: 0;
         }
 
@@ -687,23 +975,25 @@
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
-            bottom: 16px;
-            right: 16px;
-            width: 38px;
-            height: 38px;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
             background: var(--gradient-bg);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.4);
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.4);
+            border: none;
+            outline: none;
         }
         
         .back-to-top.show {
@@ -712,8 +1002,163 @@
         }
         
         .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 24px rgba(142, 45, 226, 0.6);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .toc-column {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content h2 {
+                font-size: 36px;
+            }
+            
+            .header-content p {
+                font-size: 17px;
+            }
+            
+            .header-banner {
+                height: 300px;
+            }
+            
+            .manual-container {
+                flex-direction: column;
+            }
+            
+            .toc-column {
+                width: 100%;
+                position: static;
+                max-height: none;
+                margin-bottom: 36px;
+            }
+            
+            .toc-container {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-banner {
+                height: 260px;
+                margin-top: 0;
+                border-radius: 0;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .header-content h2 {
+                font-size: 30px;
+            }
+            
+            .header-content p {
+                font-size: 16px;
+            }
+            
+            .content-card {
+                padding: 24px 20px;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-right: 16px;
+            }
+            
+            .card-title {
+                font-size: 20px;
+            }
+            
+            .content-section-title h2 {
+                font-size: 28px;
+            }
+            
+            .content-section-title h3 {
+                font-size: 22px;
+            }
+            
+            .toc-container {
+                padding: 24px;
+            }
+            
+            .activity-table {
+                font-size: 14px;
+            }
+            
+            .activity-table th, 
+            .activity-table td {
+                padding: 10px 12px;
+            }
+            
+            .activity-name {
+                white-space: normal;
+            }
+            
+            .content-card ul,
+            .content-card ol,
+            .principle-box ul,
+            .principle-box ol {
+                margin-left: 15px;
+            }
+            
+            .content-card li,
+            .principle-box li {
+                padding-left: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-banner {
+                height: 220px;
+            }
+            
+            .header-content h2 {
+                font-size: 26px;
+            }
+            
+            .header-content p {
+                font-size: 15px;
+            }
+            
+            .content-section-title h2 {
+                font-size: 24px;
+            }
+            
+            .content-section-title h3 {
+                font-size: 20px;
+            }
+            
+            .content-card {
+                padding: 20px 16px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-icon {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+            
+            .content-card ul,
+            .content-card ol,
+            .principle-box ul,
+            .principle-box ol {
+                margin-left: 12px;
+            }
+            
+            .content-card li,
+            .principle-box li {
+                padding-left: 16px;
+            }
         }
     </style>
 </head>
@@ -722,7 +1167,7 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41em0tNyAwYy44MyAwIDEuNS0uNjcgMS41LTEuNVM5LjMzIDggOC41IDggOCA4LjY3IDggOC41IDggOSA4LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
                 <div class="logo-text">
                     <h1>禾</h1>
                     <div class="logo-subtitle">百业引导</div>
@@ -745,7 +1190,7 @@
                 <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
                 <li><a href="realms.html"><i class="fas fa-lightbulb"></i> 攻略心得</a></li>
                 <li><a href="stamina.html"><i class="fas fa-calculator"></i> 心力计算器</a></li>
-                        <li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
+                <li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
             </ul>
         </div>
     </header>
@@ -754,338 +1199,430 @@
     <section class="header-banner">
         <div class="container">
             <div class="header-content">
-                <h2 class="fade-in">百业引导</h2>
-                <p class="fade-in delay-1">禾 - 百业引导</p>
-                <p class="fade-in delay-2">了解百业活动玩法，更快上手</p>
+                <h2 class="fade-in">百业引导手册</h2>
+                <p class="fade-in delay-1">燕云十六声百业活动完全指南 · 详细攻略版</p>
+                <p class="fade-in delay-2">了解百业活动玩法，更快上手，轻松获取活跃度</p>
+                <p class="header-tagline fade-in delay-3">高效游戏，快乐生活</p>
             </div>
         </div>
     </section>
 
-    <!-- 招新公告 -->
-    <section class="recruitment-section">
+    <!-- 手册内容 -->
+    <section class="manual-section">
         <div class="container">
             <div class="section-title">
-                <h2>百业引导</h2>
+                <h2>百业活动完全指南</h2>
+                <p class="section-subtitle">本手册详细介绍了燕云十六声百业活动的玩法、技巧和策略，帮助您快速提升活跃度，享受游戏乐趣。</p>
             </div>
-            <div class="recruitment-content">
-                <center>
-                <h3>诚邀常在线活跃玩家</h3>
-                <p><em>诚邀高活跃玩家！周活跃度低于3000或离线3天清退，后20为学徒位！每晚20:00：百业派对！<br>造诣≥3.0，每周组织副本/百业战！进百业（群）加V/🐧好友：10581598</em></p>
-                </center>
-                <!-- 速刷攻略表格 -->
-                <h3>周活跃攻略（30分钟速刷3000）</h3>
-                <p><em>一周30分钟不是一天30分钟哦</em></p>
-                
-                <table class="activity-table">
-                    <thead>
-                        <tr>
-                            <th class="activity-name">活动名称</th>
-                            <th class="activity-name">获活跃度</th>
-                            <th class="activity-name">说明/备注</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="activity-name">百业派对</td>
-                            <td>540</td>
-                            <td>派对25分钟（需要分三天做），其他的百业任务都可以在挂派对的时候顺带完成</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">双人动作</td>
-                            <td>380</td>
-                            <td>派对时，在泳池旁边的房顶最顶上，一个人用可以F加入的双人动作（正经双修），其他人可以过来疯狂点加入，会显示加入失败，但是是算双人动作次数的，三五秒就可以刷满20次</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">同游闲趣</td>
-                            <td>380</td>
-                            <td>派对时，在泳池里做可以加入的双人动作（睡仙功马步桩正经双修）加入后两个人不要起来左边会跳任务奖励跳一次第一次闲趣刷满10次</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">一决高下</td>
-                            <td>400</td>
-                            <td>派对时，去一决高下擂台位置靠近报名的黄色的剑的位置，右上角点观战，就可以拿到奖励，不进去打也可以</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">驻地停留</td>
-                            <td>380</td>
-                            <td>挂派对的时候顺便就完成了，不用单独管</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">百业货运</td>
-                            <td>540</td>
-                            <td>一周三轮派对的时候去交就可以</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">破军杀将</td>
-                            <td>400</td>
-                            <td>跟一决同理，传送进位面就有奖励，观战以后直接走就可以，结束了奖励都会到账的，花费时间少于5分钟</td>
-                        </tr>
-                        <tr class="section-divider">
-                            <td colspan="3">基础速刷（派对时顺带完成活跃度：3020）</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">心力消耗</td>
-                            <td>380</td>
-                            <td>正常清心力消耗心力即可（做满消耗200心力）</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">参加止戈</td>
-                            <td>380</td>
-                            <td>喜欢打止戈的好朋友顺便做（做满要打10次止戈）</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">百业侠境</td>
-                            <td>125</td>
-                            <td>百业十人本，周一双侠跟着团一起打即可完成</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">联机探索</td>
-                            <td>380</td>
-                            <td>跟好友联机就行，进去挂时长就ok（做满要联机20分钟）</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">百业战联赛</td>
-                            <td>1000</td>
-                            <td>参与一次给500，两场都来1000</td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">帮助货运</td>
-                            <td>100</td>
-                            <td>帮助他人求助的货运，一次+10，周上限10次</td>
-                        </tr>
-                        <tr class="section-divider">
-                            <td colspan="3">更高追求（额外活动总计活跃度：2365）</td>
-                        </tr>
-                        <tr class="activity-summary">
-                            <td><strong>全部活动</strong></td>
-                            <td class="highlight-cell"><strong>5385</strong></td>
-                            <td><strong>在30分钟速刷基础上完成以上六条后获得活跃度总计</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <hr><br>
-                <h3>百业战（各阶段基本思路）</h3>
-                <p><strong><em>周六/周日 晚上八点半：百业战</em></strong></p> 
-                <!-- 以下是原有的百业战内容 -->
-                <h3>一、比赛前</h3>
-                <p><strong>必须携带止戈装备</strong>，不要拿着鸣金穿透、外功穿透来打百业战！一套装备加起来都不如别人一个定音。谁拿pve装备来打，我骂谁！</p>
-
-                <h3>二、流派选择</h3>
-                <p>注意搭配，一般输出、团控、治疗合理搭配即可，但拿双剑来打百业战也是要被我骂的！</p>
-                <p><strong>奇术</strong>：清风弄月、狮吼正声、萧吟子浪所有人必带。</p>
-                
-                <p><strong>百业战技能</strong></p>
-                <ul>
-                    <li>武连杰：伤害加成、受伤减免、气血加成点满。</li>
-                    <li>叶不惊：涉及自己流派的点满。</li>
-                    <li>清心通人。</li>
-                    <li>突破材料有限时，撤树组、保树组根据职责优先点满自己相关的，其他尽量点到2级。</li>
-                </ul>
-
-                <p><strong>武学大招</strong></p>
-                <p>自己准备带上的点满。</p>
-
-                <p><strong>药品和帖子</strong></p>
-                <p>进入前使用，建议8点28分使用。</p>
-                <ul>
-                    <li>81级版本：驼奶酒、果味奶皮卷二选一。</li>
-                    <li>帖子任选。</li>
-                    <li>泡澡看心情。</li>
-                </ul>
-
-                <h3>三、准备阶段</h3>
-                <ul>
-                    <li>保树组单独一队，上人墙。</li>
-                    <li>三个治疗在人墙主位。</li>
-                    <li>打野上下两路人墙协助位。</li>
-                    <li>裂石、尘等具备团控技能在协助位置。</li>
-                    <li>灵活组、搬树组合并为20人小队，原地上马，留2个治疗开伞加速。</li>
-                </ul>
-
-                <h3>四、开局打树阶段</h3>
-                
-                <p><strong>保树组</strong></p>
-                <ul>
-                    <li>打野撤离去打野。</li>
-                    <li>若无人攻打人墙，则人墙上所有人撤离支援其他路。</li>
-                    <li>若有人以下攻打人墙，主人墙使用人墙技能回击，其他人视情况下来反击。</li>
-                    <li>6人以上攻打人墙，主人墙、协助人均尽在人墙上，使用人墙技能。在人墙血量掉至40%左右时，下未被撕裂、干浪等干扰技能；在人墙10%血量时直接跑路，回家守路。全程呆堵上，在搭档的时候是会阵亡的。</li>
-                </ul>
-
-                <p><strong>撤树组、灵活支援组</strong></p>
-                <ul>
-                    <li>飞毛腿开局使用技能2滑铲出门，直奔对面塔，冷却好以后再用一次2技能滑铲，就能到对面的塔。</li>
-                </ul>
-
-                <p><strong>无人守塔</strong></p>
-                <ul>
-                    <li>输出打塔。</li>
-                    <li>治疗开车或学校撤出伤害，并视情况使用治疗和打拳术补伤者。</li>
-                    <li>指挥视情况使用双倍塔伤害。</li>
-                    <li>塔掉以后，治疗车再次开始速度快，其他人开启飞毛腿，直奔对面塔。</li>
-                </ul>
-
-                <p><strong>有人守塔</strong></p>
-                <ul>
-                    <li>输出打塔。</li>
-                    <li>裂石、破竹尘尽量控制对面多数人，避免对面开出干浪、近距离撕裂等控制技能。</li>
-                    <li>治疗主要负责加血，穿插脚、干浪等控制术。</li>
-                </ul>
-
-                <h3>五、打鹅阶段</h3>
-                <p>野怪分钟刷新一次，打野正好时间点，提前30秒起刷新点打野，避免被对面先打。打死安全也要多喊几人。</p>
-                
-                <p><strong>保树组</strong></p>
-                <ul>
-                    <li>保树组保树阶段必定面临难以少打多的情况，基本上是10打20甚至25，但有大树助助。核心思路是配合大树、拖延时间、逐个突破。</li>
-                    <li>治疗靠着家分散站开，治疗的同时，使用干浪、韦陀、狮吼等控制技能。开启云天尽的时候走到人群开，没有白云天尽就站最外面。</li>
-                    <li>无名、王伞等远程输出，站在治疗附近。无名优先打人群，王伞、尘伞优先打试图切奶和无名的人。</li>
-                </ul>
-
-                <p><strong>裂石</strong>：主要在人群中释放控制技能干扰输出。</p>
-                <p><strong>九九和鼠鼠</strong>：尽量找到对面奶妈和无名点杀。</p>
-                <p><strong>保树组所有人从泉水复活以后</strong>：记得使用三段跳+千斤坠+韦陀连招下来，大范围AOE+控制，放出来就是血赚。</p>
-                <p><strong>家里有轰炸机的时候</strong>：可以适当使用轰炸机，配合大树进行输出，减员对面。</p>
-
-                <h3>六、搬树组、灵活支援组</h3>
-                
-                <p><strong>治疗</strong></p>
-                <ul>
-                    <li>灵活组+保树组大撒个治疗，靠着出口分散站开，切勿站到对面家和人群里，会被对面复活人员第一时间打。</li>
-                    <li>若对面有较多人守家，则以治疗为主，奇术使用干派、狮吼、保自己为主。被多人盯上住队友方向圈，非常时期给自己单升百云无尽都可以。有6重君臣药兵重死在队友旁边，方便他们复活自己。复活其他人的优先级：其他治疗远高于高输出高于其他。</li>
-                    <li>若对面守家人数小于5人，治疗压力较小，大多数成员接近满血的时候，可适当使用吐火打拳打树或者打人。</li>
-                </ul>
-
-                <p><strong>输出</strong></p>
-                <ul>
-                    <li>远程接着治疗站，九九能打超打树，影响边人太多，挤不进去就打对面治疗和无名。</li>
-                    <li>所有人在家里复活以后，使用弹飞车，直接飞到对面躺的地方下来。若没有飞车次数了，则下去给轰炸机或者哈士奇赶路，都没有刷牙飞毛腿赶路。</li>
-                    <li>注意：搬树组、保树组被近况或者大量减员的时候不要动手扶爷爷，一个个去脑部里送。可以先在家帮帮忙，顺便等队友复活，把对面近况了，等大部队都复活了再上。</li>
-                </ul>
-
-                <h3>七、搬树阶段</h3>
-                
-                <p><strong>灵活支援组</strong></p>
-                <ul>
-                    <li>打完树以后，对面保树人数较少，搬树人员较多，则第一时间赶回去支援。</li>
-                    <li>对面守家人数较多，则尽量对对面，护送树出门。</li>
-                    <li>中场表演前需要派人回去先把对面撤树人干掉，避免我方中场输掉以后，对面30s无规则拦并加速的情况陷入大劣势。</li>
-                    <li>剩余时间25分钟的时候刷新小boss，派部分人去打。</li>
-                    <li>剩余时间15分钟刷新大boss，派大部队去打。</li>
-                    <li>其他情况随机应变。</li>
-                </ul>
-
-                <p><strong>保树组</strong></p>
-                <ul>
-                    <li>九九、裂石、破竹风优先于掉对面燃料人和试图搬树的人。</li>
-                    <li>其次是对面的治疗。</li>
-                    <li>再次是试图切我方治疗的人。</li>
-                    <li>再再次是外围的无名。</li>
-                    <li>裂石注意控制对面对面近战人群。</li>
-                    <li>最好组成从左右的小队骑龙减疗+集火点杀。</li>
-                </ul>
-
-                <p><strong>无名</strong></p>
-                <ul>
-                    <li>哪里人多打哪里，优先搬树人群。</li>
-                    <li>无名是对面的重点针对人群，如何拉扯，在被切的时候边打边输出，需要重点练习。建议多用纯无名打1V和5V5练习下。</li>
-                </ul>
-
-                <p><strong>破竹尘、玉玉</strong></p>
-                <ul>
-                    <li>优先于掉试图切我方治疗的人。</li>
-                    <li>其次是对面的治疗。</li>
-                    <li>再次是外围的无名。</li>
-                </ul>
-
-                <p><strong>治疗</strong></p>
-                <ul>
-                    <li>跟在车后面，站在王、无名、尘附近即可。</li>
-                    <li>白云无尽CD或者队友血量健康，则站在外围，放干浪、狮吼为主。</li>
-                    <li>被切则吐火，打拳反击。</li>
-                    <li>被很多人切使用保命术并呼叫队友。</li>
-                    <li>队友大批量阵亡，使用相关保命术，边打边后撤，呼叫支援。</li>
-                    <li>白云无尽CD好，并且队友血量80%以下，自身真气值较高或者刚被处决过：
-                        <ul>
-                            <li>三段跳+千斤坠+韦陀进入群，处决人群获得强韧，开白云无尽，再处决强韧再走出来。</li>
-                            <li>韦陀前摇很长，很容易被打断，只有没被打上的时候能用。</li>
-                            <li>走到人群边缘以后，开狮吼沉默对面人群，再走进去开白云无尽，迅速走出来。</li>
-                            <li>开伞武学级，群拍加强韧，走进人群开始踢再走出来。</li>
-                            <li>开流量坠火，打一波AOE，开白云无尽再出来。</li>
+            
+            <div class="manual-container">
+                <!-- 左侧固定目录导航 -->
+                <div class="toc-column">
+                    <div class="toc-container">
+                        <div class="toc-title"><i class="fas fa-bookmark"></i> 目录导航</div>
+                        <ul class="toc-list">
+                            <li><a href="#chapter1" class="active">第一章：招新公告与简介</a></li>
+                            <li><a href="#chapter2">第二章：周活跃攻略</a>
+                                <ul>
+                                    <li><a href="#section2-1">速刷攻略表格</a></li>
+                                    <li><a href="#section2-2">基础速刷技巧</a></li>
+                                    <li><a href="#section2-3">高效完成指南</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#chapter3">第三章：百业战完全攻略</a>
+                                <ul>
+                                    <li><a href="#section3-1">一、比赛前准备</a></li>
+                                    <li><a href="#section3-2">二、流派选择与配置</a></li>
+                                    <li><a href="#section3-3">三、准备阶段策略</a></li>
+                                    <li><a href="#section3-4">四、开局打树阶段</a></li>
+                                    <li><a href="#section3-5">五、打野阶段</a></li>
+                                    <li><a href="#section3-6">六、搬树组与支援组</a></li>
+                                    <li><a href="#section3-7">七、搬树阶段战术</a></li>
+                                    <li><a href="#section3-8">八、治疗大招时机</a></li>
+                                    <li><a href="#section3-9">九、搬树组分工</a></li>
+                                    <li><a href="#section3-10">十、指挥技能运用</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li>以上都没有，人群边缘开个奶圈越早下降走。没有强韧进入群，尤其是树旁边，就是吃沉默+击飞，然后暴毙白给，万万不可。</li>
-                </ul>
-
-                <h3>八、治疗大招使用时机</h3>
-                <ul>
-                    <li>优先留着在对面开减疗，导致我方大范围残血的时候，配合无相金身和友军的自保技能使用，打过减疗减员期。</li>
-                    <li>我方大范围半血、残血的时候也可使用，但务必和队友进行沟通，避免大招重置浪费。</li>
-                    <li>树过中场，少数人员减员，可使用驾驶飞机和轰炸机、哈士奇赶路。</li>
-                    <li>开始出现大范围残血，且治疗减员2个以上，呼叫灵活支援组协助。</li>
-                </ul>
-
-                <h3>九、搬树组</h3>
+                    </div>
+                </div>
                 
-                <p><strong>九九、裂石、破竹风</strong></p>
-                <p>主要负责断后，拦住试图来切除树的人。</p>
+                <!-- 右侧内容区域 -->
+                <div class="content-column">
+                    <!-- 第一章 -->
+                    <section id="chapter1" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第一章：招新公告与简介</h2>
+                        </div>
+                        
+                        <div class="content-card fade-in">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <div>
+                                    <div class="card-title">诚邀常在线活跃玩家</div>
+                                    <div class="card-subtitle">禾 - 百业引导</div>
+                                </div>
+                            </div>
+                            <div class="principle-box">
+                                <p>诚邀高活跃玩家！周活跃度低于3000或离线3天清退，后20为学徒位！</p>
+                                <p>每晚20:00：百业派对！造诣≥3.0，每周组织副本/百业战！</p>
+                                <p>进百业（群）加V/🐧好友：10581598</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-1">
+                            <h3>公会简介</h3>
+                            <p><span class="highlight">禾</span> 是一个专注于燕云十六声百业活动的游戏社区，我们致力于为玩家提供最全面的百业攻略、最高效的活动组织，以及最友好的游戏氛围。</p>
+                            <p>无论您是新手玩家还是资深高手，都能在这里找到属于自己的位置，与志同道合的伙伴一起享受游戏的乐趣。</p>
+                        </div>
+                    </section>
+                    
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
 
-                <p><strong>混战</strong></p>
-                <ul>
-                    <li>在树旁边，谁来杀谁。</li>
-                    <li>优先保证遇到治疗的人。</li>
-                    <li>其次是干掉对面治疗。</li>
-                    <li>再次是干掉对面无名。</li>
-                </ul>
+                    <!-- 第二章 -->
+                    <section id="chapter2" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第二章：周活跃攻略</h2>
+                            <p class="section-subtitle">高效完成周活跃任务，轻松获取3000+活跃度，一周仅需30分钟！</p>
+                        </div>
+                        
+                        <div class="content-card fade-in">
+                            <h3>周活跃攻略核心思路</h3>
+                            <p>注意：一周30分钟不是一天30分钟哦！</p>
+                            <p>通过合理安排活动顺序，利用百业派对时间集中完成多项任务，可以极大提高效率。</p>
+                        </div>
+                        
+                        <div id="section2-1" class="content-card fade-in delay-1">
+                            <h3>速刷攻略表格</h3>
+                            <table class="activity-table">
+                                <thead>
+                                    <tr>
+                                        <th class="activity-name">活动名称</th>
+                                        <th class="activity-name">获活跃度</th>
+                                        <th class="activity-name">说明/备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="activity-name">百业派对</td>
+                                        <td>540</td>
+                                        <td>派对25分钟（需要分三天做），其他的百业任务都可以在挂派对的时候顺带完成</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">双人动作</td>
+                                        <td>380</td>
+                                        <td>派对时，在泳池旁边的房顶最顶上，一个人用可以F加入的双人动作（正经双修），其他人可以过来疯狂点加入，会显示加入失败，但是是算双人动作次数的，三五秒就可以刷满20次</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">同游闲趣</td>
+                                        <td>380</td>
+                                        <td>派对时，在泳池里做可以加入的双人动作（睡仙功马步桩正经双修）加入后两个人不要起来左边会跳任务奖励跳一次第一次闲趣刷满10次</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">一决高下</td>
+                                        <td>400</td>
+                                        <td>派对时，去一决高下擂台位置靠近报名的黄色的剑的位置，右上角点观战，就可以拿到奖励，不进去打也可以</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">驻地停留</td>
+                                        <td>380</td>
+                                        <td>挂派对的时候顺便就完成了，不用单独管</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">百业货运</td>
+                                        <td>540</td>
+                                        <td>一周三轮派对的时候去交就可以</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">破军杀将</td>
+                                        <td>400</td>
+                                        <td>跟一决同理，传送进位面就有奖励，观战以后直接走就可以，结束了奖励都会到账的，花费时间少于5分钟</td>
+                                    </tr>
+                                    <tr class="table-divider">
+                                        <td colspan="3">基础速刷（派对时顺带完成活跃度：3020）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">心力消耗</td>
+                                        <td>380</td>
+                                        <td>正常清心力消耗心力即可（做满消耗200心力）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">参加止戈</td>
+                                        <td>380</td>
+                                        <td>喜欢打止戈的好朋友顺便做（做满要打10次止戈）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">百业侠境</td>
+                                        <td>125</td>
+                                        <td>百业十人本，周一双侠跟着团一起打即可完成</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">联机探索</td>
+                                        <td>380</td>
+                                        <td>跟好友联机就行，进去挂时长就ok（做满要联机20分钟）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">百业战联赛</td>
+                                        <td>1000</td>
+                                        <td>参与一次给500，两场都来1000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-name">帮助货运</td>
+                                        <td>100</td>
+                                        <td>帮助他人求助的货运，一次+10，周上限10次</td>
+                                    </tr>
+                                    <tr class="table-divider">
+                                        <td colspan="3">更高追求（额外活动总计活跃度：2365）</td>
+                                    </tr>
+                                    <tr class="activity-summary">
+                                        <td>全部活动</td>
+                                        <td class="highlight-cell">5385</td>
+                                        <td>在30分钟速刷基础上完成以上六条后获得活跃度总计</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div id="section2-2" class="content-card fade-in delay-2">
+                            <h3>基础速刷技巧</h3>
+                            <ol>
+                                <li>集中时间：利用百业派对时间（每晚20:00）集中完成多项任务，效率最高。</li>
+                                <li>任务组合：双人动作、同游闲趣、一决高下等任务都可以在派对期间轻松完成。</li>
+                                <li>观战技巧：一决高下和破军杀将只需观战即可获得奖励，无需实际参与战斗。</li>
+                                <li>资源共享：与公会成员合作完成双人动作等需要协作的任务。</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="section2-3" class="content-card fade-in delay-1">
+                            <h3>高效完成指南</h3>
+                            <div class="principle-box">
+                                <h4><i class="fas fa-lightbulb"></i> 高效建议：</h4>
+                                <ul>
+                                    <li>周一：参加百业侠境（十人本），完成基础任务</li>
+                                    <li>周二至周四：每晚参加百业派对，集中完成多项任务</li>
+                                    <li>周六/周日：参加百业战联赛，获取高额活跃度</li>
+                                    <li>日常：正常消耗心力，帮助他人货运，积少成多</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- 分隔线 -->
+                    <div class="section-divider"></div>
 
-                <p><strong>无名、破竹尘、王玉</strong></p>
-                <ul>
-                    <li>优先干掉试图切我方治疗的人或者对面的治疗，两者优先级相同。</li>
-                    <li>再次是外围的无名等远程输出。</li>
-                    <li>最后是哪里人多打哪里。</li>
-                </ul>
-
-                <p><strong>治疗</strong></p>
-                <ul>
-                    <li>站在车前面。</li>
-                    <li>白云无尽CD的时候站在外围，放干浪、狮吼为主。</li>
-                    <li>被切成比火、打拳反击。</li>
-                    <li>白云无尽CD好，并且队友血量80%以下，自身氧气值较高或者刚被处决过：
-                        <ul>
-                            <li>三段跳+千斤坠+韦陀进入群，处决人群获得强韧，开白云无尽，再处决强韧再走出来。</li>
-                            <li>韦陀前程很长，很容易被打断，只有没被打上的时候能用。</li>
-                            <li>走到人群边缘以后，开狮吼沉默对面人群，再走进去开白云无尽，迅速走出来。</li>
-                            <li>开车去学教，群拍加强肋，走进人群开狮圈再走出来。</li>
-                            <li>开流行坠火，打一波AOE，开白云无尽再出来。</li>
-                        </ul>
-                    </li>
-                    <li>以上都没有，人群边缘开个奶量愈要下就走。没有骚扰进入群，尤其是树旁边，就是吃沉默+古飞，然后暴跳白给，万万不可。</li>
-                </ul>
-
-                <h3>十、指挥技能</h3>
-                
-                <p><strong>急行加速技能</strong></p>
-                <p>由搬树组指挥释放，其他指挥不要乱放。</p>
-                <ul>
-                    <li>最好全速前进的时候放，其他时候谨慎使用。尤其避免还没出对面家门就用，用完很可能就面临对面大部队未支援寸步难行，非常浪费技能。</li>
-                    <li>中场休息前2分钟，除非大优势全速前进，且对面没有支援，否则不要放，避免赢了以后，加速技能CD的情况。</li>
-                </ul>
-
-                <p><strong>鼓舞士气</strong></p>
-                <p>所有指挥部可使用，逗币充足的时候放。符合用完以后逗币大于1000再用，避免出现鼓舞士气以后没有逗币的尴尬情况。</p>
-
-                <p><strong>减疗使用时机</strong></p>
-                <ul>
-                    <li>大员战、战斗较为激烈的期间，保树组指挥优先使用。搬树组指挥需要使用和保树组的商量以后，由保树组指挥使用。尽量作为焦灼时期的突破口，我方大优势或者大劣势均不适合使用。</li>
-                    <li>小boss刷新前，即剩余25.5分钟左右，使用减疗将对面大量减员，腾出力气打boss。</li>
-                    <li>大boss刷新前，即剩余15.5分钟左右，使用减疗将对面大量减员，腾出力气打boss。</li>
-                </ul>
-
-                <p><strong>沉舟</strong></p>
-                <p>复活CD减少，后期大范围团灭时使用。</p>
-
-                <p><strong>轰炸机、哈士奇、弩弹飞车</strong></p>
-                <p>有大量金币的时候使用，数量少的优先配置。都没有的时候，轰炸机优先级最高，飞车其次。</p> 
+                    <!-- 第三章 -->
+                    <section id="chapter3" class="content-section">
+                        <div class="content-section-title">
+                            <h2>第三章：百业战完全攻略</h2>
+                            <p class="section-subtitle">周六/周日 晚上八点半：百业战 · 各阶段基本思路与战术详解</p>
+                        </div>
+                        
+                        <div class="content-card fade-in">
+                            <div class="warning">
+                                <p>重要提醒：必须携带止戈装备，不要拿着鸣金穿透、外功穿透来打百业战！一套装备加起来都不如别人一个定音。谁拿PVE装备来打，我骂谁！</p>
+                            </div>
+                        </div>
+                        
+                        <div id="section3-1" class="content-card fade-in delay-1">
+                            <h3>一、比赛前准备</h3>
+                            <ul>
+                                <li>装备检查：确保携带正确的止戈装备，PVE装备在此模式中效果极差</li>
+                                <li>药品准备：进入前使用增益药品，建议8点28分使用（81级版本：驼奶酒、果味奶皮卷二选一）</li>
+                                <li>状态调整：泡澡、帖子等增益效果根据个人情况选择使用</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-2" class="content-card fade-in delay-2">
+                            <h3>二、流派选择与配置</h3>
+                            <p>注意搭配：一般输出、团控、治疗合理搭配即可，但拿双剑来打百业战也是要被我骂的！</p>
+                            
+                            <h4>奇术配置：</h4>
+                            <p>清风弄月、狮吼正声、萧吟子浪所有人必带。</p>
+                            
+                            <h4>百业战技能：</h4>
+                            <ul>
+                                <li>武连杰：伤害加成、受伤减免、气血加成点满。</li>
+                                <li>叶不惊：涉及自己流派的点满。</li>
+                                <li>清心通人：基础技能，确保开启。</li>
+                                <li>突破材料有限时：撤树组、保树组根据职责优先点满自己相关的，其他尽量点到2级。</li>
+                            </ul>
+                            
+                            <h4>武学大招：</h4>
+                            <p>自己准备带上的点满，根据角色定位选择合适的大招。</p>
+                        </div>
+                        
+                        <div id="section3-3" class="content-card fade-in">
+                            <h3>三、准备阶段策略</h3>
+                            <ul>
+                                <li>保树组单独一队：上人墙，三个治疗在人墙主位。</li>
+                                <li>打野上下两路：人墙协助位，裂石、尘等具备团控技能在协助位置。</li>
+                                <li>灵活组、搬树组合并：为20人小队，原地上马，留2个治疗开伞加速。</li>
+                                <li>指挥分配：明确各小组职责，确保每个人都清楚自己的任务。</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-4" class="content-card fade-in delay-1">
+                            <h3>四、开局打树阶段</h3>
+                            
+                            <h4>保树组策略：</h4>
+                            <ul>
+                                <li>打野撤离去打野。</li>
+                                <li>若无人攻打人墙，则人墙上所有人撤离支援其他路。</li>
+                                <li>若有人以下攻打人墙，主人墙使用人墙技能回击，其他人视情况下来反击。</li>
+                                <li>6人以上攻打人墙，主人墙、协助人均尽在人墙上，使用人墙技能。在人墙血量掉至40%左右时，下未被撕裂、干浪等干扰技能；在人墙10%血量时直接跑路，回家守路。</li>
+                            </ul>
+                            
+                            <h4>撤树组、灵活支援组策略：</h4>
+                            <ul>
+                                <li>飞毛腿开局使用技能2滑铲出门，直奔对面塔，冷却好以后再用一次2技能滑铲，就能到对面的塔。</li>
+                                <li>无人守塔时，输出打塔，治疗开车或学校撤出伤害，并视情况使用治疗和打拳术补伤者。</li>
+                                <li>有人守塔时，输出打塔，裂石、破竹尘尽量控制对面多数人，避免对面开出干浪、近距离撕裂等控制技能。</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-5" class="content-card fade-in delay-2">
+                            <h3>五、打野阶段</h3>
+                            <p>野怪分钟刷新一次，打野正好时间点，提前30秒起刷新点打野，避免被对面先打。打死安全也要多喊几人。</p>
+                            
+                            <h4>保树组防守策略：</h4>
+                            <ul>
+                                <li>保树组保树阶段必定面临难以少打多的情况，基本上是10打20甚至25，但有大树助助。</li>
+                                <li>核心思路是配合大树、拖延时间、逐个突破。</li>
+                                <li>治疗靠着家分散站开，治疗的同时，使用干浪、韦陀、狮吼等控制技能。</li>
+                                <li>无名、王伞等远程输出，站在治疗附近。无名优先打人群，王伞、尘伞优先打试图切奶和无名的人。</li>
+                                <li>裂石主要在人群中释放控制技能干扰输出。</li>
+                                <li>九九和鼠鼠尽量找到对面奶妈和无名点杀。</li>
+                            </ul>
+                            
+                            <p>重要技巧：保树组所有人从泉水复活以后，记得使用三段跳+千斤坠+韦陀连招下来，大范围AOE+控制，放出来就是血赚。</p>
+                            <p>家里有轰炸机的时候，可以适当使用轰炸机，配合大树进行输出，减员对面。</p>
+                        </div>
+                        
+                        <div id="section3-6" class="content-card fade-in">
+                            <h3>六、搬树组与灵活支援组</h3>
+                            
+                            <h4>治疗职责：</h4>
+                            <ul>
+                                <li>灵活组+保树组大撒个治疗，靠着出口分散站开，切勿站到对面家和人群里，会被对面复活人员第一时间打。</li>
+                                <li>若对面有较多人守家，则以治疗为主，奇术使用干派、狮吼、保自己为主。</li>
+                                <li>被多人盯上住队友方向圈，非常时期给自己单升百云无尽都可以。</li>
+                                <li>有6重君臣药兵重死在队友旁边，方便他们复活自己。</li>
+                                <li>复活其他人的优先级：其他治疗远高于高输出高于其他。</li>
+                            </ul>
+                            
+                            <h4>输出职责：</h4>
+                            <ul>
+                                <li>远程接着治疗站，九九能打超打树，影响边人太多，挤不进去就打对面治疗和无名。</li>
+                                <li>所有人在家里复活以后，使用弹飞车，直接飞到对面躺的地方下来。</li>
+                                <li>若没有飞车次数了，则下去给轰炸机或者哈士奇赶路，都没有刷牙飞毛腿赶路。</li>
+                                <li>注意：搬树组、保树组被近况或者大量减员的时候不要动手扶爷爷，一个个去脑部里送。可以先在家帮帮忙，顺便等队友复活，把对面近况了，等大部队都复活了再上。</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-7" class="content-card fade-in delay-1">
+                            <h3>七、搬树阶段战术</h3>
+                            
+                            <h4>灵活支援组策略：</h4>
+                            <ul>
+                                <li>打完树以后，对面保树人数较少，搬树人员较多，则第一时间赶回去支援。</li>
+                                <li>对面守家人数较多，则尽量对对面，护送树出门。</li>
+                                <li>中场表演前需要派人回去先把对面撤树人干掉，避免我方中场输掉以后，对面30s无规则拦并加速的情况陷入大劣势。</li>
+                                <li>剩余时间25分钟的时候刷新小boss，派部分人去打。</li>
+                                <li>剩余时间15分钟刷新大boss，派大部队去打。</li>
+                                <li>其他情况随机应变。</li>
+                            </ul>
+                            
+                            <h4>保树组防守策略：</h4>
+                            <ul>
+                                <li>九九、裂石、破竹风优先于掉对面燃料人和试图搬树的人。</li>
+                                <li>其次是对面的治疗。</li>
+                                <li>再次是试图切我方治疗的人。</li>
+                                <li>再再次是外围的无名。</li>
+                                <li>裂石注意控制对面对面近战人群。</li>
+                                <li>最好组成从左右的小队骑龙减疗+集火点杀。</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-8" class="content-card fade-in delay-2">
+                            <h3>八、治疗大招使用时机</h3>
+                            <ul>
+                                <li>优先时机：留着在对面开减疗，导致我方大范围残血的时候，配合无相金身和友军的自保技能使用，打过减疗减员期。</li>
+                                <li>次要时机：我方大范围半血、残血的时候也可使用，但务必和队友进行沟通，避免大招重置浪费。</li>
+                                <li>赶路时机：树过中场，少数人员减员，可使用驾驶飞机和轰炸机、哈士奇赶路。</li>
+                                <li>求援时机：开始出现大范围残血，且治疗减员2个以上，呼叫灵活支援组协助。</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-9" class="content-card fade-in">
+                            <h3>九、搬树组分工</h3>
+                            
+                            <h4>九九、裂石、破竹风：</h4>
+                            <p>主要负责断后，拦住试图来切除树的人。在树旁边，谁来杀谁。优先保证遇到治疗的人，其次是干掉对面治疗，再次是干掉对面无名。</p>
+                            
+                            <h4>无名、破竹尘、王玉：</h4>
+                            <p>优先干掉试图切我方治疗的人或者对面的治疗，两者优先级相同。再次是外围的无名等远程输出。最后是哪里人多打哪里。</p>
+                            
+                            <h4>治疗职责：</h4>
+                            <ul>
+                                <li>站在车前面，白云无尽CD的时候站在外围，放干浪、狮吼为主。</li>
+                                <li>被切成比火、打拳反击。</li>
+                                <li>白云无尽CD好，并且队友血量80%以下，自身氧气值较高或者刚被处决过，有多种进场策略选择。</li>
+                                <li>重要提醒：没有骚扰进入群，尤其是树旁边，就是吃沉默+古飞，然后暴跳白给，万万不可。</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="section3-10" class="content-card fade-in delay-1">
+                            <h3>十、指挥技能运用</h3>
+                            
+                            <h4>急行加速技能：</h4>
+                            <p>由搬树组指挥释放，其他指挥不要乱放。最好全速前进的时候放，其他时候谨慎使用。尤其避免还没出对面家门就用，用完很可能就面临对面大部队未支援寸步难行，非常浪费技能。中场休息前2分钟，除非大优势全速前进，且对面没有支援，否则不要放，避免赢了以后，加速技能CD的情况。</p>
+                            
+                            <h4>鼓舞士气：</h4>
+                            <p>所有指挥部可使用，逗币充足的时候放。符合用完以后逗币大于1000再用，避免出现鼓舞士气以后没有逗币的尴尬情况。</p>
+                            
+                            <h4>减疗使用时机：</h4>
+                            <ul>
+                                <li>大员战、战斗较为激烈的期间，保树组指挥优先使用。搬树组指挥需要使用和保树组的商量以后，由保树组指挥使用。</li>
+                                <li>尽量作为焦灼时期的突破口，我方大优势或者大劣势均不适合使用。</li>
+                                <li>小boss刷新前（剩余25.5分钟左右），使用减疗将对面大量减员，腾出力气打boss。</li>
+                                <li>大boss刷新前（剩余15.5分钟左右），使用减疗将对面大量减员，腾出力气打boss。</li>
+                            </ul>
+                            
+                            <h4>沉舟：</h4>
+                            <p>复活CD减少，后期大范围团灭时使用。</p>
+                            
+                            <h4>轰炸机、哈士奇、弩弹飞车：</h4>
+                            <p>有大量金币的时候使用，数量少的优先配置。都没有的时候，轰炸机优先级最高，飞车其次。</p>
+                        </div>
+                        
+                        <div class="content-card fade-in delay-2">
+                            <div class="principle-box">
+                                <h4><i class="fas fa-trophy"></i> 百业战胜利关键：</h4>
+                                <ol>
+                                    <li>团队协作：各小组明确职责，紧密配合</li>
+                                    <li>装备准备：正确的止戈装备是基础</li>
+                                    <li>技能运用：合理使用奇术和大招</li>
+                                    <li>时机把握：关键时刻的正确决策</li>
+                                    <li>沟通协调：及时的信息共享和战术调整</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- 手册页脚 -->
+                    <div class="manual-footer" style="margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border-light);">
+                        <div class="manual-version">
+                            <p>最后更新日期：2025年10月</p>
+                            <p>适用游戏：燕云十六声</p>
+                            <p>本指南为动态文档，将根据游戏版本更新和公会实践持续优化。</p>
+                            <p>愿您在禾公会享受游戏的每一刻，与伙伴共创美好回忆。</p>
+                            <p>高效游戏，快乐生活。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1173,6 +1710,7 @@
     </div>
 
     <script>
+        // DOM加载完成
         document.addEventListener('DOMContentLoaded', function() {
             // 滚动动画
             const fadeElements = document.querySelectorAll('.fade-in');
@@ -1194,25 +1732,32 @@
             // 平滑滚动
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        const offset = 90;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    // 排除导航栏链接
+                    if (this.getAttribute('href').startsWith('#') && 
+                        !this.getAttribute('href').includes('.html')) {
+                        e.preventDefault();
                         
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#') return;
                         
-                        // 移动端点击链接后关闭导航菜单
-                        if (window.innerWidth <= 992) {
-                            closeMobileMenu();
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            const offset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // 关闭移动端菜单
+                            if (window.innerWidth <= 992) {
+                                closeMobileMenu();
+                            }
+                            
+                            // 更新目录高亮
+                            updateTocHighlight(targetId);
                         }
                     }
                 });
@@ -1237,6 +1782,9 @@
                 } else {
                     backToTop.classList.remove('show');
                 }
+                
+                // 滚动时更新目录高亮
+                updateTocHighlightOnScroll();
             });
             
             // 返回顶部按钮点击事件
@@ -1287,6 +1835,45 @@
                     closeMobileMenu();
                 }
             });
+            
+            // 目录高亮功能
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            const sections = document.querySelectorAll('.content-section');
+            
+            // 更新目录高亮函数
+            function updateTocHighlight(targetId) {
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // 滚动时更新目录高亮
+            function updateTocHighlightOnScroll() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 150;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // 初始高亮
+            updateTocHighlightOnScroll();
         });
     </script>
 </body>
