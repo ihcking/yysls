@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禾 - 游戏吃瓜</title>
+    <meta name="description" content="燕云十六声，禾，游戏吃瓜，分享趣事与避雷，维护公平游戏环境。提供真实证据，共同净化游戏社区。">
+    <meta name="keywords" content="燕云十六声，吃瓜，爆料，趣事，避雷，游戏举报，禾，百业">
+    
+    <!-- 添加网站图标 (favicon) -->
+    <link rel="icon" type="image/x-icon" href="https://www.yysls.cn/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.yysls.cn/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.yysls.cn/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.yysls.cn/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 全局样式 - 与原有风格统一 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', '微软雅黑', 'Segoe UI', Arial, sans-serif;
+        }
+
+        :root {
+            --primary-color: #8e2de2;
+            --secondary-color: #4a00e0;
+            --accent-color: #e94057;
+            --fun-color: #ff9a3c;
+            --success-color: #00c853;
+            --info-color: #2979ff;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #666;
+            --text-lighter: #888;
+            --border-color: #eaeaea;
+            --border-light: #f0f0f0;
+            --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            --gradient-fun: linear-gradient(135deg, var(--fun-color), #ffcc00);
+            --gradient-success: linear-gradient(135deg, var(--success-color), #64dd17);
+            --section-bg: #ffffff;
+            --section-alt: #f8f9fa;
+            --section-light: #fcfcfe;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-deep: 0 12px 36px rgba(0, 0, 0, 0.12);
+            --nav-height: 70px;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: var(--nav-height);
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--gradient-bg);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3);
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.4);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        /* ************ 导航栏样式 ************ */
+        header {
+            background-color: rgba(26, 26, 46, 0.98);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 1001;
+        }
+
+        .logo img {
+            height: 42px;
+            width: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            color: #b0b0d0;
+            font-size: 12px;
+            margin-top: 2px;
+            letter-spacing: 0.3px;
+            opacity: 0.9;
+        }
+
+        /* 桌面端导航链接 */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 6px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #e0e0ff;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-links a i {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .nav-active {
+            color: white !important;
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.2), rgba(233, 64, 87, 0.2)) !important;
+            font-weight: 600 !important;
+            box-shadow: 0 2px 8px rgba(142, 45, 226, 0.2);
+        }
+
+        .nav-active::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 12px;
+            right: 12px;
+            height: 3px;
+            background: var(--gradient-bg);
+            border-radius: 2px;
+        }
+
+        /* 汉堡菜单按钮 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            justify-content: space-between;
+            z-index: 1001;
+            padding: 5px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* 移动端导航菜单 */
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                background-color: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(15px);
+                padding: 20px 24px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 999;
+                gap: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                padding: 18px 20px;
+                font-size: 15px;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 4px 0;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+                padding-left: 24px;
+            }
+            
+            .nav-links a i {
+                font-size: 14px;
+            }
+            
+            .nav-active::before {
+                left: 0;
+                right: auto;
+                width: 4px;
+                height: 100%;
+                bottom: 0;
+                background: var(--gradient-bg);
+            }
+        }
+
+        /* 小屏幕调整 */
+        @media (max-width: 768px) {
+            :root {
+                --nav-height: 64px;
+            }
+            
+            .logo h1 {
+                font-size: 20px;
+            }
+            
+            .logo img {
+                height: 36px;
+                width: 36px;
+            }
+            
+            .logo-subtitle {
+                font-size: 11px;
+            }
+        }
+
+        /* ************ 页眉 - 游戏吃瓜主题 ************ */
+        .header-banner {
+            height: 340px;
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            margin-bottom: 40px;
+            margin-top: 0;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(142, 45, 226, 0.4), rgba(233, 64, 87, 0.4));
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .header-content h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 800;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .header-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .header-tagline {
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.85;
+            margin-top: 10px;
+        }
+
+        /* ************ 吃瓜主区域 ************ */
+        .exposure-section {
+            padding: 60px 0 80px;
+            background-color: var(--section-light);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-bg);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 10px auto 0;
+            line-height: 1.6;
+        }
+
+        /* 搜索栏 */
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            gap: 10px;
+            justify-content: center;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 40px;
+            border: 1px solid var(--border-color);
+            font-size: 16px;
+            background: white;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s;
+        }
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(142,45,226,0.1);
+        }
+        .search-bar button {
+            padding: 0 30px;
+            border-radius: 40px;
+            background: var(--gradient-bg);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: var(--shadow-light);
+            white-space: nowrap;
+        }
+        .search-bar button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* 吃瓜卡片列表 */
+        .exposure-list {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .exposure-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-medium);
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .exposure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-deep);
+        }
+
+        .exposure-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .exposure-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-right: 15px;
+            line-height: 1.4;
+        }
+
+        .exposure-status {
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        .status-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .exposure-detail {
+            background: var(--section-alt);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-light);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .exposure-files {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 20px 0;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        /* 文件项样式应用于a标签 */
+        .file-item {
+            background: var(--section-alt);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border-light);
+            color: var(--text-color);
+            transition: 0.2s;
+            cursor: pointer;  /* 改为指针 */
+            text-decoration: none;
+        }
+
+        .file-item i {
+            color: var(--primary-color);
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .file-item:hover {
+            background: var(--gradient-bg);
+            color: white;
+            border-color: transparent;
+        }
+
+        .file-item:hover i {
+            color: white;
+        }
+
+        .exposure-target {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+            background: #f5f0ff;
+            padding: 18px 22px;
+            border-radius: 16px;
+            border: 1px solid rgba(142, 45, 226, 0.1);
+        }
+
+        .exposure-target div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .exposure-target i {
+            color: var(--primary-color);
+            width: 20px;
+            font-size: 16px;
+        }
+
+        .exposure-reporter {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            color: var(--text-light);
+        }
+
+        .exposure-reporter div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .exposure-reporter i {
+            color: var(--accent-color);
+            width: 20px;
+        }
+
+        .exposure-other {
+            background: #f0f2f8;
+            padding: 18px 24px;
+            border-radius: 16px;
+            font-size: 14px;
+            color: var(--text-color);
+            border-left: 6px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .exposure-other i {
+            color: var(--accent-color);
+            font-size: 18px;
+        }
+
+        /* 分页控件 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-light);
+        }
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .pagination button:hover:not(:disabled) {
+            background: var(--gradient-bg);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        .page-info {
+            font-size: 16px;
+            color: var(--text-light);
+            background: white;
+            padding: 8px 22px;
+            border-radius: 40px;
+            box-shadow: var(--shadow-light);
+        }
+
+        /* 延迟动画 */
+        .exposure-card:nth-child(1) { animation-delay: 0.1s; }
+        .exposure-card:nth-child(2) { animation-delay: 0.2s; }
+        .exposure-card:nth-child(3) { animation-delay: 0.3s; }
+        /* 后续卡片延迟递增由js动态添加，无需额外 */
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .exposure-header h3 {
+                font-size: 20px;
+            }
+            .exposure-target, .exposure-reporter {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .exposure-files {
+                gap: 10px;
+            }
+            .file-item {
+                padding: 6px 14px;
+                font-size: 13px;
+            }
+            .search-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-bar button {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .exposure-card {
+                padding: 20px;
+            }
+            .exposure-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ************ 页脚 ************ */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--gradient-bg);
+        }
+
+        .footer-column ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 8px;
+            list-style-type: none;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a i {
+            margin-right: 8px;
+            font-size: 13px;
+            width: 16px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        /* 微信二维码容器 */
+        .wechat-qrcode {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            width: 240px;
+            justify-content: space-between;
+        }
+        
+        .wechat-qrcode-item {
+            text-align: center;
+            width: 112px;
+        }
+        
+        .wechat-qrcode-item img {
+            width: 112px;
+            height: 112px;
+            background: white;
+            padding: 4px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+        }
+        
+        .wechat-qrcode-item p {
+            margin-top: 8px;
+            font-size: 11px;
+            color: #ccc;
+        }
+        
+        /* 媒体平台图标 */
+        .social-platforms {
+            display: flex;
+            justify-content: space-between;
+            width: 240px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .social-platforms a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,.1);
+            border-radius: 50%;
+            transition: all .3s ease;
+            flex: 0 0 auto;
+        }
+
+        .social-platforms a:hover {
+            background: var(--gradient-bg);
+            transform: translateY(-3px);
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-bg);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 16px rgba(142, 45, 226, 0.4);
+            border: none;
+            outline: none;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 24px rgba(142, 45, 226, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 (游戏吃瓜高亮) -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMy41LTljLjgzIDAgMS41LS42NyAxLjUtMS41UzE2LjMzIDggMTUuNSA4IDE0IDguNjcgMTQgOC41IDE0LjUgOSAxNS41IDkgMTVzLjY3IDEuNSAxLjUgMS41eiIvPjwvc3ZnPg==" alt="Logo">
+                <div class="logo-text">
+                    <h1>禾</h1>
+                    <div class="logo-subtitle">游戏吃瓜，趣事分享</div>
+                </div>
+            </div>
+            
+            <!-- 汉堡菜单按钮 -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="events.html"><i class="fas fa-calendar-alt"></i> 百业活动</a></li>
+                <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>					
+                <li><a href="build.html"><i class="fas fa-seedling"></i> 成长共筑</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i> 百业风采</a></li>
+                <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
+                <li><a href="realms.html"><i class="fas fa-lightbulb"></i> 攻略心得</a></li>
+                <li><a href="stamina.html"><i class="fas fa-calculator"></i> 心力计算器</a></li>
+                <!-- 游戏吃瓜高亮 -->
+                <li><a href="exposure.html" class="nav-active"><i class="fas fa-exclamation-triangle"></i> 游戏吃瓜</a></li>
+                <li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 页眉 - 游戏吃瓜主题 -->
+    <section class="header-banner">
+        <div class="container">
+            <div class="header-content">
+                <h2 class="fade-in">游戏吃瓜</h2>
+                <p class="fade-in delay-1">禾 · 分享趣事 · 理性避雷 · 维护公平</p>
+                <p class="fade-in delay-2">请提供真实有效的证据，我们将核实后展示</p>
+                <p class="header-tagline fade-in delay-3">快乐吃瓜，净化环境</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 吃瓜主要内容 -->
+    <section class="exposure-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>最新瓜田</h2>
+                <p>以下信息均由玩家提交，经初步核实后展示。请理性看待，拒绝虚假爆料。</p>
+            </div>
+
+            <!-- 搜索栏 -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="搜索标题、详情、目标昵称、爆料人...">
+                <button id="searchBtn"><i class="fas fa-search"></i> 搜索</button>
+            </div>
+            
+            <!-- 吃瓜卡片动态渲染容器 -->
+            <div id="exposure-list-container" class="exposure-list"></div>
+
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination">
+                <button id="prevPage" disabled><i class="fas fa-chevron-left"></i> 上一页</button>
+                <span class="page-info" id="pageInfo">第 1 页 / 共 1 页</span>
+                <button id="nextPage" disabled>下一页 <i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <!-- 我要爆料按钮 -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn"><i class="fas fa-edit"></i> 我要爆料（提供瓜料）</a>
+            </div>
+
+            <!-- 使用说明/提示 -->
+            <div class="instructions fade-in" style="margin-top: 50px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <h3><i class="fas fa-shield-alt"></i> 吃瓜须知：</h3>
+                <p>1. 请确保所爆料内容真实有效，恶意诽谤将承担后果。</p>
+                <p>2. 支持上传图片、视频、音频等证据，尽量清晰显示目标ID。</p>
+                <p>3. 爆料人信息默认匿名显示，可选择公开昵称。</p>
+                <p>4. 所有吃瓜内容经管理组核实后更新状态（待核实/已核实/已处理）。</p>
+                <p>5. 本栏目旨在维护游戏环境，请理性发言，快乐吃瓜。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 (保持不变，仅将“曝光栏”改为“游戏吃瓜”) -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>禾</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="events.html"><i class="fas fa-calendar-alt"></i> 百业活动</a></li>
+                        <li><a href="guide.html"><i class="fas fa-leaf"></i> 百业引导</a></li>					
+                        <li><a href="build.html"><i class="fas fa-seedling"></i> 成长共筑</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-images"></i> 百业风采</a></li>
+                        <li><a href="strategy.html"><i class="fas fa-book-open"></i> 萌新指南</a></li>
+                        <li><a href="realms.html"><i class="fas fa-lightbulb"></i> 攻略心得</a></li>
+                        <li><a href="stamina.html"><i class="fas fa-calculator"></i> 心力计算器</a></li>
+                        <li><a href="exposure.html"><i class="fas fa-exclamation-triangle"></i> 游戏吃瓜</a></li>
+                        <li><a href="https://m.tb.cn/h.7c08Y22?tk=De5BfH4URHs"><i class="fas fa-shopping-cart"></i> 代肝服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>皇宸</h3>
+                    <ul>
+                        <li><a href="https://hc.kinghc.com"><i class="fas fa-crown"></i> 皇宸总部</a></li>
+                        <li><a href="https://hcbl.kinghc.com"><i class="fas fa-users"></i> 皇宸部落</a></li>
+                        <li><a href="https://qlgh.kinghc.com"><i class="fas fa-dragon"></i> 乾龙公会</a></li>
+                        <li><a href="https://qcjz.kinghc.com"><i class="fas fa-home"></i> 卿城家族</a></li>
+                        <li><a href="https://fgsm.kinghc.com"><i class="fas fa-graduation-cap"></i> 枫谷师门</a></li>
+                        <li><a href="https://xf.kinghc.com"><i class="fas fa-landmark"></i> 潇府</a></li>
+                        <li><a href="https://yg.kinghc.com"><i class="fas fa-mountain"></i> 逸阁</a></li>
+                        <li><a href="https://qg.kinghc.com"><i class="fas fa-building"></i> 卿阁</a></li>
+                        <li><a href="https://fg.kinghc.com"><i class="fas fa-tree"></i> 枫阁</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>燕云十六声</h3>
+                    <ul>
+                        <li><a href="https://www.yysls.cn/index.html" target="_blank"><i class="fas fa-gamepad"></i> 游戏官网</a></li>
+                        <li><a href="https://www.yysls.cn/news/index.html" target="_blank"><i class="far fa-newspaper"></i> 新闻资讯</a></li>
+                        <li><a href="https://16.163.com/map/" target="_blank"><i class="fas fa-map"></i> 燕云地图</a></li>
+                        <li><a href="https://www.yysls.cn/faq/" target="_blank"><i class="far fa-question-circle"></i> 常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-qq"></i> 3010662388</a></li>
+                        <li><a href="#"><i class="fab fa-weixin"></i> 3010662388</a></li>
+                        <li><a href="#"><i class="far fa-envelope"></i> hc@ihcking.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>关注我们</h3>
+                    <div class="wechat-qrcode">
+                        <div class="wechat-qrcode-item">
+                            <img src=".././assets/img/hcwxdyh.jpg" alt="微信公众号1">
+                            <p>皇宸订阅号</p>
+                        </div>
+                        <div class="wechat-qrcode-item">
+                            <img src=".././assets/img/hcwxfwh.jpg" alt="微信公众号2">
+                            <p>皇宸服务号</p>
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <a href="#" title="哔哩哔哩"><i class="fab fa-bilibili"></i></a>
+                        <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
+                        <a href="#" title="抖音"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" title="QQ群"><i class="fab fa-qq"></i></a>
+                        <a href="#" title="微信群"><i class="fas fa-comments"></i></a>
+                        <a href="https://kook.vip/h2QyLc" title="KOOK社区"><i class="fas fa-users"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 禾. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        (function(){
+            // ---------- 吃瓜数据 (增加了 url 字段用于文件跳转) ----------
+            const exposureData = [
+                {
+                    title: "【恶意抢怪】玩家“剑圣”多次抢怪并言语辱骂",
+                    status: "待核实",
+                    statusClass: "status-warning",
+                    detail: "2025年2月10日晚，在XX地图，目标玩家“剑圣”在我打怪时多次故意抢怪，并在世界频道辱骂。有截图和录屏为证，严重影响游戏体验。",
+                    files: [
+                        { name: "截图1.jpg", icon: "fa-image", url: "#" },
+                        { name: "截图2.png", icon: "fa-image", url: "#" },
+                        { name: "录屏证据.mp4", icon: "fa-video", url: "#" },
+                        { name: "语音辱骂.m4a", icon: "fa-microphone-alt", url: "#" }
+                    ],
+                    targetId: "123456789",
+                    targetNick: "剑圣",
+                    reporter: "匿名好心人",
+                    reportTime: "2025-02-11 14:30",
+                    other: "服务器：紫禁之巅；发生时间：2月10日22:00；同场证人：@清风、@明月"
+                },
+                {
+                    title: "【诈骗】冒充官方发送虚假中奖信息",
+                    status: "已核实",
+                    statusClass: "status-danger",
+                    detail: "目标通过邮件私聊发送虚假中奖链接，骗取账号信息。已有多人受害。附带聊天记录和链接截图，提醒大家切勿点击不明链接。",
+                    files: [
+                        { name: "聊天记录.png", icon: "fa-image", url: "#" },
+                        { name: "邮件截图.jpg", icon: "fa-image", url: "#" },
+                        { name: "虚假链接.txt", icon: "fa-link", url: "#" },
+                        { name: "诈骗话术.pdf", icon: "fa-file-pdf", url: "#" }
+                    ],
+                    targetId: "987654321",
+                    targetNick: "客服小张",
+                    reporter: "玩家张三",
+                    reportTime: "2025-02-12 09:15",
+                    other: "涉及服务器：所有大区；已有3名玩家确认受骗，请广大玩家注意防范。"
+                },
+                {
+                    title: "【使用外挂】玩家“神偷”在竞技场使用加速外挂",
+                    status: "已处理",
+                    statusClass: "status-success",
+                    detail: "多次在排位赛中使用加速外挂，移动速度异常，明显违反公平。提供多场录屏证据，官方已介入。",
+                    files: [
+                        { name: "第一场录屏.mp4", icon: "fa-video", url: "#" },
+                        { name: "第二场录屏.mp4", icon: "fa-video", url: "#" },
+                        { name: "解说音频.m4a", icon: "fa-file-audio", url: "#" },
+                        { name: "战绩截图.jpg", icon: "fa-image", url: "#" }
+                    ],
+                    targetId: "555666777",
+                    targetNick: "神偷",
+                    reporter: "正义联盟",
+                    reportTime: "2025-02-09 18:20",
+                    other: "官方已封号10年，处理结果公示于官网。感谢举报者提供证据。"
+                },
+                {
+                    title: "【言语辱骂】玩家“暴躁老哥”公共频道持续辱骂",
+                    status: "待核实",
+                    statusClass: "status-warning",
+                    detail: "2月13日晚上，在门派频道刷屏辱骂其他玩家，附带大量脏话，影响极差。",
+                    files: [
+                        { name: "聊天记录1.png", icon: "fa-image", url: "#" },
+                        { name: "聊天记录2.png", icon: "fa-image", url: "#" },
+                        { name: "语音辱骂.mp3", icon: "fa-microphone-alt", url: "#" }
+                    ],
+                    targetId: "112233445",
+                    targetNick: "暴躁老哥",
+                    reporter: "吃瓜群众",
+                    reportTime: "2025-02-14 10:00",
+                    other: "发生服务器：笑傲江湖；多名玩家可作证。"
+                },
+                {
+                    title: "【恶意PK】玩家“血煞”连续屠杀小号",
+                    status: "已核实",
+                    statusClass: "status-danger",
+                    detail: "2月12日在新手村连续击杀十余名小号，并发送嘲讽表情。",
+                    files: [
+                        { name: "击杀截图.png", icon: "fa-image", url: "#" },
+                        { name: "录屏证据.mp4", icon: "fa-video", url: "#" }
+                    ],
+                    targetId: "99887766",
+                    targetNick: "血煞",
+                    reporter: "新手村守卫",
+                    reportTime: "2025-02-13 08:30",
+                    other: "受害玩家已集体投诉，等待官方处理。"
+                },
+                {
+                    title: "【诈骗】交易欺诈，骗走装备",
+                    status: "已处理",
+                    statusClass: "status-success",
+                    detail: "以代练为名骗走一件稀有装备，价值约500元。有聊天记录和转账截图。",
+                    files: [
+                        { name: "聊天记录.png", icon: "fa-image", url: "#" },
+                        { name: "装备截图.jpg", icon: "fa-image", url: "#" },
+                        { name: "转账记录.png", icon: "fa-image", url: "#" }
+                    ],
+                    targetId: "44556677",
+                    targetNick: "诚信代练",
+                    reporter: "受害者小李",
+                    reportTime: "2025-02-10 16:20",
+                    other: "已报警并提交给官方，目前账号已被冻结。"
+                }
+            ];
+
+            // ---------- 分页和搜索变量 ----------
+            const pageSize = 2;          // 每页显示2条，方便演示分页
+            let currentPage = 1;
+            let filteredData = [...exposureData];  // 当前过滤后的数据
+            let searchTerm = '';
+
+            // DOM 元素
+            const container = document.getElementById('exposure-list-container');
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+            const pageInfo = document.getElementById('pageInfo');
+
+            // 渲染吃瓜卡片
+            function renderExposures() {
+                if (!container) return;
+
+                // 计算当前页数据
+                const total = filteredData.length;
+                const totalPages = Math.ceil(total / pageSize) || 1;
+                if (currentPage < 1) currentPage = 1;
+                if (currentPage > totalPages) currentPage = totalPages;
+
+                const start = (currentPage - 1) * pageSize;
+                const end = Math.min(start + pageSize, total);
+                const pageData = filteredData.slice(start, end);
+
+                // 生成HTML
+                let htmlStr = '';
+                pageData.forEach(item => {
+                    // 处理文件列表：每个文件项变成可跳转的链接
+                    const filesHtml = item.files.map(f => 
+                        `<a href="${f.url || '#'}" class="file-item" target="_blank" rel="noopener"><i class="fas ${f.icon}"></i> ${f.name}</a>`
+                    ).join('');
+
+                    htmlStr += `
+                        <div class="exposure-card fade-in">
+                            <div class="exposure-header">
+                                <h3>${item.title}</h3>
+                                <span class="exposure-status ${item.statusClass}">${item.status}</span>
+                            </div>
+                            <div class="exposure-detail"><strong>详情：</strong>${item.detail}</div>
+                            <div class="exposure-files">${filesHtml}</div>
+                            <div class="exposure-target">
+                                <div><i class="fas fa-id-badge"></i> 目标ID：${item.targetId}</div>
+                                <div><i class="fas fa-user"></i> 目标昵称：${item.targetNick}</div>
+                            </div>
+                            <div class="exposure-reporter">
+                                <div><i class="fas fa-flag"></i> 爆料人：${item.reporter}</div>
+                                <div><i class="fas fa-clock"></i> 吃瓜时间：${item.reportTime}</div>
+                            </div>
+                            <div class="exposure-other">
+                                <i class="fas fa-info-circle"></i> 其他：${item.other}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                if (pageData.length === 0) {
+                    htmlStr = '<div style="text-align: center; padding: 40px; background: white; border-radius: 24px;">没有匹配的吃瓜记录</div>';
+                }
+
+                container.innerHTML = htmlStr;
+
+                // 更新分页信息
+                pageInfo.innerText = `第 ${currentPage} 页 / 共 ${totalPages} 页`;
+
+                // 更新按钮状态
+                prevBtn.disabled = currentPage <= 1;
+                nextBtn.disabled = currentPage >= totalPages;
+
+                // 触发淡入动画（动态添加的卡片已经带有fade-in类，CSS动画会自动播放）
+            }
+
+            // 过滤数据
+            function filterData() {
+                if (!searchTerm.trim()) {
+                    filteredData = [...exposureData];
+                } else {
+                    const term = searchTerm.trim().toLowerCase();
+                    filteredData = exposureData.filter(item => 
+                        item.title.toLowerCase().includes(term) ||
+                        item.detail.toLowerCase().includes(term) ||
+                        item.targetNick.toLowerCase().includes(term) ||
+                        item.reporter.toLowerCase().includes(term) ||
+                        item.other.toLowerCase().includes(term)
+                    );
+                }
+                // 重置到第一页
+                currentPage = 1;
+                renderExposures();
+            }
+
+            // 事件监听
+            searchBtn.addEventListener('click', function() {
+                searchTerm = searchInput.value;
+                filterData();
+            });
+
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    searchTerm = searchInput.value;
+                    filterData();
+                }
+            });
+
+            prevBtn.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderExposures();
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                const totalPages = Math.ceil(filteredData.length / pageSize);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderExposures();
+                }
+            });
+
+            // 初始化渲染
+            renderExposures();
+
+            // ---------- 原有交互 (导航、汉堡菜单、返回顶部等) ----------
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1; 
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // 平滑滚动（仅限锚点）
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const offset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        if (window.innerWidth <= 992) closeMobileMenu();
+                    }
+                });
+            });
+
+            // 导航栏滚动效果 & 返回顶部
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(26, 26, 46, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.2)';
+                } else {
+                    header.style.backgroundColor = 'rgba(26, 26, 46, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                }
+                if (window.scrollY > 300) backToTop.classList.add('show');
+                else backToTop.classList.remove('show');
+            });
+
+            document.getElementById('backToTop').addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 汉堡菜单
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            function closeMobileMenu() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 992) {
+                    const isClickInsideNav = navLinks.contains(event.target) || hamburger.contains(event.target);
+                    if (!isClickInsideNav && navLinks.classList.contains('active')) closeMobileMenu();
+                }
+            });
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) closeMobileMenu();
+            });
+        })();
+    </script>
+</body>
+</html>
